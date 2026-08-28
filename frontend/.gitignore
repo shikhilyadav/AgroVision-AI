@@ -1,0 +1,24 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Uploaded images
+uploads/
+
+# Datasets
+dataset/
+PlantVillage-Dataset/
+
+# Environment / secrets
+.env
+
+# IDE files
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

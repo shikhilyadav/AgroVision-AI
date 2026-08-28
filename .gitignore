@@ -1,0 +1,9 @@
+.venv/
+venv/
+uploads/
+dataset/
+PlantVillage-Dataset/
+__pycache__/
+*.pyc
+.env
+.vscode/

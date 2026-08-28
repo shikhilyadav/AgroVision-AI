@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgroVision AI | Crop Disease Detection</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            🌱 Agro<span>Vision</span> AI
+        </div>
+
+        <div class="tagline">
+            Smart Crop Disease Detection
+        </div>
+
+
+        <div class="language-selector">
+    🌐
+    <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="hi">हिंदी</option>
+    </select>
+</div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                🤖 AI-Powered Agriculture
+            </div>
+
+            <h1>
+                Protect Your Crops<br>
+                With <span>Artificial Intelligence</span>
+            </h1>
+
+            <p>
+                Upload a clear photo of a crop leaf and
+                AgroVision AI will analyze it to detect
+                possible diseases and provide management guidance.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+        <!-- Upload Card -->
+
+        <section class="upload-card">
+
+            <div class="section-heading">
+
+                <h2>
+                    🔍 Detect Crop Disease
+                </h2>
+
+                <p>
+                    Upload a leaf image to start AI analysis
+                </p>
+
+            </div>
+
+
+            <!-- Upload Area -->
+
+            <label
+                for="fileInput"
+                class="upload-area"
+                id="uploadArea"
+            >
+
+                <div class="upload-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Upload Leaf Image
+                </h3>
+
+                <p>
+                    Drag & drop your image here
+                    or choose a file
+                </p>
+
+                <span class="choose-btn">
+                    Choose Image
+                </span>
+
+                <small>
+                    JPG, PNG or WEBP
+                </small>
+
+            </label>
+
+
+            <input
+                type="file"
+                id="fileInput"
+                accept="image/jpeg,image/png,image/webp"
+            >
+
+
+            <!-- ================= PREVIEW ================= -->
+
+            <div
+                id="previewContainer"
+                class="preview-container"
+            >
+
+                <h3>
+                    Selected Image
+                </h3>
+
+                <img
+                    id="previewImage"
+                    alt="Selected leaf image"
+                >
+
+                <button
+                    id="removeImageBtn"
+                    class="remove-btn"
+                >
+                    ✕ Remove Image
+                </button>
+
+            </div>
+
+
+            <!-- ================= ANALYZE ================= -->
+
+            <button
+                id="analyzeBtn"
+                class="analyze-btn"
+                disabled
+            >
+                🔬 Analyze Leaf
+            </button>
+
+
+            <!-- ================= LOADING ================= -->
+
+            <div
+                id="loading"
+                class="loading"
+            >
+
+                <div class="spinner"></div>
+
+                <div>
+                    <strong>AI is analyzing your leaf...</strong>
+
+                    <span>
+                        Please wait a moment
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- ================= ERROR ================= -->
+
+            <div
+                id="error"
+                class="error"
+            ></div>
+
+
+            <!-- ================= RESULT ================= -->
+
+            <section
+                id="result"
+                class="result"
+            >
+
+                <div class="result-header">
+
+                    <div>
+
+                        <span class="result-badge">
+                            AI ANALYSIS COMPLETE
+                        </span>
+
+                        <h2>
+                            🌱 Detection Result
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Main Result -->
+
+                <div class="main-result">
+
+                    <div class="result-box">
+
+                        <span class="result-label">
+                            CROP
+                        </span>
+
+                        <h3 id="cropResult">
+                            -
+                        </h3>
+
+                    </div>
+
+
+                    <div class="result-box disease-box">
+
+                        <span class="result-label">
+                            DISEASE / CONDITION
+                        </span>
+
+                        <h3 id="diseaseResult">
+                            -
+                        </h3>
+
+                    </div>
+
+
+                    <div class="result-box">
+
+                        <span class="result-label">
+                            AI CONFIDENCE
+                        </span>
+
+                        <h3
+                            id="confidenceResult"
+                            class="confidence"
+                        >
+                            -
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= INFORMATION GRID ================= -->
+
+                <div class="info-grid">
+
+
+                    <!-- Description -->
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            📖
+                        </div>
+
+                        <h3>
+                            About the Condition
+                        </h3>
+
+                        <p id="descriptionResult">
+                            -
+                        </p>
+
+                    </div>
+
+
+                    <!-- Symptoms -->
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🔎
+                        </div>
+
+                        <h3>
+                            Symptoms
+                        </h3>
+
+                        <ul id="symptomsResult">
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Management -->
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🌿
+                        </div>
+
+                        <h3>
+                            Recommended Management
+                        </h3>
+
+                        <ul id="managementResult">
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Treatment -->
+
+                    <div class="info-card treatment-card">
+
+                        <div class="info-icon">
+                            💊
+                        </div>
+
+                        <h3>
+                            Treatment Guidance
+                        </h3>
+
+                        <p id="treatmentResult">
+                            -
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= TOP 3 ================= -->
+
+                <div class="top-predictions">
+
+                    <h3>
+                        📊 Alternative Predictions
+                    </h3>
+
+                    <p class="sub-text">
+                        Other possibilities considered by the AI model
+                    </p>
+
+                    <div id="topPredictions">
+                    </div>
+
+                </div>
+
+
+                <!-- ================= CONFIDENCE MESSAGE ================= -->
+
+                <div id="confidenceMessage">
+                </div>
+
+
+                <!-- ================= DISCLAIMER ================= -->
+
+                <div class="disclaimer">
+
+                    <strong>
+                        ⚠️ Important:
+                    </strong>
+
+                    AgroVision AI provides a screening and
+                    decision-support result. Always verify the
+                    diagnosis with a qualified agricultural expert
+                    and follow current local agricultural guidance
+                    and product labels before applying any treatment.
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            🌱 AgroVision AI
+        </div>
+
+        <p>
+            AI-powered crop disease detection and management support
+        </p>
+
+        <span>
+            © 2026 AgroVision AI
+        </span>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

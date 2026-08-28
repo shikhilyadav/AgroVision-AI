@@ -1,0 +1,679 @@
+{
+    "Apple___Apple_scab": {
+        "crop": "Apple",
+        "disease": "Apple Scab",
+        "controllable": true,
+        "description": "A fungal disease that can affect apple leaves and fruit, especially under cool and wet conditions.",
+        "symptoms": [
+            "Olive-green to dark spots may appear on leaves",
+            "Affected leaves may become distorted or yellow",
+            "Dark scabby lesions may develop on fruit"
+        ],
+        "management": [
+            "Remove and dispose of fallen infected leaves",
+            "Maintain good air circulation through appropriate pruning",
+            "Avoid unnecessary prolonged leaf wetness",
+            "Monitor plants regularly during favorable disease conditions"
+        ],
+        "treatment_note": "Treatment depends on local conditions and crop stage. Use only locally approved products according to the current agricultural advisory and product label."
+    },
+
+    "Apple___Black_rot": {
+        "crop": "Apple",
+        "disease": "Black Rot",
+        "controllable": true,
+        "description": "A fungal disease that can affect apple leaves, branches and fruit.",
+        "symptoms": [
+            "Purple or brown spots may appear on leaves",
+            "Affected tissue may develop dark lesions",
+            "Fruit may develop dark, sunken rot"
+        ],
+        "management": [
+            "Remove mummified fruit and infected plant material",
+            "Prune and remove dead or diseased branches",
+            "Maintain good orchard sanitation",
+            "Monitor plants regularly"
+        ],
+        "treatment_note": "Use disease-control products only when locally recommended and according to the product label."
+    },
+
+    "Apple___Cedar_apple_rust": {
+        "crop": "Apple",
+        "disease": "Cedar Apple Rust",
+        "controllable": true,
+        "description": "A fungal disease that can cause characteristic yellow-orange lesions on apple foliage.",
+        "symptoms": [
+            "Yellow or orange spots may appear on leaves",
+            "Spots may develop darker centers",
+            "Infected leaves may drop prematurely in severe cases"
+        ],
+        "management": [
+            "Monitor new foliage during disease-favorable weather",
+            "Remove heavily affected plant material where practical",
+            "Improve air circulation around plants",
+            "Use locally recommended disease-management practices"
+        ],
+        "treatment_note": "Follow current local agricultural recommendations and product labels for any chemical control."
+    },
+
+    "Apple___healthy": {
+        "crop": "Apple",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect one of the trained apple disease classes.",
+        "symptoms": [],
+        "management": [
+            "Continue regular crop monitoring",
+            "Maintain good orchard sanitation",
+            "Provide appropriate irrigation and nutrition",
+            "Monitor regularly for early signs of disease"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Blueberry___healthy": {
+        "crop": "Blueberry",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect a trained blueberry disease condition.",
+        "symptoms": [],
+        "management": [
+            "Continue regular crop monitoring",
+            "Maintain good field sanitation",
+            "Provide appropriate irrigation and nutrition",
+            "Monitor foliage for changes"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Cherry_(including_sour)___Powdery_mildew": {
+        "crop": "Cherry",
+        "disease": "Powdery Mildew",
+        "controllable": true,
+        "description": "A fungal disease that produces a characteristic powdery growth on plant surfaces.",
+        "symptoms": [
+            "White powdery growth may appear on leaves",
+            "Young leaves may become distorted",
+            "Affected foliage may show reduced growth"
+        ],
+        "management": [
+            "Improve air circulation around plants",
+            "Avoid excessive humidity around foliage",
+            "Remove severely affected plant material where practical",
+            "Monitor new growth regularly"
+        ],
+        "treatment_note": "Use only locally approved disease-control products according to current agricultural guidance and the product label."
+    },
+
+    "Cherry_(including_sour)___healthy": {
+        "crop": "Cherry",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect a trained cherry disease condition.",
+        "symptoms": [],
+        "management": [
+            "Continue regular crop monitoring",
+            "Maintain orchard sanitation",
+            "Provide appropriate irrigation and nutrition",
+            "Monitor leaves and fruit regularly"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+        "crop": "Corn (Maize)",
+        "disease": "Cercospora Leaf Spot / Gray Leaf Spot",
+        "controllable": true,
+        "description": "A fungal disease that produces elongated lesions on maize leaves and may reduce photosynthetic capacity.",
+        "symptoms": [
+            "Long narrow gray or brown lesions may appear on leaves",
+            "Lesions can expand along leaf surfaces",
+            "Severe infection may cause premature leaf drying"
+        ],
+        "management": [
+            "Use appropriate crop rotation where practical",
+            "Manage crop residue according to local recommendations",
+            "Maintain appropriate plant spacing",
+            "Monitor fields regularly during favorable weather"
+        ],
+        "treatment_note": "Disease-control products should be used only when locally recommended and according to the product label."
+    },
+
+    "Corn_(maize)___Common_rust_": {
+        "crop": "Corn (Maize)",
+        "disease": "Common Rust",
+        "controllable": true,
+        "description": "A fungal disease that produces rust-colored pustules on maize leaves.",
+        "symptoms": [
+            "Small reddish-brown pustules may appear on leaves",
+            "Pustules may occur on both leaf surfaces",
+            "Severe infection can reduce healthy leaf area"
+        ],
+        "management": [
+            "Monitor crops regularly",
+            "Use suitable resistant varieties where available",
+            "Maintain appropriate crop management",
+            "Follow locally recommended disease-management practices"
+        ],
+        "treatment_note": "Use locally approved control measures only when appropriate and follow product-label instructions."
+    },
+
+    "Corn_(maize)___Northern_Leaf_Blight": {
+        "crop": "Corn (Maize)",
+        "disease": "Northern Leaf Blight",
+        "controllable": true,
+        "description": "A fungal disease characterized by elongated lesions on maize leaves.",
+        "symptoms": [
+            "Long gray-green lesions may appear on leaves",
+            "Lesions can enlarge and become tan or brown",
+            "Severe disease can reduce leaf area"
+        ],
+        "management": [
+            "Use resistant varieties where available",
+            "Practice suitable crop rotation",
+            "Manage crop residue appropriately",
+            "Monitor fields during cool and humid conditions"
+        ],
+        "treatment_note": "Follow current local agricultural recommendations for disease control and use products only according to their labels."
+    },
+
+    "Corn_(maize)___healthy": {
+        "crop": "Corn (Maize)",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect one of the trained maize disease classes.",
+        "symptoms": [],
+        "management": [
+            "Continue regular field monitoring",
+            "Maintain suitable irrigation and nutrition",
+            "Manage weeds and crop residue appropriately",
+            "Monitor leaves for early disease symptoms"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Grape___Black_rot": {
+        "crop": "Grape",
+        "disease": "Black Rot",
+        "controllable": true,
+        "description": "A fungal disease that can affect grape leaves, shoots and fruit.",
+        "symptoms": [
+            "Small brown or reddish leaf spots may appear",
+            "Spots may develop dark borders",
+            "Fruit may shrivel and become dark or mummified"
+        ],
+        "management": [
+            "Remove infected and mummified fruit",
+            "Maintain good vineyard sanitation",
+            "Improve air circulation through suitable canopy management",
+            "Monitor vines regularly"
+        ],
+        "treatment_note": "Use locally approved disease-control products according to current agricultural guidance and product labels."
+    },
+
+    "Grape___Esca_(Black_Measles)": {
+        "crop": "Grape",
+        "disease": "Esca (Black Measles)",
+        "controllable": true,
+        "description": "A complex grapevine disease associated with wood-associated fungal pathogens and characteristic leaf and fruit symptoms.",
+        "symptoms": [
+            "Interveinal leaf discoloration may develop",
+            "Leaves can show striped or scorched patterns",
+            "Fruit may develop dark spots in affected cases"
+        ],
+        "management": [
+            "Remove severely affected plant material where practical",
+            "Maintain vineyard sanitation",
+            "Avoid unnecessary injuries to vines",
+            "Monitor vines and manage affected plants according to local advice"
+        ],
+        "treatment_note": "Management of grapevine wood diseases is complex. Consult a local viticulture or plant-health specialist for appropriate control recommendations."
+    },
+
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+        "crop": "Grape",
+        "disease": "Leaf Blight (Isariopsis Leaf Spot)",
+        "controllable": true,
+        "description": "A fungal leaf disease that can produce spots and blighted tissue on grape leaves.",
+        "symptoms": [
+            "Dark leaf spots may develop",
+            "Affected areas can enlarge and become necrotic",
+            "Severe infection may cause premature leaf loss"
+        ],
+        "management": [
+            "Remove heavily infected plant material where practical",
+            "Maintain good vineyard sanitation",
+            "Improve canopy airflow",
+            "Monitor vines regularly"
+        ],
+        "treatment_note": "Follow current local agricultural guidance and product labels for any chemical disease control."
+    },
+
+    "Grape___healthy": {
+        "crop": "Grape",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect one of the trained grape disease classes.",
+        "symptoms": [],
+        "management": [
+            "Continue regular vineyard monitoring",
+            "Maintain canopy management and sanitation",
+            "Provide appropriate irrigation and nutrition",
+            "Monitor leaves and fruit regularly"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Orange___Haunglongbing_(Citrus_greening)": {
+        "crop": "Orange",
+        "disease": "Huanglongbing (Citrus Greening)",
+        "controllable": false,
+        "description": "A serious citrus disease that can cause characteristic leaf symptoms, poor fruit development and long-term decline.",
+        "symptoms": [
+            "Leaves may show irregular yellowing or mottling",
+            "Leaf veins may remain relatively green",
+            "Fruit development and quality may be affected"
+        ],
+        "management": [
+            "Monitor trees regularly for suspicious symptoms",
+            "Manage the insect vector according to local recommendations",
+            "Remove and manage infected trees where officially recommended",
+            "Use healthy planting material from reliable sources"
+        ],
+        "treatment_note": "There is no simple curative treatment for an infected tree. Follow local plant-health authority recommendations and seek professional confirmation."
+    },
+
+    "Peach___Bacterial_spot": {
+        "crop": "Peach",
+        "disease": "Bacterial Spot",
+        "controllable": true,
+        "description": "A bacterial disease that can affect peach leaves and fruit.",
+        "symptoms": [
+            "Small dark spots may appear on leaves",
+            "Affected leaves may develop holes as tissue dies",
+            "Fruit may develop small sunken lesions"
+        ],
+        "management": [
+            "Maintain good orchard sanitation",
+            "Avoid unnecessary leaf wetness",
+            "Use suitable resistant varieties where available",
+            "Monitor plants regularly"
+        ],
+        "treatment_note": "Use only locally approved products and follow current agricultural recommendations and product labels."
+    },
+
+    "Peach___healthy": {
+        "crop": "Peach",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect a trained peach disease condition.",
+        "symptoms": [],
+        "management": [
+            "Continue regular orchard monitoring",
+            "Maintain sanitation",
+            "Provide suitable irrigation and nutrition",
+            "Monitor leaves and fruit for changes"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Pepper,_bell___Bacterial_spot": {
+        "crop": "Pepper Bell",
+        "disease": "Bacterial Spot",
+        "controllable": true,
+        "description": "A bacterial disease that can affect pepper leaves and fruit.",
+        "symptoms": [
+            "Small water-soaked spots may appear on leaves",
+            "Spots may become dark and necrotic",
+            "Fruit may develop raised or scabby lesions"
+        ],
+        "management": [
+            "Use clean planting material",
+            "Avoid unnecessary overhead irrigation",
+            "Remove severely affected plant material",
+            "Maintain suitable field sanitation"
+        ],
+        "treatment_note": "Follow current local agricultural guidance and use only locally approved products according to their labels."
+    },
+
+    "Pepper,_bell___healthy": {
+        "crop": "Pepper Bell",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect a trained pepper disease condition.",
+        "symptoms": [],
+        "management": [
+            "Continue regular crop monitoring",
+            "Maintain field sanitation",
+            "Provide suitable irrigation and nutrition",
+            "Monitor leaves and fruit regularly"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Potato___Early_blight": {
+        "crop": "Potato",
+        "disease": "Early Blight",
+        "controllable": true,
+        "description": "A fungal disease that commonly produces dark lesions on potato leaves.",
+        "symptoms": [
+            "Dark spots may develop on older leaves",
+            "Spots may show concentric ring patterns",
+            "Severe infection can cause premature leaf loss"
+        ],
+        "management": [
+            "Remove severely affected plant debris",
+            "Maintain good field sanitation",
+            "Avoid prolonged leaf wetness",
+            "Monitor crops regularly"
+        ],
+        "treatment_note": "Use locally approved disease-control products only when recommended and follow product-label instructions."
+    },
+
+    "Potato___Late_blight": {
+        "crop": "Potato",
+        "disease": "Late Blight",
+        "controllable": true,
+        "description": "A destructive disease of potato that can spread rapidly under favorable cool and wet conditions.",
+        "symptoms": [
+            "Water-soaked dark lesions may appear on leaves",
+            "Affected tissue may rapidly become brown or necrotic",
+            "Severe disease can affect stems and tubers"
+        ],
+        "management": [
+            "Monitor crops frequently during favorable weather",
+            "Remove severely infected plant material where appropriate",
+            "Avoid prolonged leaf wetness",
+            "Maintain suitable field sanitation"
+        ],
+        "treatment_note": "Late blight can spread rapidly. Seek local agricultural guidance promptly and use only approved products according to their labels."
+    },
+
+    "Potato___healthy": {
+        "crop": "Potato",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect one of the trained potato disease classes.",
+        "symptoms": [],
+        "management": [
+            "Continue regular field monitoring",
+            "Maintain field sanitation",
+            "Provide appropriate irrigation and nutrition",
+            "Monitor foliage regularly"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Raspberry___healthy": {
+        "crop": "Raspberry",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect a trained raspberry disease condition.",
+        "symptoms": [],
+        "management": [
+            "Continue regular crop monitoring",
+            "Maintain good sanitation",
+            "Provide suitable irrigation and nutrition",
+            "Monitor leaves and fruit regularly"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Soybean___healthy": {
+        "crop": "Soybean",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect a trained soybean disease condition.",
+        "symptoms": [],
+        "management": [
+            "Continue regular field monitoring",
+            "Maintain appropriate irrigation and nutrition",
+            "Manage weeds effectively",
+            "Monitor plants for early disease symptoms"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Squash___Powdery_mildew": {
+        "crop": "Squash",
+        "disease": "Powdery Mildew",
+        "controllable": true,
+        "description": "A fungal disease that produces white powdery growth on squash leaves.",
+        "symptoms": [
+            "White powdery patches may appear on leaves",
+            "Affected leaves may yellow or become stressed",
+            "Severe infection can reduce healthy leaf area"
+        ],
+        "management": [
+            "Improve air circulation",
+            "Avoid excessive humidity around foliage",
+            "Remove severely affected leaves where practical",
+            "Monitor new growth regularly"
+        ],
+        "treatment_note": "Use locally approved disease-control products only according to current agricultural guidance and product labels."
+    },
+
+    "Strawberry___Leaf_scorch": {
+        "crop": "Strawberry",
+        "disease": "Leaf Scorch",
+        "controllable": true,
+        "description": "A fungal leaf disease that can produce dark spots and scorched-looking foliage.",
+        "symptoms": [
+            "Small dark purple or brown spots may appear on leaves",
+            "Spots can enlarge and merge",
+            "Leaves may develop a scorched appearance"
+        ],
+        "management": [
+            "Remove severely affected leaves where practical",
+            "Maintain good field sanitation",
+            "Improve airflow around plants",
+            "Avoid prolonged leaf wetness"
+        ],
+        "treatment_note": "Follow current local agricultural recommendations and product labels for disease management."
+    },
+
+    "Strawberry___healthy": {
+        "crop": "Strawberry",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect a trained strawberry disease condition.",
+        "symptoms": [],
+        "management": [
+            "Continue regular crop monitoring",
+            "Maintain field sanitation",
+            "Provide appropriate irrigation and nutrition",
+            "Monitor leaves and fruit regularly"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    },
+
+    "Tomato___Bacterial_spot": {
+        "crop": "Tomato",
+        "disease": "Bacterial Spot",
+        "controllable": true,
+        "description": "A bacterial disease that can affect tomato foliage and fruit.",
+        "symptoms": [
+            "Small dark spots may appear on leaves",
+            "Spots may become surrounded by yellow tissue",
+            "Fruit may develop small raised or scabby lesions"
+        ],
+        "management": [
+            "Use clean planting material",
+            "Avoid unnecessary overhead irrigation",
+            "Remove severely affected plant material",
+            "Maintain good field sanitation"
+        ],
+        "treatment_note": "Use only locally approved products according to current agricultural guidance and product labels."
+    },
+
+    "Tomato___Early_blight": {
+        "crop": "Tomato",
+        "disease": "Early Blight",
+        "controllable": true,
+        "description": "A fungal disease that commonly affects tomato leaves and can reduce plant growth and yield.",
+        "symptoms": [
+            "Dark spots may appear on older leaves",
+            "Spots may develop concentric ring patterns",
+            "Affected leaves can yellow and fall prematurely"
+        ],
+        "management": [
+            "Remove severely affected leaves and plant debris",
+            "Avoid unnecessary overhead irrigation",
+            "Maintain adequate spacing and air circulation",
+            "Monitor plants regularly"
+        ],
+        "treatment_note": "For chemical treatment, follow the current locally applicable agricultural advisory and the pesticide product label."
+    },
+
+    "Tomato___Late_blight": {
+        "crop": "Tomato",
+        "disease": "Late Blight",
+        "controllable": true,
+        "description": "A serious disease of tomato that can spread rapidly under favorable weather conditions.",
+        "symptoms": [
+            "Dark water-soaked lesions may appear on leaves",
+            "Leaves may become brown or necrotic",
+            "Disease can spread rapidly during favorable conditions"
+        ],
+        "management": [
+            "Remove severely infected plant material",
+            "Improve field ventilation",
+            "Avoid prolonged leaf wetness",
+            "Monitor the crop frequently"
+        ],
+        "treatment_note": "Use only locally approved products according to the current agricultural advisory and product label.",
+        "treatment_options": [
+            "Copper oxychloride",
+            "Metalaxyl + Mancozeb"
+        ]
+    },
+
+    "Tomato___Leaf_Mold": {
+        "crop": "Tomato",
+        "disease": "Leaf Mold",
+        "controllable": true,
+        "description": "A fungal disease favored by humid conditions and poor air circulation.",
+        "symptoms": [
+            "Yellow spots may appear on upper leaf surfaces",
+            "Olive-green to brown fungal growth may appear underneath leaves",
+            "Severely affected leaves may dry and fall"
+        ],
+        "management": [
+            "Improve ventilation around plants",
+            "Reduce excessive humidity",
+            "Avoid prolonged leaf wetness",
+            "Remove severely affected leaves where practical"
+        ],
+        "treatment_note": "Use locally approved disease-control products only according to current agricultural guidance and product labels."
+    },
+
+    "Tomato___Septoria_leaf_spot": {
+        "crop": "Tomato",
+        "disease": "Septoria Leaf Spot",
+        "controllable": true,
+        "description": "A fungal disease that commonly affects tomato foliage.",
+        "symptoms": [
+            "Small circular spots may appear on older leaves",
+            "Spots may have dark margins and lighter centers",
+            "Severe infection can cause leaf yellowing and drop"
+        ],
+        "management": [
+            "Remove infected leaves where practical",
+            "Remove plant debris after the crop",
+            "Avoid overhead irrigation when possible",
+            "Maintain good airflow"
+        ],
+        "treatment_note": "Follow local agricultural recommendations and product-label directions for any chemical control."
+    },
+
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+        "crop": "Tomato",
+        "disease": "Spider Mites (Two-spotted Spider Mite)",
+        "controllable": true,
+        "description": "A pest infestation that can cause stippling, discoloration and webbing on tomato foliage.",
+        "symptoms": [
+            "Fine pale speckling may appear on leaves",
+            "Leaves may become yellow or bronze",
+            "Fine webbing may be visible in severe infestations"
+        ],
+        "management": [
+            "Inspect the undersides of leaves regularly",
+            "Reduce plant stress and maintain suitable irrigation",
+            "Encourage beneficial predatory organisms where appropriate",
+            "Manage infestations according to local integrated pest-management guidance"
+        ],
+        "treatment_note": "Use pest-control products only when locally recommended and strictly according to the product label."
+    },
+
+    "Tomato___Target_Spot": {
+        "crop": "Tomato",
+        "disease": "Target Spot",
+        "controllable": true,
+        "description": "A fungal disease that produces circular lesions on tomato leaves and may affect fruit.",
+        "symptoms": [
+            "Brown circular spots may appear on leaves",
+            "Lesions can develop concentric patterns",
+            "Fruit may develop dark sunken lesions"
+        ],
+        "management": [
+            "Improve air circulation",
+            "Avoid prolonged leaf wetness",
+            "Remove infected plant debris",
+            "Monitor plants regularly"
+        ],
+        "treatment_note": "Use locally approved disease-control products according to current agricultural guidance and product labels."
+    },
+
+    "Tomato___Tomato_mosaic_virus": {
+        "crop": "Tomato",
+        "disease": "Tomato Mosaic Virus",
+        "controllable": false,
+        "description": "A viral disease that can cause mosaic patterns and abnormal leaf growth.",
+        "symptoms": [
+            "Light and dark green mosaic patterns may appear on leaves",
+            "Leaves may become distorted",
+            "Plants may show reduced growth or fruit development"
+        ],
+        "management": [
+            "Remove and manage infected plants according to local recommendations",
+            "Use clean tools and planting material",
+            "Avoid spreading sap between plants",
+            "Control weeds that may act as disease reservoirs"
+        ],
+        "treatment_note": "There is no simple curative treatment for a virus-infected plant. Focus on prevention and sanitation and seek local plant-health advice."
+    },
+
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+        "crop": "Tomato",
+        "disease": "Tomato Yellow Leaf Curl Virus",
+        "controllable": false,
+        "description": "A viral disease commonly associated with whitefly transmission and capable of causing severe tomato growth reduction.",
+        "symptoms": [
+            "Leaves may curl upward",
+            "Leaves may become yellow",
+            "Plants may remain small with reduced growth and fruit production"
+        ],
+        "management": [
+            "Monitor and manage whitefly populations according to local IPM guidance",
+            "Use healthy planting material",
+            "Remove severely infected plants where recommended",
+            "Manage weeds and alternative host plants"
+        ],
+        "treatment_note": "There is no direct curative treatment for an infected plant. Management focuses on prevention, vector control and sanitation."
+    },
+
+    "Tomato___healthy": {
+        "crop": "Tomato",
+        "disease": "Healthy",
+        "controllable": true,
+        "description": "The AI model did not detect one of the trained tomato disease classes.",
+        "symptoms": [],
+        "management": [
+            "Continue regular crop monitoring",
+            "Maintain good field sanitation",
+            "Provide appropriate irrigation and nutrition",
+            "Monitor foliage regularly for changes"
+        ],
+        "treatment_note": "No disease treatment is recommended based on this prediction."
+    }
+}
