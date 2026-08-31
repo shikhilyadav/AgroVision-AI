@@ -14,7 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # CONFIGURATION
 # ============================================================
 
-MODEL_PATH = "models/agrovision_final.keras"
+MODEL_PATH = "models/agrovision_savedmodel"
 CLASS_NAMES_PATH = "models/class_names.json"
 DISEASE_INFO_PATH = "data/disease_info.json"
 
