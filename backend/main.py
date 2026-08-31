@@ -14,7 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # CONFIGURATION
 # ============================================================
 
-MODEL_PATH = "models/agrovision_best.keras"
+MODEL_PATH = "models/agrovision_final.keras"
 CLASS_NAMES_PATH = "models/class_names.json"
 DISEASE_INFO_PATH = "data/disease_info.json"
 
@@ -54,7 +54,6 @@ for required_file in [
     CLASS_NAMES_PATH,
     DISEASE_INFO_PATH
 ]:
-
     if not os.path.exists(required_file):
         raise FileNotFoundError(
             f"Required file not found: {required_file}"
@@ -68,8 +67,11 @@ for required_file in [
 print("Loading AgroVision AI model...")
 
 model = tf.keras.models.load_model(
-    MODEL_PATH
+    MODEL_PATH,
+    compile=False
 )
+
+print("Model loaded successfully.")
 
 
 # ============================================================
@@ -81,7 +83,6 @@ with open(
     "r",
     encoding="utf-8"
 ) as file:
-
     class_names = json.load(file)
 
 
@@ -94,11 +95,9 @@ with open(
     "r",
     encoding="utf-8"
 ) as file:
-
     disease_info = json.load(file)
 
 
-print("Model loaded successfully.")
 print(f"Number of classes: {len(class_names)}")
 print(f"Disease information entries: {len(disease_info)}")
 
@@ -293,7 +292,8 @@ async def predict(
     )
 
 
-    # If disease is not yet in our database
+    # If disease is not yet in database
+
     if info is None:
 
         info = {
@@ -316,8 +316,7 @@ async def predict(
                 "Consult a qualified agricultural "
                 "expert and follow current local "
                 "agricultural guidance."
-           
-                   }
+        }
 
 
     # --------------------------------------------------------
@@ -352,7 +351,6 @@ async def predict(
                 probability,
                 2
             )
-
         })
 
 
@@ -377,42 +375,40 @@ async def predict(
 
             "confidence_level":
                 confidence_level
-
         },
 
-      "disease_information": {
+        "disease_information": {
 
-    "controllable":
-        info.get(
-            "controllable"
-        ),
+            "controllable":
+                info.get(
+                    "controllable"
+                ),
 
-    "description":
-        info.get(
-            "description",
-            ""
-        ),
+            "description":
+                info.get(
+                    "description",
+                    ""
+                ),
 
-    "symptoms":
-        info.get(
-            "symptoms",
-            []
-        ),
+            "symptoms":
+                info.get(
+                    "symptoms",
+                    []
+                ),
 
-    "management":
-        info.get(
-            "management",
-            []
-        ),
+            "management":
+                info.get(
+                    "management",
+                    []
+                ),
 
-    "treatment_note":
-        info.get(
-            "treatment_note",
-            ""
-        )
+            "treatment_note":
+                info.get(
+                    "treatment_note",
+                    ""
+                )
+        },
 
-  },
         "top_predictions":
             top_predictions
-
     }
