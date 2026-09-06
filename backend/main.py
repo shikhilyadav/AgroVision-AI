@@ -38,8 +38,12 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=[
+        "*",
+        "http://127.0.0.1:5500",
+        "http://localhost:5500"
+    ],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -66,10 +70,8 @@ for required_file in [
 
 print("Loading AgroVision AI model...")
 
-model = tf.keras.models.load_model(
-    MODEL_PATH,
-    compile=False
-)
+model = tf.saved_model.load(MODEL_PATH)
+model_signature = model.signatures["serving_default"]
 
 print("Model loaded successfully.")
 
@@ -228,12 +230,17 @@ async def predict(
     # --------------------------------------------------------
     # Prediction
     # --------------------------------------------------------
-
-    predictions = model.predict(
+    input_tensor = tf.convert_to_tensor(
         image_array,
-        verbose=0
-    )[0]
+        dtype=tf.float32
+    )
 
+    result = model_signature(
+        input_tensor
+    )
+
+    predictions = list(result.values())[0].numpy()[0]
+  
 
     # --------------------------------------------------------
     # Top 3

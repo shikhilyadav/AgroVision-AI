@@ -8,7 +8,7 @@
 // CONFIGURATION
 // ============================================================
 
-const API_URL = "http://127.0.0.1:8000/predict";
+const API_URL = "https://agrovision-ai-1-x94a.onrender.com/predict";
 
 
 // ============================================================
