@@ -1,0 +1,30 @@
+{
+    "Madhya Pradesh": {
+        "Indore": {
+            "kharif": {
+                "Soybean": 1.0,
+                "Maize": 0.85,
+                "Groundnut": 0.55
+            },
+            "rabi": {
+                "Wheat": 1.0,
+                "Potato": 0.75,
+                "Tomato": 0.55
+            },
+            "zaid": {
+                "Maize": 0.65,
+                "Cucumber": 0.50
+            }
+        },
+        "Ujjain": {
+            "kharif": {
+                "Soybean": 1.0,
+                "Maize": 0.90
+            },
+            "rabi": {
+                "Wheat": 1.0,
+                "Potato": 0.70
+            }
+        }
+    }
+}

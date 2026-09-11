@@ -1,0 +1,1740 @@
+{
+  "crops": [
+    {
+      "id": "maize",
+      "name": "Maize",
+      "hindi_name": "मक्का",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "clay",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 18,
+        "max_temperature": 32
+      },
+      "location": {
+        "states": [
+          "Madhya Pradesh"
+        ],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 80,
+        "max": 120
+      },
+      "sowing": {
+        "general_window": "Season and region dependent",
+        "seed_rate_note": "Use locally recommended seed rate based on variety and purpose.",
+        "spacing_note": "Use locally recommended row and plant spacing."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Tasseling",
+        "Silking",
+        "Grain development",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain adequate soil moisture, especially during critical reproductive stages. Avoid waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management and split nutrient applications where locally recommended.",
+        "weed": "Keep the field weed-free during the early crop growth period.",
+        "pest": "Regularly inspect the crop for stem borers, fall armyworm and other locally important pests.",
+        "disease": "Monitor leaves and plants regularly for disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Crop reaches physiological maturity.",
+          "Leaves and plant begin drying according to the intended harvest stage.",
+          "Grain maturity is appropriate for the intended use."
+        ]
+      }
+    },
+
+    {
+      "id": "soybean",
+      "name": "Soybean",
+      "hindi_name": "सोयाबीन",
+      "seasons": [
+        "kharif"
+      ],
+      "soil_types": [
+        "loamy",
+        "clay",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 20,
+        "max_temperature": 32
+      },
+      "location": {
+        "states": [
+          "Madhya Pradesh"
+        ],
+        "districts": [
+          "Indore",
+          "Ujjain",
+          "Bhopal",
+          "Sehore",
+          "Dewas",
+          "Vidisha"
+        ]
+      },
+      "crop_duration_days": {
+        "min": 90,
+        "max": 120
+      },
+      "sowing": {
+        "general_window": "Generally grown during the monsoon season; exact sowing window is region dependent.",
+        "seed_rate_note": "Use locally recommended seed rate according to variety and seed size.",
+        "spacing_note": "Follow locally recommended row spacing for the selected variety."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Flowering",
+        "Pod formation",
+        "Seed filling",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer well-drained soil; avoid prolonged waterlogging.",
+        "irrigation": "Rainfall may meet much of the crop water requirement, but moisture stress during flowering and pod/seed development should be avoided.",
+        "nutrition": "Follow soil-test-based nutrient management and locally recommended inoculation/nutrient practices.",
+        "weed": "Early weed management is important because weeds can strongly affect crop growth.",
+        "pest": "Inspect plants regularly for defoliating insects, girdle beetle and other locally important pests.",
+        "disease": "Monitor leaves, stems and pods for disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Pods and plants reach the appropriate maturity stage.",
+          "Leaves begin to yellow and fall.",
+          "Seeds have reached the required maturity for harvest."
+        ]
+      }
+    },
+
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "hindi_name": "टमाटर",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 18,
+        "max_temperature": 30
+      },
+      "location": {
+        "states": [
+          "Madhya Pradesh"
+        ],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 90,
+        "max": 150
+      },
+      "sowing": {
+        "general_window": "Season and region dependent.",
+        "seed_rate_note": "Nursery and transplanting practices depend on variety and production system.",
+        "spacing_note": "Use spacing recommended for the selected variety and growing system."
+      },
+      "growth_stages": [
+        "Nursery",
+        "Transplant establishment",
+        "Vegetative growth",
+        "Flowering",
+        "Fruit development",
+        "Fruit ripening",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain consistent soil moisture and avoid both severe water stress and waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management and stage-specific recommendations.",
+        "weed": "Control weeds early and maintain a clean field around plants.",
+        "pest": "Regularly inspect leaves and fruits for fruit borer, whitefly, mites and other locally important pests.",
+        "disease": "Regularly inspect leaves and fruits for bacterial, fungal and viral symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Harvest according to fruit maturity and intended market distance.",
+          "Fruit colour and firmness should match the required market stage.",
+          "Avoid harvesting severely damaged or diseased fruits."
+        ]
+      }
+    },
+
+    {
+      "id": "potato",
+      "name": "Potato",
+      "hindi_name": "आलू",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 15,
+        "max_temperature": 25
+      },
+      "location": {
+        "states": [
+          "Madhya Pradesh"
+        ],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 75,
+        "max": 120
+      },
+      "sowing": {
+        "general_window": "Generally a cool-season crop; exact planting window is region dependent.",
+        "seed_rate_note": "Use healthy, certified or quality planting material and locally recommended seed quantity.",
+        "spacing_note": "Follow locally recommended row and tuber spacing."
+      },
+      "growth_stages": [
+        "Sprouting",
+        "Emergence",
+        "Vegetative growth",
+        "Tuber initiation",
+        "Tuber bulking",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer loose, fertile and well-drained soil.",
+        "irrigation": "Maintain adequate moisture during tuber initiation and bulking while avoiding waterlogging.",
+        "nutrition": "Follow soil-test-based nutrient recommendations.",
+        "weed": "Control weeds during early crop growth and maintain proper earthing-up where recommended.",
+        "pest": "Inspect plants regularly for potato tuber moth, aphids and other locally important pests.",
+        "disease": "Monitor carefully for early blight, late blight and other disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Plants show natural maturity and foliage starts drying.",
+          "Tubers have developed suitable size and skin maturity.",
+          "Harvest according to variety and intended market/storage use."
+        ]
+      }
+    },
+
+    {
+      "id": "groundnut",
+      "name": "Groundnut",
+      "hindi_name": "मूंगफली",
+      "seasons": [
+        "kharif"
+      ],
+      "soil_types": [
+        "sandy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 20,
+        "max_temperature": 32
+      },
+      "location": {
+        "states": [
+          "Madhya Pradesh"
+        ],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 90,
+        "max": 140
+      },
+      "sowing": {
+        "general_window": "Generally grown with suitable soil moisture; exact sowing window is region dependent.",
+        "seed_rate_note": "Use healthy seed and locally recommended seed quantity according to variety.",
+        "spacing_note": "Follow locally recommended spacing according to variety and production system."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Flowering",
+        "Pegging",
+        "Pod development",
+        "Pod filling",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer well-drained, loose soil suitable for peg penetration and pod development.",
+        "irrigation": "Avoid severe moisture stress during flowering, pegging and pod development.",
+        "nutrition": "Use soil-test-based nutrient management and locally recommended nutrient practices.",
+        "weed": "Early weed control is important, especially before canopy development.",
+        "pest": "Inspect plants for leaf miner, tobacco caterpillar, white grubs and other locally important pests.",
+        "disease": "Monitor leaves and pods for fungal and other disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "A suitable proportion of pods reaches maturity.",
+          "Pods show appropriate shell and kernel maturity.",
+          "Harvest timing should match the selected variety and local recommendation."
+        ]
+      }
+    },
+
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "hindi_name": "गेहूं",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "clay",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 10,
+        "max_temperature": 25
+      },
+      "location": {
+        "states": [
+          "Madhya Pradesh"
+        ],
+        "districts": [
+          "Ujjain"
+        ]
+      },
+      "crop_duration_days": {
+        "min": 120,
+        "max": 150
+      },
+      "sowing": {
+        "general_window": "Cool-season crop; exact sowing window is region and variety dependent.",
+        "seed_rate_note": "Use locally recommended seed rate according to variety, sowing method and planting window.",
+        "spacing_note": "Follow locally recommended row spacing and sowing depth."
+      },
+      "growth_stages": [
+        "Germination",
+        "Crown root development",
+        "Tillering",
+        "Stem elongation",
+        "Booting",
+        "Flowering",
+        "Grain filling",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil with suitable soil reaction.",
+        "irrigation": "Maintain adequate soil moisture at critical growth stages and avoid unnecessary waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management and locally recommended split applications.",
+        "weed": "Monitor and manage weeds during early crop growth.",
+        "pest": "Regularly inspect for aphids, termites and other locally important pests.",
+        "disease": "Monitor the crop for rusts, powdery mildew and other locally important diseases."
+      },
+      "harvest": {
+        "signs": [
+          "Plants and spikes reach physiological maturity.",
+          "Grains reach suitable maturity and moisture for harvest.",
+          "Harvest according to variety and local recommendation."
+        ]
+      }
+    },
+
+    {
+      "id": "cucumber",
+      "name": "Cucumber",
+      "hindi_name": "खीरा",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 18,
+        "max_temperature": 32
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 50,
+        "max": 90
+      },
+      "sowing": {
+        "general_window": "Season and region dependent.",
+        "seed_rate_note": "Use locally recommended seed rate for the selected variety.",
+        "spacing_note": "Follow locally recommended spacing for the selected variety and production system."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vine growth",
+        "Flowering",
+        "Fruit development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain regular soil moisture, especially during flowering and fruit development; avoid waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management and locally recommended stage-wise nutrition.",
+        "weed": "Control weeds early and keep the crop area clean.",
+        "pest": "Inspect regularly for fruit fly, aphids, whiteflies, mites and other local pests.",
+        "disease": "Monitor for powdery mildew, downy mildew and other disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Harvest tender fruits at the market-preferred size.",
+          "Fruits should be firm, green and free from severe damage.",
+          "Frequent harvesting helps maintain marketable fruit quality."
+        ]
+      }
+    },
+
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "hindi_name": "पत्तागोभी",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "clay"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 10,
+        "max_temperature": 25
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 70,
+        "max": 120
+      },
+      "sowing": {
+        "general_window": "Cool-season crop; exact nursery and transplanting window is region dependent.",
+        "seed_rate_note": "Use healthy seed and locally recommended nursery practices.",
+        "spacing_note": "Follow spacing recommended for the selected variety."
+      },
+      "growth_stages": [
+        "Nursery",
+        "Transplant establishment",
+        "Leaf development",
+        "Head formation",
+        "Head maturity",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil rich in organic matter.",
+        "irrigation": "Maintain uniform moisture during head formation; avoid prolonged waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management and locally recommended split applications.",
+        "weed": "Keep weeds under control during early crop growth.",
+        "pest": "Inspect for diamondback moth, aphids, caterpillars and other local pests.",
+        "disease": "Monitor for black rot, downy mildew and other diseases."
+      },
+      "harvest": {
+        "signs": [
+          "Heads are firm and have reached marketable size.",
+          "Harvest before heads become over-mature or split.",
+          "Remove damaged outer leaves as appropriate for marketing."
+        ]
+      }
+    },
+
+    {
+      "id": "cauliflower",
+      "name": "Cauliflower",
+      "hindi_name": "फूलगोभी",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 12,
+        "max_temperature": 28
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 60,
+        "max": 120
+      },
+      "sowing": {
+        "general_window": "Season and region dependent; nursery timing should match the variety.",
+        "seed_rate_note": "Use healthy seed and locally recommended nursery management.",
+        "spacing_note": "Use variety-specific spacing recommended locally."
+      },
+      "growth_stages": [
+        "Nursery",
+        "Transplant establishment",
+        "Leaf development",
+        "Curd initiation",
+        "Curd development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil with good organic matter.",
+        "irrigation": "Maintain uniform moisture, particularly during curd development.",
+        "nutrition": "Use soil-test-based nutrient management and locally recommended micronutrient practices.",
+        "weed": "Control weeds early and avoid root disturbance.",
+        "pest": "Inspect for caterpillars, aphids and other brassica pests.",
+        "disease": "Monitor for damping-off, downy mildew, black rot and other local diseases."
+      },
+      "harvest": {
+        "signs": [
+          "Curd is compact, white or variety-appropriate and reaches marketable size.",
+          "Harvest before curds loosen or discolor.",
+          "Handle curds carefully to reduce bruising."
+        ]
+      }
+    },
+
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "hindi_name": "गाजर",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "sandy",
+        "sandy_loam",
+        "loamy"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 10,
+        "max_temperature": 25
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 70,
+        "max": 110
+      },
+      "sowing": {
+        "general_window": "Cool-season crop; exact sowing window is region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Maintain suitable plant spacing after thinning according to variety."
+      },
+      "growth_stages": [
+        "Germination",
+        "Leaf development",
+        "Root enlargement",
+        "Root maturity",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Loose, stone-free, well-drained soil is preferred for straight roots.",
+        "irrigation": "Maintain even moisture during root enlargement; avoid severe fluctuations.",
+        "nutrition": "Use soil-test-based nutrient management and avoid excessive nitrogen.",
+        "weed": "Control weeds early because young carrot plants compete poorly.",
+        "pest": "Inspect for aphids and locally important soil or foliage pests.",
+        "disease": "Monitor foliage and roots for rot and leaf disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Roots reach the expected size and colour.",
+          "Harvest when roots are tender and marketable.",
+          "Avoid leaving mature roots too long if quality declines."
+        ]
+      }
+    },
+
+    {
+      "id": "radish",
+      "name": "Radish",
+      "hindi_name": "मूली",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "sandy",
+        "sandy_loam",
+        "loamy"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 10,
+        "max_temperature": 25
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 30,
+        "max": 60
+      },
+      "sowing": {
+        "general_window": "Cool-season crop; exact sowing window is region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Thin seedlings to maintain variety-appropriate spacing."
+      },
+      "growth_stages": [
+        "Germination",
+        "Leaf development",
+        "Root enlargement",
+        "Maturity",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer loose, fertile and well-drained soil.",
+        "irrigation": "Maintain even moisture to reduce fibrous or cracked roots.",
+        "nutrition": "Use soil-test-based nutrient management and avoid excessive nitrogen.",
+        "weed": "Keep young beds weed-free.",
+        "pest": "Inspect for aphids, flea beetles and other local pests.",
+        "disease": "Monitor for root and leaf disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Roots reach marketable size and remain tender.",
+          "Harvest before roots become woody or overly pungent.",
+          "Avoid mechanical damage during lifting."
+        ]
+      }
+    },
+
+    {
+      "id": "peas",
+      "name": "Peas",
+      "hindi_name": "मटर",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 10,
+        "max_temperature": 25
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 60,
+        "max": 120
+      },
+      "sowing": {
+        "general_window": "Cool-season crop; exact sowing window is region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Follow variety-specific row and plant spacing."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Flowering",
+        "Pod formation",
+        "Pod filling",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain adequate moisture during flowering and pod development.",
+        "nutrition": "Use soil-test-based nutrient management and locally recommended practices.",
+        "weed": "Control weeds during early growth.",
+        "pest": "Inspect for pod borer, aphids and other local pests.",
+        "disease": "Monitor for powdery mildew, rust and other diseases."
+      },
+      "harvest": {
+        "signs": [
+          "Green pods are well filled but still tender for vegetable harvest.",
+          "Harvest at frequent intervals for better quality.",
+          "Avoid over-mature pods when selling as green peas."
+        ]
+      }
+    },
+
+    {
+      "id": "french_bean",
+      "name": "French Bean",
+      "hindi_name": "फ्रेंच बीन्स",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 15,
+        "max_temperature": 30
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 50,
+        "max": 90
+      },
+      "sowing": {
+        "general_window": "Season and region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Follow spacing appropriate for bush or climbing variety."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Flowering",
+        "Pod formation",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain regular moisture during flowering and pod development.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds early.",
+        "pest": "Inspect for bean fly, aphids, mites and pod-feeding insects.",
+        "disease": "Monitor for bacterial blight, rust and other local diseases."
+      },
+      "harvest": {
+        "signs": [
+          "Pods are tender, crisp and at marketable size.",
+          "Harvest before seeds become prominent for fresh-pod markets.",
+          "Pick regularly to encourage continued production."
+        ]
+      }
+    },
+
+    {
+      "id": "cluster_bean",
+      "name": "Cluster Bean",
+      "hindi_name": "ग्वार",
+      "seasons": [
+        "kharif"
+      ],
+      "soil_types": [
+        "sandy",
+        "sandy_loam",
+        "loamy"
+      ],
+      "water_need": "low",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 20,
+        "max_temperature": 35
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 70,
+        "max": 120
+      },
+      "sowing": {
+        "general_window": "Warm-season crop; exact sowing window depends on rainfall and region.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Follow spacing recommended for the selected variety and purpose."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Flowering",
+        "Pod formation",
+        "Seed development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer well-drained soil and avoid prolonged waterlogging.",
+        "irrigation": "Generally drought tolerant but moisture is important during flowering and pod formation.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds during early growth.",
+        "pest": "Inspect for pod borers, aphids and other local pests.",
+        "disease": "Monitor for bacterial and fungal disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Tender pods reach marketable size for vegetable use.",
+          "Harvest regularly while pods remain soft.",
+          "For seed use, harvest only after appropriate seed maturity."
+        ]
+      }
+    },
+
+    {
+      "id": "bottle_gourd",
+      "name": "Bottle Gourd",
+      "hindi_name": "लौकी",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 20,
+        "max_temperature": 35
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 60,
+        "max": 150
+      },
+      "sowing": {
+        "general_window": "Warm-season crop; season and region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Provide suitable spacing and support/trellis where recommended."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vine growth",
+        "Flowering",
+        "Fruit development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain regular moisture during flowering and fruit development.",
+        "nutrition": "Use soil-test-based nutrient management and locally recommended organic matter practices.",
+        "weed": "Control weeds early.",
+        "pest": "Inspect for fruit fly, aphids, beetles and other cucurbit pests.",
+        "disease": "Monitor for powdery mildew, downy mildew and mosaic symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Fruits are tender and at the market-preferred size.",
+          "Harvest before fruits become excessively mature or fibrous.",
+          "Handle fruits carefully to avoid bruising."
+        ]
+      }
+    },
+
+    {
+      "id": "bitter_gourd",
+      "name": "Bitter Gourd",
+      "hindi_name": "करेला",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 20,
+        "max_temperature": 35
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 60,
+        "max": 140
+      },
+      "sowing": {
+        "general_window": "Warm-season crop; season and region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Provide suitable spacing and support system where recommended."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vine growth",
+        "Flowering",
+        "Fruit development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain adequate moisture without prolonged waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds early.",
+        "pest": "Inspect for fruit fly, aphids and beetles.",
+        "disease": "Monitor for powdery mildew, downy mildew and mosaic symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Harvest tender green fruits at marketable size.",
+          "Pick regularly before fruits become over-mature.",
+          "Avoid damaged and diseased fruits."
+        ]
+      }
+    },
+
+    {
+      "id": "ridge_gourd",
+      "name": "Ridge Gourd",
+      "hindi_name": "तुरई",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 20,
+        "max_temperature": 35
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 60,
+        "max": 140
+      },
+      "sowing": {
+        "general_window": "Warm-season crop; exact sowing window is region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Provide suitable spacing and support where recommended."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vine growth",
+        "Flowering",
+        "Fruit development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain regular moisture during flowering and fruit development.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds during early vine growth.",
+        "pest": "Inspect for fruit fly, beetles, aphids and mites.",
+        "disease": "Monitor for powdery mildew, downy mildew and mosaic symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Harvest tender fruits before they become fibrous.",
+          "Fruits should have good shape and marketable size.",
+          "Frequent picking supports continued production."
+        ]
+      }
+    },
+
+    {
+      "id": "pumpkin",
+      "name": "Pumpkin",
+      "hindi_name": "कद्दू",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 20,
+        "max_temperature": 35
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 90,
+        "max": 160
+      },
+      "sowing": {
+        "general_window": "Warm-season crop; season and region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Allow adequate space for vine growth or use locally recommended training."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vine growth",
+        "Flowering",
+        "Fruit set",
+        "Fruit enlargement",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain adequate moisture during flowering and fruit enlargement.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds early before vines cover the soil.",
+        "pest": "Inspect for fruit fly, beetles, aphids and other cucurbit pests.",
+        "disease": "Monitor for powdery mildew, downy mildew and viral symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Fruit reaches variety-specific mature size and colour.",
+          "Stem near the fruit shows maturity changes where applicable.",
+          "Harvest carefully to avoid cuts and bruises."
+        ]
+      }
+    },
+
+    {
+      "id": "capsicum",
+      "name": "Capsicum",
+      "hindi_name": "शिमला मिर्च",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 18,
+        "max_temperature": 30
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 90,
+        "max": 180
+      },
+      "sowing": {
+        "general_window": "Season and region dependent; commonly raised in nursery before transplanting.",
+        "seed_rate_note": "Use quality seed and locally recommended nursery practices.",
+        "spacing_note": "Follow variety and protected/open-field production recommendations."
+      },
+      "growth_stages": [
+        "Nursery",
+        "Transplant establishment",
+        "Vegetative growth",
+        "Flowering",
+        "Fruit development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain consistent moisture and avoid waterlogging.",
+        "nutrition": "Use soil-test-based and stage-specific nutrient management.",
+        "weed": "Keep the crop area weed-free during establishment.",
+        "pest": "Inspect for thrips, aphids, mites and fruit-feeding pests.",
+        "disease": "Monitor for bacterial, fungal and viral disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Harvest green or coloured fruits according to market requirement.",
+          "Fruits should be firm and well developed.",
+          "Avoid harvesting severely damaged fruits."
+        ]
+      }
+    },
+
+    {
+      "id": "spinach",
+      "name": "Spinach",
+      "hindi_name": "पालक",
+      "seasons": [
+        "rabi",
+        "kharif"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 10,
+        "max_temperature": 30
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 30,
+        "max": 60
+      },
+      "sowing": {
+        "general_window": "Season and region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Maintain suitable spacing for leaf production and harvesting method."
+      },
+      "growth_stages": [
+        "Germination",
+        "Leaf development",
+        "Harvestable leaf stage"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil rich in organic matter.",
+        "irrigation": "Maintain regular moisture for tender leaf growth.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Keep beds free from weeds.",
+        "pest": "Inspect for leaf miners, aphids and caterpillars.",
+        "disease": "Monitor for leaf spots and downy mildew."
+      },
+      "harvest": {
+        "signs": [
+          "Leaves reach tender, marketable size.",
+          "Harvest outer leaves or the crop according to the production system.",
+          "Avoid harvesting heavily diseased leaves."
+        ]
+      }
+    },
+
+    {
+      "id": "onion",
+      "name": "Onion",
+      "hindi_name": "प्याज",
+      "seasons": [
+        "rabi",
+        "kharif"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 13,
+        "max_temperature": 30
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 100,
+        "max": 180
+      },
+      "sowing": {
+        "general_window": "Season and region dependent; nursery/transplanting may be used.",
+        "seed_rate_note": "Use quality seed and locally recommended nursery or direct-sowing practices.",
+        "spacing_note": "Follow variety-specific bulb spacing."
+      },
+      "growth_stages": [
+        "Nursery",
+        "Transplant establishment",
+        "Leaf growth",
+        "Bulb initiation",
+        "Bulb enlargement",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain adequate moisture during bulb development and reduce irrigation near maturity as locally recommended.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds early because onion is a weak competitor.",
+        "pest": "Inspect for thrips, onion fly and other local pests.",
+        "disease": "Monitor for purple blotch, downy mildew and basal rot."
+      },
+      "harvest": {
+        "signs": [
+          "Bulbs reach expected size and maturity.",
+          "Neck softens and foliage starts lodging/drying.",
+          "Cure bulbs properly before storage."
+        ]
+      }
+    },
+
+    {
+      "id": "sweet_corn",
+      "name": "Sweet Corn",
+      "hindi_name": "स्वीट कॉर्न",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 18,
+        "max_temperature": 32
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 70,
+        "max": 100
+      },
+      "sowing": {
+        "general_window": "Season and region dependent.",
+        "seed_rate_note": "Use quality seed of the intended sweet-corn hybrid/variety.",
+        "spacing_note": "Follow locally recommended row and plant spacing."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Tasseling",
+        "Silking",
+        "Kernel development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Avoid moisture stress around tasseling, silking and ear development.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Keep the field weed-free during early growth.",
+        "pest": "Inspect for fall armyworm, stem borers and ear-feeding pests.",
+        "disease": "Monitor leaves and ears for disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Kernels are at the tender milk stage for fresh sweet-corn harvest.",
+          "Harvest ears promptly because quality declines as sugars convert to starch.",
+          "Handle ears carefully after harvest."
+        ]
+      }
+    },
+
+    {
+      "id": "okra",
+      "name": "Okra",
+      "hindi_name": "भिंडी",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 20,
+        "max_temperature": 35
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 50,
+        "max": 120
+      },
+      "sowing": {
+        "general_window": "Warm-season crop; season and region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Follow variety-specific spacing."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Flowering",
+        "Pod development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain moisture during flowering and pod development while avoiding waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds early.",
+        "pest": "Inspect for shoot and fruit borer, jassids, aphids and whiteflies.",
+        "disease": "Monitor for yellow vein mosaic and other disease symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Harvest tender pods at marketable size.",
+          "Pick frequently before pods become fibrous.",
+          "Remove diseased or severely damaged pods."
+        ]
+      }
+    },
+
+    {
+      "id": "brinjal",
+      "name": "Brinjal",
+      "hindi_name": "बैंगन",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 18,
+        "max_temperature": 32
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 100,
+        "max": 180
+      },
+      "sowing": {
+        "general_window": "Season and region dependent; generally raised in nursery before transplanting.",
+        "seed_rate_note": "Use quality seed and locally recommended nursery practices.",
+        "spacing_note": "Use variety-specific spacing."
+      },
+      "growth_stages": [
+        "Nursery",
+        "Transplant establishment",
+        "Vegetative growth",
+        "Flowering",
+        "Fruit development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain regular moisture during flowering and fruit development.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds early and keep the plant basin clean.",
+        "pest": "Inspect for shoot and fruit borer, aphids, jassids and mites.",
+        "disease": "Monitor for bacterial wilt, phomopsis and viral symptoms."
+      },
+      "harvest": {
+        "signs": [
+          "Fruits reach variety-specific marketable size and gloss.",
+          "Harvest while fruits are tender and seeds are not overly mature.",
+          "Pick regularly to maintain production."
+        ]
+      }
+    },
+
+    {
+      "id": "ginger",
+      "name": "Ginger",
+      "hindi_name": "अदरक",
+      "seasons": [
+        "kharif"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "high",
+      "weather": {
+        "min_temperature": 20,
+        "max_temperature": 35
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 180,
+        "max": 240
+      },
+      "sowing": {
+        "general_window": "Generally planted with suitable pre-monsoon soil moisture; exact planting window is region dependent.",
+        "seed_rate_note": "Use healthy disease-free rhizomes and locally recommended planting material.",
+        "spacing_note": "Follow locally recommended rhizome spacing and raised-bed practice."
+      },
+      "growth_stages": [
+        "Sprouting",
+        "Vegetative growth",
+        "Rhizome development",
+        "Rhizome bulking",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer loose, fertile, well-drained soil rich in organic matter.",
+        "irrigation": "Maintain adequate moisture but avoid waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management and locally recommended organic amendments.",
+        "weed": "Keep beds weed-free, especially during early growth.",
+        "pest": "Inspect rhizomes and foliage for shoot borer and other local pests.",
+        "disease": "Use healthy planting material and monitor for rhizome rot and leaf diseases."
+      },
+      "harvest": {
+        "signs": [
+          "Leaves yellow and dry as rhizomes mature.",
+          "Rhizomes reach the required maturity for fresh or dry ginger.",
+          "Harvest carefully to reduce rhizome injury."
+        ]
+      }
+    },
+
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "hindi_name": "लहसुन",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 10,
+        "max_temperature": 25
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 120,
+        "max": 180
+      },
+      "sowing": {
+        "general_window": "Cool-season crop; exact planting window is region dependent.",
+        "seed_rate_note": "Use healthy, disease-free cloves of a locally suitable variety.",
+        "spacing_note": "Follow locally recommended clove spacing and planting depth."
+      },
+      "growth_stages": [
+        "Clove sprouting",
+        "Leaf development",
+        "Bulb initiation",
+        "Bulb enlargement",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain moderate moisture and reduce irrigation near maturity as locally recommended.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds early.",
+        "pest": "Inspect for thrips, mites and other local pests.",
+        "disease": "Monitor for purple blotch, basal rot and other diseases."
+      },
+      "harvest": {
+        "signs": [
+          "Leaves yellow and begin drying.",
+          "Bulbs reach suitable size and outer skins mature.",
+          "Cure bulbs well after lifting before storage."
+        ]
+      }
+    },
+
+    {
+      "id": "chilli",
+      "name": "Chilli",
+      "hindi_name": "मिर्च",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "medium",
+      "weather": {
+        "min_temperature": 18,
+        "max_temperature": 32
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 120,
+        "max": 240
+      },
+      "sowing": {
+        "general_window": "Season and region dependent; commonly raised in nursery before transplanting.",
+        "seed_rate_note": "Use quality seed and locally recommended nursery practices.",
+        "spacing_note": "Follow variety-specific spacing."
+      },
+      "growth_stages": [
+        "Nursery",
+        "Transplant establishment",
+        "Vegetative growth",
+        "Flowering",
+        "Fruit development",
+        "Harvest"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain regular moisture while avoiding waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds early.",
+        "pest": "Inspect for thrips, mites, aphids, fruit borers and whiteflies.",
+        "disease": "Monitor for leaf curl, damping-off, anthracnose and other diseases."
+      },
+      "harvest": {
+        "signs": [
+          "Harvest green fruits at tender marketable stage or red fruits at desired maturity.",
+          "Pick regularly to support continued flowering and fruiting.",
+          "Avoid diseased fruits."
+        ]
+      }
+    },
+
+    {
+      "id": "turmeric",
+      "name": "Turmeric",
+      "hindi_name": "हल्दी",
+      "seasons": [
+        "kharif"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "medium",
+      "rainfall_need": "high",
+      "weather": {
+        "min_temperature": 20,
+        "max_temperature": 35
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 180,
+        "max": 270
+      },
+      "sowing": {
+        "general_window": "Generally planted with the onset of suitable seasonal moisture; exact planting window is region dependent.",
+        "seed_rate_note": "Use healthy rhizomes and locally recommended planting material.",
+        "spacing_note": "Follow locally recommended rhizome spacing and raised-bed practices."
+      },
+      "growth_stages": [
+        "Sprouting",
+        "Vegetative growth",
+        "Rhizome initiation",
+        "Rhizome bulking",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer fertile, loose and well-drained soil.",
+        "irrigation": "Maintain adequate moisture but avoid prolonged waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management and locally recommended organic matter practices.",
+        "weed": "Keep beds weed-free and mulch where locally recommended.",
+        "pest": "Inspect foliage and rhizomes for locally important pests.",
+        "disease": "Use healthy rhizomes and monitor for rhizome rot and leaf spot."
+      },
+      "harvest": {
+        "signs": [
+          "Leaves dry and lodge as the crop matures.",
+          "Rhizomes reach expected maturity and size.",
+          "Harvest carefully and cure/process according to end use."
+        ]
+      }
+    },
+
+    {
+      "id": "coriander",
+      "name": "Coriander",
+      "hindi_name": "धनिया",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "low",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 10,
+        "max_temperature": 25
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 45,
+        "max": 120
+      },
+      "sowing": {
+        "general_window": "Cool-season crop; exact sowing window is region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate; seed preparation may be used as locally advised.",
+        "spacing_note": "Follow locally recommended row spacing for leaf or seed production."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Branching",
+        "Flowering",
+        "Seed development",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Avoid excess irrigation and maintain adequate moisture during establishment and flowering.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds early.",
+        "pest": "Inspect for aphids and other local pests.",
+        "disease": "Monitor for powdery mildew, wilt and other diseases."
+      },
+      "harvest": {
+        "signs": [
+          "For leaf use, harvest tender foliage as required.",
+          "For seed use, wait until fruits mature and dry.",
+          "Dry seed crop properly before storage."
+        ]
+      }
+    },
+
+    {
+      "id": "fenugreek",
+      "name": "Fenugreek",
+      "hindi_name": "मेथी",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "loamy",
+        "sandy_loam"
+      ],
+      "water_need": "low",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 10,
+        "max_temperature": 25
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 30,
+        "max": 120
+      },
+      "sowing": {
+        "general_window": "Cool-season crop; exact sowing window is region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Follow locally recommended spacing for leaf or seed production."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Branching",
+        "Flowering",
+        "Seed development",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer fertile, well-drained soil.",
+        "irrigation": "Maintain moderate moisture and avoid waterlogging.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Control weeds early.",
+        "pest": "Inspect for aphids and other local pests.",
+        "disease": "Monitor for powdery mildew, rust and other diseases."
+      },
+      "harvest": {
+        "signs": [
+          "For leaf use, harvest tender foliage at the desired stage.",
+          "For seed use, allow pods to mature and dry.",
+          "Dry harvested seed properly before storage."
+        ]
+      }
+    },
+
+    {
+      "id": "cumin",
+      "name": "Cumin",
+      "hindi_name": "जीरा",
+      "seasons": [
+        "rabi"
+      ],
+      "soil_types": [
+        "sandy",
+        "sandy_loam"
+      ],
+      "water_need": "low",
+      "rainfall_need": "low",
+      "weather": {
+        "min_temperature": 10,
+        "max_temperature": 25
+      },
+      "location": {
+        "states": [],
+        "districts": []
+      },
+      "crop_duration_days": {
+        "min": 100,
+        "max": 130
+      },
+      "sowing": {
+        "general_window": "Cool, relatively dry season crop; exact sowing window is region dependent.",
+        "seed_rate_note": "Use quality seed and locally recommended seed rate.",
+        "spacing_note": "Follow locally recommended row spacing and avoid excessive plant density."
+      },
+      "growth_stages": [
+        "Germination",
+        "Vegetative growth",
+        "Branching",
+        "Flowering",
+        "Seed development",
+        "Maturity"
+      ],
+      "management": {
+        "soil": "Prefer well-drained soil; avoid prolonged waterlogging.",
+        "irrigation": "Use careful irrigation because excessive moisture can increase disease risk.",
+        "nutrition": "Use soil-test-based nutrient management.",
+        "weed": "Keep the crop weed-free during early growth.",
+        "pest": "Inspect for aphids and other locally important pests.",
+        "disease": "Monitor carefully for wilt, blight and powdery mildew."
+      },
+      "harvest": {
+        "signs": [
+          "Umbels and seeds turn mature and brown.",
+          "Harvest before excessive shattering.",
+          "Dry the harvested seed properly before storage."
+        ]
+      }
+    }
+  ]
+}

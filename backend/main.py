@@ -1,34 +1,82 @@
-import os
-import json
-import numpy as np
-import tensorflow as tf
+from fastapi import (
+    FastAPI,
+    UploadFile,
+    File,
+    HTTPException
+)
 
-from PIL import Image
-from io import BytesIO
-
-from fastapi import FastAPI, File, UploadFile, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-
-
-# ============================================================
-# CONFIGURATION
-# ============================================================
-
-MODEL_PATH = "models/agrovision_savedmodel"
-CLASS_NAMES_PATH = "models/class_names.json"
-DISEASE_INFO_PATH = "data/disease_info.json"
-
-IMG_SIZE = (224, 224)
+from fastapi.middleware.cors import (
+    CORSMiddleware
+)
 
 
 # ============================================================
-# CREATE APP
+# CONFIG
+# ============================================================
+
+from config import (
+    BASE_DIR,
+    MODEL_PATH,
+    CLASS_NAMES_PATH,
+    DISEASE_INFO_PATH,
+    CROP_DATA_PATH,
+    DISTRICT_CROP_DATA_PATH,
+    IMG_SIZE,
+    MAX_IMAGES,
+    CONFIDENCE_THRESHOLD,
+    HIGH_CONFIDENCE,
+    MEDIUM_CONFIDENCE,
+    SEASON_WEIGHT,
+    SOIL_WEIGHT,
+    WATER_WEIGHT,
+    RAINFALL_WEIGHT,
+    TEMPERATURE_WEIGHT,
+    LOCATION_WEIGHT,
+    DISTRICT_CROP_WEIGHT,
+    IISFM_API_URL,
+)
+
+
+# ============================================================
+# LOCATION SERVICE
+# ============================================================
+
+from location_service import (
+    get_states,
+    get_districts,
+)
+
+
+# ============================================================
+# DISEASE SERVICE
+# ============================================================
+
+from disease_service import (
+    predict_single_image,
+    predict_images,
+)
+
+
+# ============================================================
+# CROP SERVICE
+# ============================================================
+
+from crop_service import (
+    recommend_crops,
+)
+
+
+# ============================================================
+# FASTAPI APPLICATION
 # ============================================================
 
 app = FastAPI(
     title="AgroVision AI",
-    description="AI-powered crop disease detection and management system",
-    version="1.1.0"
+    description=(
+        "AI-powered crop disease detection "
+        "and crop recommendation API"
+    ),
+    version="1.0.0"
 )
 
 
@@ -38,384 +86,187 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "*",
-        "http://127.0.0.1:5500",
-        "http://localhost:5500"
-    ],
-    allow_credentials=False,
+    allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 
 # ============================================================
-# CHECK FILES
-# ============================================================
-
-for required_file in [
-    MODEL_PATH,
-    CLASS_NAMES_PATH,
-    DISEASE_INFO_PATH
-]:
-    if not os.path.exists(required_file):
-        raise FileNotFoundError(
-            f"Required file not found: {required_file}"
-        )
-
-
-# ============================================================
-# LOAD MODEL
-# ============================================================
-
-print("Loading AgroVision AI model...")
-
-model = tf.saved_model.load(MODEL_PATH)
-model_signature = model.signatures["serving_default"]
-
-print("Model loaded successfully.")
-
-
-# ============================================================
-# LOAD CLASS NAMES
-# ============================================================
-
-with open(
-    CLASS_NAMES_PATH,
-    "r",
-    encoding="utf-8"
-) as file:
-    class_names = json.load(file)
-
-
-# ============================================================
-# LOAD DISEASE DATABASE
-# ============================================================
-
-with open(
-    DISEASE_INFO_PATH,
-    "r",
-    encoding="utf-8"
-) as file:
-    disease_info = json.load(file)
-
-
-print(f"Number of classes: {len(class_names)}")
-print(f"Disease information entries: {len(disease_info)}")
-
-
-# ============================================================
-# FORMAT CLASS NAME
-# ============================================================
-
-def format_class_name(class_name):
-
-    if "___" in class_name:
-
-        crop, disease = class_name.split(
-            "___",
-            1
-        )
-
-    else:
-
-        crop = class_name
-        disease = "Unknown"
-
-    crop = crop.replace("_", " ")
-    disease = disease.replace("_", " ")
-
-    return (
-        crop.strip().title(),
-        disease.strip().title()
-    )
-
-
-# ============================================================
-# HOME
+# ROOT
 # ============================================================
 
 @app.get("/")
-def home():
+def root():
 
     return {
-        "message": "AgroVision AI API is running",
-        "status": "success",
-        "version": "1.1.0"
+        "message": "AgroVision AI API is running"
     }
 
 
 # ============================================================
-# HEALTH
+# HEALTH CHECK
 # ============================================================
 
 @app.get("/health")
 def health():
 
     return {
-        "status": "healthy",
-        "model_loaded": True,
-        "number_of_classes": len(class_names),
-        "disease_database_entries": len(disease_info)
+        "status": "healthy"
     }
 
 
 # ============================================================
-# PREDICT
+# STATES
+# ============================================================
+
+@app.get("/states")
+def states():
+
+    return get_states()
+
+
+# ============================================================
+# DISTRICTS
+# ============================================================
+
+@app.get("/districts/{state}")
+def districts(
+    state: str
+):
+
+    return get_districts(
+        state
+    )
+
+
+# ============================================================
+# DISEASE PREDICTION
 # ============================================================
 
 @app.post("/predict")
 async def predict(
-    file: UploadFile = File(...)
+    files: list[UploadFile] = File(...)
 ):
-
-    # --------------------------------------------------------
-    # Validate file
-    # --------------------------------------------------------
-
-    allowed_types = [
-        "image/jpeg",
-        "image/png",
-        "image/jpg",
-        "image/webp"
-    ]
-
-    if file.content_type not in allowed_types:
-
-        raise HTTPException(
-            status_code=400,
-            detail="Please upload a JPG, PNG, or WEBP image."
-        )
-
-
-    # --------------------------------------------------------
-    # Read image
-    # --------------------------------------------------------
+    """
+    Predict crop disease from
+    one or more uploaded images.
+    """
 
     try:
 
-        contents = await file.read()
+        # ----------------------------------------------------
+        # CHECK FILES
+        # ----------------------------------------------------
 
-        image = Image.open(
-            BytesIO(contents)
-        ).convert("RGB")
+        if not files:
 
-    except Exception:
+            raise HTTPException(
+                status_code=400,
+                detail="No images uploaded."
+            )
+
+
+        # ----------------------------------------------------
+        # MAXIMUM IMAGE LIMIT
+        # ----------------------------------------------------
+
+        if len(files) > MAX_IMAGES:
+
+            raise HTTPException(
+                status_code=400,
+                detail=(
+                    f"Maximum {MAX_IMAGES} "
+                    "images are allowed."
+                )
+            )
+
+
+        # ----------------------------------------------------
+        # RUN PREDICTION
+        # ----------------------------------------------------
+
+        result = predict_images(
+            files
+        )
+
+        return result
+
+
+    except HTTPException:
+
+        raise
+
+
+    except ValueError as error:
 
         raise HTTPException(
             status_code=400,
-            detail="Could not read uploaded image."
+            detail=str(error)
         )
 
 
-    # --------------------------------------------------------
-    # Preprocess
-    # --------------------------------------------------------
+    except Exception as error:
 
-    image = image.resize(
-        IMG_SIZE
-    )
+        print(
+            "Prediction error:",
+            error
+        )
 
-    image_array = np.array(
-        image,
-        dtype=np.float32
-    )
-
-    image_array = np.expand_dims(
-        image_array,
-        axis=0
-    )
-
-
-    # --------------------------------------------------------
-    # Prediction
-    # --------------------------------------------------------
-    input_tensor = tf.convert_to_tensor(
-        image_array,
-        dtype=tf.float32
-    )
-
-    result = model_signature(
-        input_tensor
-    )
-
-    predictions = list(result.values())[0].numpy()[0]
-  
-
-    # --------------------------------------------------------
-    # Top 3
-    # --------------------------------------------------------
-
-    top_indices = np.argsort(
-        predictions
-    )[-3:][::-1]
-
-
-    # --------------------------------------------------------
-    # Best prediction
-    # --------------------------------------------------------
-
-    best_index = int(
-        top_indices[0]
-    )
-
-    best_class = class_names[
-        best_index
-    ]
-
-    confidence = float(
-        predictions[best_index]
-    ) * 100
-
-
-    crop, disease = format_class_name(
-        best_class
-    )
-
-
-    # --------------------------------------------------------
-    # Confidence level
-    # --------------------------------------------------------
-
-    if confidence >= 80:
-
-        confidence_level = "high"
-
-    elif confidence >= 60:
-
-        confidence_level = "medium"
-
-    else:
-
-        confidence_level = "low"
-
-
-    # --------------------------------------------------------
-    # Disease information
-    # --------------------------------------------------------
-
-    info = disease_info.get(
-        best_class
-    )
-
-
-    # If disease is not yet in database
-
-    if info is None:
-
-        info = {
-
-            "crop": crop,
-
-            "disease": disease,
-
-            "controllable": None,
-
-            "description":
-                "Information for this prediction "
-                "has not yet been added to the database.",
-
-            "symptoms": [],
-
-            "management": [],
-
-            "treatment_note":
-                "Consult a qualified agricultural "
-                "expert and follow current local "
-                "agricultural guidance."
-        }
-
-
-    # --------------------------------------------------------
-    # Top 3 predictions
-    # --------------------------------------------------------
-
-    top_predictions = []
-
-    for index in top_indices:
-
-        class_name = class_names[
-            int(index)
-        ]
-
-        probability = float(
-            predictions[index]
-        ) * 100
-
-        predicted_crop, predicted_disease = (
-            format_class_name(
-                class_name
+        raise HTTPException(
+            status_code=500,
+            detail=(
+                "An error occurred "
+                "while processing the images."
             )
         )
 
-        top_predictions.append({
 
-            "crop": predicted_crop,
+# ============================================================
+# CROP RECOMMENDATION
+# ============================================================
 
-            "disease": predicted_disease,
+@app.post("/recommend-crops")
+async def recommend_crop_route(
+    data: dict
+):
+    """
+    Recommend suitable crops based on
+    season, soil, water, rainfall,
+    temperature and location.
+    """
 
-            "confidence": round(
-                probability,
-                2
+    try:
+
+        # ----------------------------------------------------
+        # RUN CROP RECOMMENDATION
+        # ----------------------------------------------------
+
+        result = recommend_crops(
+            data
+        )
+
+        return result
+
+
+    except HTTPException:
+
+        raise
+
+
+    except Exception as error:
+
+        print(
+            "Crop recommendation error:",
+            error
+        )
+
+        raise HTTPException(
+            status_code=500,
+            detail=(
+                "An error occurred "
+                "while generating crop "
+                "recommendations."
             )
-        })
-
-
-    # --------------------------------------------------------
-    # RESPONSE
-    # --------------------------------------------------------
-
-    return {
-
-        "success": True,
-
-        "prediction": {
-
-            "crop": crop,
-
-            "disease": disease,
-
-            "confidence": round(
-                confidence,
-                2
-            ),
-
-            "confidence_level":
-                confidence_level
-        },
-
-        "disease_information": {
-
-            "controllable":
-                info.get(
-                    "controllable"
-                ),
-
-            "description":
-                info.get(
-                    "description",
-                    ""
-                ),
-
-            "symptoms":
-                info.get(
-                    "symptoms",
-                    []
-                ),
-
-            "management":
-                info.get(
-                    "management",
-                    []
-                ),
-
-            "treatment_note":
-                info.get(
-                    "treatment_note",
-                    ""
-                )
-        },
-
-        "top_predictions":
-            top_predictions
-    }
+        )

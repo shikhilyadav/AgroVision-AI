@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AgroVision AI | Crop Disease Detection</title>
+    <title>AgroVision AI | Crop Disease Detection & Recommendation</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -21,17 +21,16 @@
         </div>
 
         <div class="tagline">
-            Smart Crop Disease Detection
+            Smart Crop Disease Detection & Recommendation
         </div>
 
-
         <div class="language-selector">
-    🌐
-    <select id="languageSelect">
-        <option value="en">English</option>
-        <option value="hi">हिंदी</option>
-    </select>
-</div>
+            🌐
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="hi">हिंदी</option>
+            </select>
+        </div>
 
     </header>
 
@@ -66,7 +65,501 @@
 
     <main class="container">
 
-        <!-- Upload Card -->
+
+        <!-- =====================================================
+             CROP RECOMMENDATION SECTION
+             ===================================================== -->
+
+        <section class="upload-card crop-recommendation-card">
+
+            <div class="section-heading">
+
+                <h2>
+                    🌾 Recommend the Best Crop
+                </h2>
+
+                <p>
+                    Enter your field conditions to get suitable crop recommendations.
+                </p>
+
+            </div>
+
+
+            <!-- ================= RECOMMENDATION FORM ================= -->
+
+            <div class="recommendation-form">
+
+                <!-- State -->
+
+                <div class="form-group">
+
+                    <label for="stateInput">
+                        📍 State
+                    </label>
+
+                 <select id="stateInput">
+
+    <option value="">
+        Select State
+    </option>
+
+</select>  
+
+                </div>
+
+
+                <!-- District -->
+
+                <div class="form-group">
+
+                    <label for="districtInput">
+                        🏘️ District
+                    </label>
+
+                    <select id="districtInput" disabled>
+                       <option value="">Select District</option>
+</select>
+
+                </div>
+
+
+                <!-- Season -->
+
+                <div class="form-group">
+
+                    <label for="seasonInput">
+                        🌦️ Season
+                    </label>
+
+                    <select id="seasonInput">
+
+                        <option value="">
+                            Select Season
+                        </option>
+
+                        <option value="kharif">
+                            Kharif
+                        </option>
+
+                        <option value="rabi">
+                            Rabi
+                        </option>
+
+                        <option value="zaid">
+                            Zaid
+                        </option>
+
+                        <option value="summer">
+                            Summer
+                        </option>
+
+                        <option value="winter">
+                            Winter
+                        </option>
+
+                        <option value="monsoon">
+                            Monsoon
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Soil Type -->
+
+                <div class="form-group">
+
+                    <label for="soilInput">
+                        🌱 Soil Type
+                    </label>
+
+                    <select id="soilInput">
+
+                        <option value="">
+                            Select Soil Type
+                        </option>
+
+                        <option value="loamy">
+                            Loamy
+                        </option>
+
+                        <option value="clay">
+                            Clay
+                        </option>
+
+                        <option value="sandy">
+                            Sandy
+                        </option>
+
+                        <option value="sandy_loam">
+                            Sandy Loam
+                        </option>
+
+                        <option value="clay_loam">
+                            Clay Loam
+                        </option>
+
+                        <option value="black">
+                            Black Soil
+                        </option>
+
+                        <option value="red">
+                            Red Soil
+                        </option>
+
+                        <option value="alluvial">
+                            Alluvial Soil
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Water Availability -->
+
+                <div class="form-group">
+
+                    <label for="waterInput">
+                        💧 Water Availability
+                    </label>
+
+                    <select id="waterInput">
+
+                        <option value="">
+                            Select Water Availability
+                        </option>
+
+                        <option value="low">
+                            Low
+                        </option>
+
+                        <option value="medium">
+                            Medium
+                        </option>
+
+                        <option value="high">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Temperature -->
+
+                <div class="form-group">
+
+                    <label for="temperatureInput">
+                        🌡️ Temperature (°C)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="temperatureInput"
+                        placeholder="e.g. 28"
+                        min="-10"
+                        max="60"
+                        step="0.1"
+                    >
+
+                </div>
+
+
+                <!-- Rainfall -->
+
+                <div class="form-group">
+
+                    <label for="rainfallInput">
+                        🌧️ Rainfall
+                    </label>
+
+                    <select id="rainfallInput">
+
+                        <option value="">
+                            Select Rainfall
+                        </option>
+
+                        <option value="low">
+                            Low
+                        </option>
+
+                        <option value="medium">
+                            Medium
+                        </option>
+
+                        <option value="high">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Recommend Button -->
+
+                <button
+                    id="recommendCropBtn"
+                    class="analyze-btn"
+                    type="button"
+                >
+                    🌾 Recommend Crops
+                </button>
+
+            </div>
+
+
+            <!-- ================= RECOMMENDATION LOADING ================= -->
+
+            <div
+                id="recommendLoading"
+                class="loading"
+                style="display:none;"
+            >
+
+                <div class="spinner"></div>
+
+                <div>
+
+                    <strong>
+                        AI is finding suitable crops...
+                    </strong>
+
+                    <span>
+                        Please wait a moment
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RECOMMENDATION ERROR ================= -->
+
+            <div
+                id="recommendError"
+                class="error"
+                style="display:none;"
+            ></div>
+
+
+            <!-- ================= RECOMMENDATION RESULT ================= -->
+
+            <section
+                id="recommendResult"
+                class="result"
+                style="display:none;"
+            >
+
+                <div class="result-header">
+
+                    <div>
+
+                        <span class="result-badge">
+                            AI RECOMMENDATION COMPLETE
+                        </span>
+
+                        <h2>
+                            🌾 Recommended Crops
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Best Match -->
+
+                <div
+                    id="bestCropResult"
+                    class="main-result"
+                >
+
+                    <div class="result-box">
+
+                        <span class="result-label">
+                            BEST MATCH
+                        </span>
+
+                        <h3 id="bestCropName">
+                            -
+                        </h3>
+
+                    </div>
+
+
+                    <div class="result-box disease-box">
+
+                        <span class="result-label">
+                            SUITABILITY
+                        </span>
+
+                        <h3 id="bestCropSuitability">
+                            -
+                        </h3>
+
+                    </div>
+
+
+                    <div class="result-box">
+
+                        <span class="result-label">
+                            SCORE
+                        </span>
+
+                        <h3
+                            id="bestCropScore"
+                            class="confidence"
+                        >
+                            -
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Recommendation List -->
+
+                <div class="top-predictions">
+
+                    <h3>
+                        📊 Top Crop Recommendations
+                    </h3>
+
+                    <p class="sub-text">
+                        Crops ranked according to your field conditions
+                    </p>
+
+                    <div id="cropRecommendationsList">
+                    </div>
+
+                </div>
+
+
+                <!-- Selected Crop Details -->
+
+                <div
+                    id="cropDetails"
+                    class="info-grid"
+                    style="display:none;"
+                >
+
+                    <!-- Crop Overview -->
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🌾
+                        </div>
+
+                        <h3>
+                            Crop Overview
+                        </h3>
+
+                        <p id="cropOverviewResult">
+                            -
+                        </p>
+
+                    </div>
+
+
+                    <!-- Growing Duration -->
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            📅
+                        </div>
+
+                        <h3>
+                            Crop Duration
+                        </h3>
+
+                        <p id="cropDurationResult">
+                            -
+                        </p>
+
+                    </div>
+
+
+                    <!-- Sowing -->
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🌱
+                        </div>
+
+                        <h3>
+                            Sowing Information
+                        </h3>
+
+                        <p id="cropSowingResult">
+                            -
+                        </p>
+
+                    </div>
+
+
+                    <!-- Management -->
+
+                    <div class="info-card treatment-card">
+
+                        <div class="info-icon">
+                            👨‍🌾
+                        </div>
+
+                        <h3>
+                            Management Guidance
+                        </h3>
+
+                        <p id="cropManagementResult">
+                            -
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Recommendation Explanation -->
+
+                <div
+                    id="cropRecommendationMessage"
+                    class="success-message"
+                    style="margin-top:20px;"
+                >
+                </div>
+
+
+                <!-- Recommendation Disclaimer -->
+
+                <div class="disclaimer">
+
+                    <strong>
+                        ⚠️ Important:
+                    </strong>
+
+                    Crop suitability is an AI/data-based recommendation,
+                    not a guaranteed yield prediction. Before making a final
+                    farming decision, consider soil-test results, verified
+                    local agricultural advisories, seed/variety availability,
+                    irrigation facilities, market conditions and current weather.
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- =====================================================
+             CROP DISEASE DETECTION SECTION
+             ===================================================== -->
 
         <section class="upload-card">
 
@@ -77,13 +570,14 @@
                 </h2>
 
                 <p>
-                    Upload a leaf image to start AI analysis
+                    Upload 1 to 3 clear images of the same leaf
+                    for better AI analysis
                 </p>
 
             </div>
 
 
-            <!-- Upload Area -->
+            <!-- ================= UPLOAD AREA ================= -->
 
             <label
                 for="fileInput"
@@ -96,7 +590,7 @@
                 </div>
 
                 <h3>
-                    Upload Leaf Image
+                    Upload Leaf Images
                 </h3>
 
                 <p>
@@ -105,11 +599,11 @@
                 </p>
 
                 <span class="choose-btn">
-                    Choose Image
+                    Choose Images
                 </span>
 
                 <small>
-                    JPG, PNG or WEBP
+                    JPG, PNG or WEBP • Maximum 3 images
                 </small>
 
             </label>
@@ -119,6 +613,7 @@
                 type="file"
                 id="fileInput"
                 accept="image/jpeg,image/png,image/webp"
+                multiple
             >
 
 
@@ -130,20 +625,65 @@
             >
 
                 <h3>
-                    Selected Image
+                    Selected Images
                 </h3>
+
+
+                <!-- Single Image -->
 
                 <img
                     id="previewImage"
                     alt="Selected leaf image"
                 >
 
-                <button
-                    id="removeImageBtn"
-                    class="remove-btn"
+
+                <!-- Multiple Images -->
+
+                <div
+                    id="multiPreviewGrid"
+                    style="
+                        display:none;
+                        grid-template-columns:
+                            repeat(auto-fit, minmax(160px, 1fr));
+                        gap:15px;
+                        justify-items:center;
+                        align-items:center;
+                    "
                 >
-                    ✕ Remove Image
-                </button>
+                </div>
+
+
+                <!-- Buttons -->
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                        gap:10px;
+                        flex-wrap:wrap;
+                        margin-top:15px;
+                    "
+                >
+
+                    <button
+                        id="addMoreBtn"
+                        class="choose-btn"
+                        type="button"
+                    >
+                        + Add More Images
+                    </button>
+
+
+                    <button
+                        id="removeImageBtn"
+                        class="remove-btn"
+                        type="button"
+                    >
+                        ✕ Remove Images
+                    </button>
+
+                </div>
 
             </div>
 
@@ -155,7 +695,7 @@
                 class="analyze-btn"
                 disabled
             >
-                🔬 Analyze Leaf
+                🔬 Analyze Leaves
             </button>
 
 
@@ -169,11 +709,15 @@
                 <div class="spinner"></div>
 
                 <div>
-                    <strong>AI is analyzing your leaf...</strong>
+
+                    <strong>
+                        AI is analyzing your leaves...
+                    </strong>
 
                     <span>
                         Please wait a moment
                     </span>
+
                 </div>
 
             </div>
@@ -406,7 +950,7 @@
     </footer>
 
 
-    <!-- JavaScript -->
+    <!-- ================= JAVASCRIPT ================= -->
 
     <script src="script.js"></script>
 
