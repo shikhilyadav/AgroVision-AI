@@ -4,15 +4,7 @@ from fastapi import (
     File,
     HTTPException
 )
-
-from fastapi.middleware.cors import (
-    CORSMiddleware
-)
-
-
-# ============================================================
-# CONFIG
-# ============================================================
+from fastapi.middleware.cors import CORSMiddleware
 
 from config import (
     BASE_DIR,
@@ -36,33 +28,22 @@ from config import (
     IISFM_API_URL,
 )
 
-
-# ============================================================
-# LOCATION SERVICE
-# ============================================================
-
 from location_service import (
     get_states,
-    get_districts,
+    get_districts
 )
-
-
-# ============================================================
-# DISEASE SERVICE
-# ============================================================
 
 from disease_service import (
     predict_single_image,
-    predict_images,
+    predict_images
 )
 
-
-# ============================================================
-# CROP SERVICE
-# ============================================================
-
 from crop_service import (
-    recommend_crops,
+    recommend_crops
+)
+
+from chat_service import (
+    chat_with_groq
 )
 
 
@@ -72,10 +53,7 @@ from crop_service import (
 
 app = FastAPI(
     title="AgroVision AI",
-    description=(
-        "AI-powered crop disease detection "
-        "and crop recommendation API"
-    ),
+    description="AI-powered crop disease detection, crop recommendation and agriculture chatbot API",
     version="1.0.0"
 )
 
@@ -99,7 +77,6 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-
     return {
         "message": "AgroVision AI API is running"
     }
@@ -111,7 +88,6 @@ def root():
 
 @app.get("/health")
 def health():
-
     return {
         "status": "healthy"
     }
@@ -123,7 +99,6 @@ def health():
 
 @app.get("/states")
 def states():
-
     return get_states()
 
 
@@ -132,13 +107,8 @@ def states():
 # ============================================================
 
 @app.get("/districts/{state}")
-def districts(
-    state: str
-):
-
-    return get_districts(
-        state
-    )
+def districts(state: str):
+    return get_districts(state)
 
 
 # ============================================================
@@ -149,31 +119,15 @@ def districts(
 async def predict(
     files: list[UploadFile] = File(...)
 ):
-    """
-    Predict crop disease from
-    one or more uploaded images.
-    """
-
     try:
 
-        # ----------------------------------------------------
-        # CHECK FILES
-        # ----------------------------------------------------
-
         if not files:
-
             raise HTTPException(
                 status_code=400,
                 detail="No images uploaded."
             )
 
-
-        # ----------------------------------------------------
-        # MAXIMUM IMAGE LIMIT
-        # ----------------------------------------------------
-
         if len(files) > MAX_IMAGES:
-
             raise HTTPException(
                 status_code=400,
                 detail=(
@@ -182,22 +136,12 @@ async def predict(
                 )
             )
 
-
-        # ----------------------------------------------------
-        # RUN PREDICTION
-        # ----------------------------------------------------
-
-        result = predict_images(
-            files
-        )
+        result = predict_images(files)
 
         return result
 
-
     except HTTPException:
-
         raise
-
 
     except ValueError as error:
 
@@ -205,7 +149,6 @@ async def predict(
             status_code=400,
             detail=str(error)
         )
-
 
     except Exception as error:
 
@@ -217,8 +160,8 @@ async def predict(
         raise HTTPException(
             status_code=500,
             detail=(
-                "An error occurred "
-                "while processing the images."
+                "An error occurred while "
+                "processing the images."
             )
         )
 
@@ -231,29 +174,14 @@ async def predict(
 async def recommend_crop_route(
     data: dict
 ):
-    """
-    Recommend suitable crops based on
-    season, soil, water, rainfall,
-    temperature and location.
-    """
-
     try:
 
-        # ----------------------------------------------------
-        # RUN CROP RECOMMENDATION
-        # ----------------------------------------------------
-
-        result = recommend_crops(
-            data
-        )
+        result = recommend_crops(data)
 
         return result
 
-
     except HTTPException:
-
         raise
-
 
     except Exception as error:
 
@@ -265,8 +193,80 @@ async def recommend_crop_route(
         raise HTTPException(
             status_code=500,
             detail=(
-                "An error occurred "
-                "while generating crop "
-                "recommendations."
+                "An error occurred while "
+                "generating crop recommendations."
+            )
+        )
+
+
+# ============================================================
+# AGRICULTURE CHATBOT
+# ============================================================
+
+@app.post("/chat")
+async def chat(
+    data: dict
+):
+    try:
+
+        # ----------------------------------------------------
+        # GET USER MESSAGE
+        # ----------------------------------------------------
+
+        message = data.get(
+            "message",
+            ""
+        )
+
+        # ----------------------------------------------------
+        # VALIDATE MESSAGE
+        # ----------------------------------------------------
+
+        if not message or not message.strip():
+
+            raise HTTPException(
+                status_code=400,
+                detail="Message cannot be empty."
+            )
+
+        # ----------------------------------------------------
+        # SEND MESSAGE TO GROQ
+        # ----------------------------------------------------
+
+        reply = chat_with_groq(
+            message
+        )
+
+        # ----------------------------------------------------
+        # RETURN RESPONSE
+        # ----------------------------------------------------
+
+        return {
+            "success": True,
+            "reply": reply
+        }
+
+    except HTTPException:
+        raise
+
+    except ValueError as error:
+
+        raise HTTPException(
+            status_code=400,
+            detail=str(error)
+        )
+
+    except Exception as error:
+
+        print(
+            "Chat error:",
+            error
+        )
+
+        raise HTTPException(
+            status_code=500,
+            detail=(
+                "An error occurred while "
+                "generating the response."
             )
         )
