@@ -4,9 +4,9 @@ from pathlib import Path
 from config import BASE_DIR
 
 
-# --------------------------------------------------
-# Agriculture data service
-# --------------------------------------------------
+# ============================================================
+# DATA SOURCE
+# ============================================================
 
 AGRICULTURE_DATA_PATH = (
     BASE_DIR
@@ -15,13 +15,18 @@ AGRICULTURE_DATA_PATH = (
 )
 
 
+# ============================================================
+# LOAD LOCAL FALLBACK DATA
+# ============================================================
+
 def load_district_crop_data():
     """
     Load district-wise crop evidence data.
 
-    Current file is being used as a temporary
-    data source. Later this service can be connected
-    to official agriculture/APY data.
+    This is currently the fallback data source.
+    Official government agriculture data can be
+    connected here later without changing the
+    recommendation engine.
     """
 
     if not AGRICULTURE_DATA_PATH.exists():
@@ -37,7 +42,11 @@ def load_district_crop_data():
             "r",
             encoding="utf-8"
         ) as file:
+
             data = json.load(file)
+
+        if not isinstance(data, dict):
+            return {}
 
         print(
             "Agriculture district crop data loaded:",
@@ -48,15 +57,21 @@ def load_district_crop_data():
         return data
 
     except Exception as error:
+
         print(
             "Agriculture data loading error:",
             error
         )
+
         return {}
 
 
 DISTRICT_CROP_DATA = load_district_crop_data()
 
+
+# ============================================================
+# NORMALIZATION
+# ============================================================
 
 def normalize_text(value):
     """
@@ -75,6 +90,32 @@ def normalize_text(value):
     )
 
 
+# ============================================================
+# FIND KEY
+# ============================================================
+
+def find_matching_key(data, target):
+    """
+    Find a dictionary key using normalized text.
+    """
+
+    if not isinstance(data, dict):
+        return None
+
+    target_normalized = normalize_text(target)
+
+    for key in data:
+
+        if normalize_text(key) == target_normalized:
+            return key
+
+    return None
+
+
+# ============================================================
+# DISTRICT CROP SCORE
+# ============================================================
+
 def get_district_crop_score(
     state,
     district,
@@ -82,56 +123,159 @@ def get_district_crop_score(
     crop_name
 ):
     """
-    Return district-wise crop evidence score.
+    Get district-wise crop evidence score.
+
+    Current source:
+        district_crop_data.json
 
     Returns:
         float between 0 and 1
     """
 
-    state_key = None
-    district_key = None
-    season_key = None
-    crop_key = None
-
-    # Find state
-    for key in DISTRICT_CROP_DATA:
-        if normalize_text(key) == normalize_text(state):
-            state_key = key
-            break
+    state_key = find_matching_key(
+        DISTRICT_CROP_DATA,
+        state
+    )
 
     if not state_key:
         return 0.0
 
-    # Find district
-    state_data = DISTRICT_CROP_DATA[state_key]
+    state_data = DISTRICT_CROP_DATA.get(
+        state_key,
+        {}
+    )
 
-    for key in state_data:
-        if normalize_text(key) == normalize_text(district):
-            district_key = key
-            break
+    district_key = find_matching_key(
+        state_data,
+        district
+    )
 
     if not district_key:
         return 0.0
 
-    # Find season
-    district_data = state_data[district_key]
+    district_data = state_data.get(
+        district_key,
+        {}
+    )
 
-    for key in district_data:
-        if normalize_text(key) == normalize_text(season):
-            season_key = key
-            break
+    season_key = find_matching_key(
+        district_data,
+        season
+    )
 
     if not season_key:
         return 0.0
 
-    # Find crop
-    season_data = district_data[season_key]
+    season_data = district_data.get(
+        season_key,
+        {}
+    )
 
-    for key, score in season_data.items():
-        if normalize_text(key) == normalize_text(crop_name):
-            try:
-                return float(score)
-            except (TypeError, ValueError):
-                return 0.0
+    crop_key = find_matching_key(
+        season_data,
+        crop_name
+    )
 
-    return 0.0
+    if not crop_key:
+        return 0.0
+
+    try:
+
+        score = float(
+            season_data[crop_key]
+        )
+
+        return max(
+            0.0,
+            min(1.0, score)
+        )
+
+    except (
+        TypeError,
+        ValueError
+    ):
+
+        return 0.0
+
+
+# ============================================================
+# DATA SOURCE STATUS
+# ============================================================
+
+def get_data_source_status():
+    """
+    Return information about the currently
+    active agriculture data source.
+    """
+
+    return {
+        "source": "local_fallback",
+        "source_file": str(
+            AGRICULTURE_DATA_PATH
+        ),
+        "official_api_connected": False,
+        "description": (
+            "Current district crop evidence "
+            "comes from local test data. "
+            "Official government APY data "
+            "is not connected yet."
+        )
+    }
+# ============================================================
+# DISTRICT DATA AVAILABILITY
+# ============================================================
+
+def has_district_crop_data(
+    state,
+    district,
+    season
+):
+    """
+    Check whether district-specific crop evidence
+    exists for the selected state, district and season.
+
+    Returns:
+        True  -> district/season data exists
+        False -> verified district data unavailable
+    """
+
+    state_key = find_matching_key(
+        DISTRICT_CROP_DATA,
+        state
+    )
+
+    if not state_key:
+        return False
+
+    state_data = DISTRICT_CROP_DATA.get(
+        state_key,
+        {}
+    )
+
+    district_key = find_matching_key(
+        state_data,
+        district
+    )
+
+    if not district_key:
+        return False
+
+    district_data = state_data.get(
+        district_key,
+        {}
+    )
+
+    season_key = find_matching_key(
+        district_data,
+        season
+    )
+
+    if not season_key:
+        return False
+
+    season_data = district_data.get(
+        season_key,
+        {}
+    )
+
+    return bool(season_data)
