@@ -28,6 +28,19 @@ model = tf.keras.models.load_model(
     compile=False
 )
 
+# Models exported with ``tf.saved_model.save`` are restored as TensorFlow
+# objects rather than Keras models. They expose a serving signature instead
+# of Keras's ``predict`` method.
+model_signature = None
+
+if not hasattr(model, "predict"):
+    model_signature = model.signatures.get("serving_default")
+
+    if model_signature is None:
+        raise RuntimeError(
+            "The disease model does not expose a serving_default signature."
+        )
+
 print("Model loaded successfully.")
 
 
@@ -156,10 +169,41 @@ def predict_single_image(image):
     # MODEL PREDICTION
     # --------------------------------------------------------
 
-    predictions = model.predict(
-        image_array,
-        verbose=0
-    )[0]
+    if hasattr(model, "predict"):
+
+        predictions = model.predict(
+            image_array,
+            verbose=0
+        )[0]
+
+    else:
+
+        _, keyword_inputs = (
+            model_signature.structured_input_signature
+        )
+
+        tensor_input = tf.constant(
+            image_array,
+            dtype=tf.float32
+        )
+
+        if keyword_inputs:
+
+            input_name = next(iter(keyword_inputs))
+
+            model_outputs = model_signature(
+                **{input_name: tensor_input}
+            )
+
+        else:
+
+            model_outputs = model_signature(
+                tensor_input
+            )
+
+        predictions = next(
+            iter(model_outputs.values())
+        ).numpy()[0]
 
     # --------------------------------------------------------
     # BEST PREDICTION
