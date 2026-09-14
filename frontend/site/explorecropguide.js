@@ -1824,7 +1824,7 @@ const normalizedData = {
      ========================================================= */
 
   const RECOMMEND_API_URL =
-    "/recommend-crops";
+    API_BASE_URL + "/recommend-crops";
 
   async function fetchCropRecommendations(
     formData

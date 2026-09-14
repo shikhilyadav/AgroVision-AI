@@ -443,7 +443,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var response =
           await fetch(
-            "/register",
+            API_BASE_URL + "/register",
             {
               method: "POST",
 

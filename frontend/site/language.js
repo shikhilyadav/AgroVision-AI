@@ -2327,7 +2327,7 @@
       input.disabled = true;
       const pending = addMessage("Thinking…", "kv-chat-bot kv-chat-pending");
       try {
-        const response = await fetch("/chat", {
+        const response = await fetch(API_BASE_URL + "/chat", {
           method: "POST",
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify({message})

@@ -2,7 +2,8 @@
    KISANVISION - CROP RECOMMENDATION HISTORY
    ========================================================= */
 
-const CROP_HISTORY_API_URL = "/crop-recommendation-history";
+const CROP_HISTORY_API_URL =
+  API_BASE_URL + "/crop-recommendation-history";
 
 
 /* =========================================================

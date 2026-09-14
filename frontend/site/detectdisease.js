@@ -12,8 +12,7 @@
    CONFIGURATION
    ========================= */
 
-// Same-origin API: FastAPI serves this site and the endpoints together.
-const API_URL = "/predict";
+const API_URL = API_BASE_URL + "/predict";
 
 // Backend expects image files using "files".
 const IMAGE_FIELD_NAME = "files";

@@ -3,8 +3,8 @@
    Crop Recommendation + Disease Detection
    ========================================================= */
 
-const CROP_HISTORY_API = "/crop-recommendation-history";
-const DISEASE_HISTORY_API = "/disease-history";
+const CROP_HISTORY_API = API_BASE_URL + "/crop-recommendation-history";
+const DISEASE_HISTORY_API = API_BASE_URL + "/disease-history";
 
 
 /* =========================================================
