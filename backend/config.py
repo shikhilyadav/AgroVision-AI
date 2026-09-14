@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 MODEL_PATH = (
     BASE_DIR /
     "models" /
-    "agrovision_best.keras"
+    "agrovision_savedmodel"
 )
 
 
