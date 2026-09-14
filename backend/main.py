@@ -2,9 +2,20 @@ from fastapi import (
     FastAPI,
     UploadFile,
     File,
-    HTTPException
+    HTTPException,
+    Header
 )
+
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
+
+from datetime import datetime, timezone
+
+
+# ============================================================
+# CONFIG
+# ============================================================
 
 from config import (
     BASE_DIR,
@@ -28,6 +39,11 @@ from config import (
     IISFM_API_URL,
 )
 
+
+# ============================================================
+# SERVICES
+# ============================================================
+
 from location_service import (
     get_states,
     get_districts
@@ -48,12 +64,33 @@ from chat_service import (
 
 from auth_service import (
     register_user,
-    login_user
+    login_user,
+    verify_access_token
 )
 
 from contact_service import (
     save_contact_message
 )
+
+
+# ============================================================
+# DATABASE
+# ============================================================
+
+from database import db
+
+
+# ============================================================
+# MONGODB COLLECTIONS
+# ============================================================
+
+disease_predictions_collection = db[
+    "disease_predictions"
+]
+
+crop_recommendation_history_collection = db[
+    "crop_recommendation_history"
+]
 
 
 # ============================================================
@@ -90,9 +127,11 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {
-        "message": "KisanVision API is running"
-    }
+    """Open the bundled web application."""
+
+    return RedirectResponse(
+        url="/windows.html"
+    )
 
 
 # ============================================================
@@ -101,6 +140,7 @@ def root():
 
 @app.get("/health")
 def health():
+
     return {
         "status": "healthy"
     }
@@ -112,6 +152,7 @@ def health():
 
 @app.get("/states")
 def states():
+
     return get_states()
 
 
@@ -121,7 +162,10 @@ def states():
 
 @app.get("/districts/{state}")
 def districts(state: str):
-    return get_districts(state)
+
+    return get_districts(
+        state
+    )
 
 
 # ============================================================
@@ -130,17 +174,44 @@ def districts(state: str):
 
 @app.post("/predict")
 async def predict(
-    files: list[UploadFile] = File(...)
+    files: list[UploadFile] = File(...),
+    authorization: str = Header(None)
 ):
+
     try:
 
+        # --------------------------------------------------------
+        # VERIFY LOGGED-IN USER
+        # --------------------------------------------------------
+
+        current_user = get_current_user(
+            authorization
+        )
+
+        user_id = current_user.get(
+            "user_id"
+        )
+
+        print(
+            "Authenticated prediction user:",
+            user_id
+        )
+
+
+        # --------------------------------------------------------
+        # VALIDATE FILES
+        # --------------------------------------------------------
+
         if not files:
+
             raise HTTPException(
                 status_code=400,
                 detail="No images uploaded."
             )
 
+
         if len(files) > MAX_IMAGES:
+
             raise HTTPException(
                 status_code=400,
                 detail=(
@@ -149,12 +220,130 @@ async def predict(
                 )
             )
 
-        result = predict_images(files)
+
+        # --------------------------------------------------------
+        # RUN AI PREDICTION
+        # --------------------------------------------------------
+
+        result = predict_images(
+            files
+        )
+
+
+        # --------------------------------------------------------
+        # GET MAIN PREDICTION
+        # --------------------------------------------------------
+
+        prediction = (
+            result.get("prediction")
+            or {}
+        )
+
+
+        # --------------------------------------------------------
+        # CREATE HISTORY DOCUMENT
+        # --------------------------------------------------------
+
+        history_document = {
+
+            # User comes from verified JWT
+            "user_id": user_id,
+
+            # Main prediction
+            "crop": prediction.get(
+                "crop"
+            ),
+
+            "disease": prediction.get(
+                "disease"
+            ),
+
+            "confidence": prediction.get(
+                "confidence"
+            ),
+
+            "confidence_level": prediction.get(
+                "confidence_level"
+            ),
+
+            # Top predictions
+            "top_predictions": result.get(
+                "top_predictions",
+                []
+            ),
+
+            # Individual predictions
+            "individual_predictions": result.get(
+                "individual_predictions",
+                []
+            ),
+
+            # Voting information
+            "voting": result.get(
+                "voting"
+            ),
+
+            # Number of images
+            "images_analyzed": len(files),
+
+            # Uploaded filenames
+            "filenames": [
+                file.filename
+                for file in files
+            ],
+
+            # UTC timestamp
+            "created_at": datetime.now(
+                timezone.utc
+            )
+        }
+
+
+        # --------------------------------------------------------
+        # SAVE HISTORY TO MONGODB
+        # --------------------------------------------------------
+
+        try:
+
+            insert_result = (
+                disease_predictions_collection.insert_one(
+                    history_document
+                )
+            )
+
+            history_id = str(
+                insert_result.inserted_id
+            )
+
+            result["history_id"] = history_id
+
+            print(
+                "Disease prediction history saved:",
+                history_id
+            )
+
+        except Exception as db_error:
+
+            # Prediction should still work even if
+            # history saving has an issue.
+
+            print(
+                "Disease prediction history save error:",
+                db_error
+            )
+
+
+        # --------------------------------------------------------
+        # RETURN RESULT
+        # --------------------------------------------------------
 
         return result
 
+
     except HTTPException:
+
         raise
+
 
     except ValueError as error:
 
@@ -162,6 +351,7 @@ async def predict(
             status_code=400,
             detail=str(error)
         )
+
 
     except Exception as error:
 
@@ -180,21 +370,293 @@ async def predict(
 
 
 # ============================================================
+# DISEASE PREDICTION HISTORY
+# ============================================================
+
+@app.get("/disease-history")
+async def disease_history(
+    authorization: str = Header(None)
+):
+
+    try:
+
+        # --------------------------------------------------------
+        # VERIFY LOGGED-IN USER
+        # --------------------------------------------------------
+
+        current_user = get_current_user(
+            authorization
+        )
+
+        user_id = current_user.get(
+            "user_id"
+        )
+
+        print(
+            "Fetching disease history for user:",
+            user_id
+        )
+
+
+        # --------------------------------------------------------
+        # GET ONLY THIS USER'S RECORDS
+        # --------------------------------------------------------
+
+        history = list(
+            disease_predictions_collection.find(
+                {
+                    "user_id": user_id
+                }
+            ).sort(
+                "created_at",
+                -1
+            )
+        )
+
+
+        # --------------------------------------------------------
+        # FORMAT HISTORY
+        # --------------------------------------------------------
+
+        formatted_history = []
+
+
+        for item in history:
+
+            created_at = item.get(
+                "created_at"
+            )
+
+
+            formatted_history.append(
+                {
+                    "id": str(
+                        item.get("_id")
+                    ),
+
+                    "crop": item.get(
+                        "crop"
+                    ),
+
+                    "disease": item.get(
+                        "disease"
+                    ),
+
+                    "confidence": item.get(
+                        "confidence"
+                    ),
+
+                    "confidence_level": item.get(
+                        "confidence_level"
+                    ),
+
+                    "images_analyzed": item.get(
+                        "images_analyzed",
+                        0
+                    ),
+
+                    "filenames": item.get(
+                        "filenames",
+                        []
+                    ),
+
+                    "top_predictions": item.get(
+                        "top_predictions",
+                        []
+                    ),
+
+                    "individual_predictions": item.get(
+                        "individual_predictions",
+                        []
+                    ),
+
+                    "voting": item.get(
+                        "voting"
+                    ),
+
+                    "created_at": (
+                        created_at.isoformat()
+                        if created_at
+                        else None
+                    )
+                }
+            )
+
+
+        # --------------------------------------------------------
+        # RETURN HISTORY
+        # --------------------------------------------------------
+
+        return {
+            "success": True,
+            "count": len(
+                formatted_history
+            ),
+            "history": formatted_history
+        }
+
+
+    except HTTPException:
+
+        raise
+
+
+    except Exception as error:
+
+        print(
+            "Disease history error:",
+            error
+        )
+
+        raise HTTPException(
+            status_code=500,
+            detail=(
+                "An error occurred while "
+                "fetching disease history."
+            )
+        )
+
+
+# ============================================================
 # CROP RECOMMENDATION
 # ============================================================
 
 @app.post("/recommend-crops")
 async def recommend_crop_route(
-    data: dict
+    data: dict,
+    authorization: str = Header(None)
 ):
+
     try:
 
-        result = recommend_crops(data)
+        # --------------------------------------------------------
+        # VERIFY LOGGED-IN USER
+        # --------------------------------------------------------
+
+        current_user = get_current_user(
+            authorization
+        )
+
+        user_id = current_user.get(
+            "user_id"
+        )
+
+        print(
+            "Authenticated crop recommendation user:",
+            user_id
+        )
+
+
+        # --------------------------------------------------------
+        # RUN EXISTING CROP RECOMMENDATION LOGIC
+        # --------------------------------------------------------
+
+        result = recommend_crops(
+            data
+        )
+
+
+        # --------------------------------------------------------
+        # CREATE CROP RECOMMENDATION HISTORY
+        # --------------------------------------------------------
+
+        history_document = {
+
+            # User from verified JWT
+            "user_id": user_id,
+
+            # Farmer inputs
+            "inputs": {
+                "state": data.get(
+                    "state"
+                ),
+
+                "district": data.get(
+                    "district"
+                ),
+
+                "season": data.get(
+                    "season"
+                ),
+
+                "soil_type": data.get(
+                    "soil_type"
+                ),
+
+                "water_availability": data.get(
+                    "water_availability"
+                ),
+
+                "temperature": data.get(
+                    "temperature"
+                ),
+
+                "rainfall": data.get(
+                    "rainfall"
+                )
+            },
+
+            # Complete recommendation result
+            "recommendation_result": result,
+
+            # Timestamp
+            "created_at": datetime.now(
+                timezone.utc
+            )
+        }
+
+
+        # --------------------------------------------------------
+        # SAVE CROP HISTORY TO MONGODB
+        # --------------------------------------------------------
+
+        try:
+
+            insert_result = (
+                crop_recommendation_history_collection.insert_one(
+                    history_document
+                )
+            )
+
+            history_id = str(
+                insert_result.inserted_id
+            )
+
+            print(
+                "Crop recommendation history saved:",
+                history_id
+            )
+
+        except Exception as db_error:
+
+            # Recommendation should still work if
+            # history saving fails.
+
+            print(
+                "Crop recommendation history save error:",
+                db_error
+            )
+
+
+        # --------------------------------------------------------
+        # RETURN EXISTING RECOMMENDATION RESULT
+        # --------------------------------------------------------
 
         return result
 
+
     except HTTPException:
+
         raise
+
+
+    except ValueError as error:
+
+        raise HTTPException(
+            status_code=400,
+            detail=str(error)
+        )
+
 
     except Exception as error:
 
@@ -213,6 +675,126 @@ async def recommend_crop_route(
 
 
 # ============================================================
+# CROP RECOMMENDATION HISTORY
+# ============================================================
+
+@app.get("/crop-recommendation-history")
+async def crop_recommendation_history(
+    authorization: str = Header(None)
+):
+
+    try:
+
+        # --------------------------------------------------------
+        # VERIFY LOGGED-IN USER
+        # --------------------------------------------------------
+
+        current_user = get_current_user(
+            authorization
+        )
+
+        user_id = current_user.get(
+            "user_id"
+        )
+
+        print(
+            "Fetching crop recommendation history for user:",
+            user_id
+        )
+
+
+        # --------------------------------------------------------
+        # GET ONLY THIS USER'S RECORDS
+        # --------------------------------------------------------
+
+        history = list(
+            crop_recommendation_history_collection.find(
+                {
+                    "user_id": user_id
+                }
+            ).sort(
+                "created_at",
+                -1
+            )
+        )
+
+
+        # --------------------------------------------------------
+        # FORMAT HISTORY
+        # --------------------------------------------------------
+
+        formatted_history = []
+
+
+        for item in history:
+
+            created_at = item.get(
+                "created_at"
+            )
+
+
+            formatted_history.append(
+                {
+                    "id": str(
+                        item.get("_id")
+                    ),
+
+                    "inputs": item.get(
+                        "inputs",
+                        {}
+                    ),
+
+                    "recommendation_result": item.get(
+                        "recommendation_result",
+                        {}
+                    ),
+
+                    "created_at": (
+                        created_at.isoformat()
+                        if created_at
+                        else None
+                    )
+                }
+            )
+
+
+        # --------------------------------------------------------
+        # RETURN HISTORY
+        # --------------------------------------------------------
+
+        return {
+            "success": True,
+
+            "count": len(
+                formatted_history
+            ),
+
+            "history": formatted_history
+        }
+
+
+    except HTTPException:
+
+        raise
+
+
+    except Exception as error:
+
+        print(
+            "Crop recommendation history error:",
+            error
+        )
+
+        raise HTTPException(
+            status_code=500,
+            detail=(
+                "An error occurred while "
+                "fetching crop recommendation history."
+            )
+        )
+
+
+# ============================================================
 # AGRICULTURE CHATBOT
 # ============================================================
 
@@ -220,12 +802,14 @@ async def recommend_crop_route(
 async def chat(
     data: dict
 ):
+
     try:
 
         message = data.get(
             "message",
             ""
         )
+
 
         if not message or not message.strip():
 
@@ -234,17 +818,22 @@ async def chat(
                 detail="Message cannot be empty."
             )
 
+
         reply = chat_with_groq(
             message
         )
+
 
         return {
             "success": True,
             "reply": reply
         }
 
+
     except HTTPException:
+
         raise
+
 
     except ValueError as error:
 
@@ -252,6 +841,7 @@ async def chat(
             status_code=400,
             detail=str(error)
         )
+
 
     except Exception as error:
 
@@ -277,6 +867,7 @@ async def chat(
 async def register(
     data: dict
 ):
+
     try:
 
         name = data.get(
@@ -299,6 +890,7 @@ async def register(
             ""
         )
 
+
         result = register_user(
             name=name,
             mobile=mobile,
@@ -306,7 +898,9 @@ async def register(
             password=password
         )
 
+
         return result
+
 
     except ValueError as error:
 
@@ -314,6 +908,7 @@ async def register(
             status_code=400,
             detail=str(error)
         )
+
 
     except Exception as error:
 
@@ -339,6 +934,7 @@ async def register(
 async def login(
     data: dict
 ):
+
     try:
 
         identifier = data.get(
@@ -351,12 +947,15 @@ async def login(
             ""
         )
 
+
         result = login_user(
             identifier=identifier,
             password=password
         )
 
+
         return result
+
 
     except ValueError as error:
 
@@ -364,6 +963,7 @@ async def login(
             status_code=401,
             detail=str(error)
         )
+
 
     except Exception as error:
 
@@ -382,6 +982,80 @@ async def login(
 
 
 # ============================================================
+# AUTHENTICATION HELPER
+# ============================================================
+
+def get_current_user(
+    authorization: str = Header(None)
+):
+
+    # --------------------------------------------------------
+    # CHECK AUTHORIZATION HEADER
+    # --------------------------------------------------------
+
+    if not authorization:
+
+        raise HTTPException(
+            status_code=401,
+            detail="Authentication token is required."
+        )
+
+
+    # --------------------------------------------------------
+    # CHECK BEARER FORMAT
+    # --------------------------------------------------------
+
+    if not authorization.startswith(
+        "Bearer "
+    ):
+
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid authentication format."
+        )
+
+
+    # --------------------------------------------------------
+    # EXTRACT TOKEN
+    # --------------------------------------------------------
+
+    token = authorization.replace(
+        "Bearer ",
+        "",
+        1
+    ).strip()
+
+
+    if not token:
+
+        raise HTTPException(
+            status_code=401,
+            detail="Authentication token is required."
+        )
+
+
+    # --------------------------------------------------------
+    # VERIFY TOKEN
+    # --------------------------------------------------------
+
+    try:
+
+        payload = verify_access_token(
+            token
+        )
+
+        return payload
+
+
+    except ValueError as error:
+
+        raise HTTPException(
+            status_code=401,
+            detail=str(error)
+        )
+
+
+# ============================================================
 # CONTACT FORM
 # ============================================================
 
@@ -389,6 +1063,7 @@ async def login(
 async def contact(
     data: dict
 ):
+
     try:
 
         name = data.get(
@@ -406,13 +1081,16 @@ async def contact(
             ""
         )
 
+
         result = save_contact_message(
             name=name,
             email=email,
             message=message
         )
 
+
         return result
+
 
     except ValueError as error:
 
@@ -420,6 +1098,7 @@ async def contact(
             status_code=400,
             detail=str(error)
         )
+
 
     except Exception as error:
 
@@ -435,3 +1114,22 @@ async def contact(
                 "submitting your message."
             )
         )
+
+
+# ============================================================
+# SERVE FRONTEND
+# ============================================================
+
+FRONTEND_DIR = BASE_DIR / "frontend" / "site"
+
+
+if FRONTEND_DIR.is_dir():
+
+    app.mount(
+        "/",
+        StaticFiles(
+            directory=str(FRONTEND_DIR),
+            html=True
+        ),
+        name="frontend"
+    )

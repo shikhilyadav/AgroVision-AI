@@ -1,0 +1,430 @@
+/* Kisan Vision — Global visual consistency layer
+   Step 1: common buttons across every page
+   Step 2: common language selector trigger
+   Step 3: common header logo typography/icon
+   Loaded after each page's own CSS. Does not replace page layouts. */
+
+:root{
+  --kv-master-green:#166534;
+  --kv-master-deep:#0b4426;
+  --kv-master-light:#f9fcf7;
+  --kv-master-mint:#edf5ea;
+  --kv-master-line:#d8e6d4;
+  --kv-master-muted:#50705e;
+}
+
+/* =========================================================
+   MASTER NAV PILLS — based on windows.html / rs.css
+   ========================================================= */
+.main-nav a:not(.login-button),
+.primary-nav a:not(.login-link),
+.kv-nav-list .kv-pill,
+.kv-nav-menu .kv-nav-link,
+.nav-links .nav-link,
+.kv-nav-links > a,
+.navbar .nav-links > a,
+.navbar .nav-links a:not(.login-btn){
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:40px !important;
+  padding:11px 16px !important;
+  border:1px solid rgba(22,101,52,.09) !important;
+  border-radius:999px !important;
+  background:linear-gradient(145deg,#f9fcf7,#edf5ea) !important;
+  color:#50705e !important;
+  font:700 12px 'Outfit','Plus Jakarta Sans',sans-serif !important;
+  text-decoration:none !important;
+  white-space:nowrap !important;
+  box-shadow:4px 5px 12px rgba(42,92,52,.09),-4px -4px 10px rgba(255,255,255,.95),inset 0 1px 0 rgba(255,255,255,.85) !important;
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease,color .22s ease,border-color .22s ease !important;
+}
+
+.main-nav a:not(.login-button):hover,
+.primary-nav a:not(.login-link):hover,
+.kv-nav-list .kv-pill:hover,
+.kv-nav-menu .kv-nav-link:hover,
+.nav-links .nav-link:hover,
+.kv-nav-links > a:hover,
+.navbar .nav-links > a:hover,
+.navbar .nav-links a:not(.login-btn):hover{
+  color:var(--kv-master-green) !important;
+  background:linear-gradient(145deg,#fff,#e7f3e3) !important;
+  border-color:#cfe2c9 !important;
+  transform:translateY(-2px) !important;
+  box-shadow:6px 8px 18px rgba(42,92,52,.13),-5px -5px 12px rgba(255,255,255,1),inset 0 1px 0 rgba(255,255,255,.95) !important;
+}
+
+.main-nav a.active:not(.login-button),
+.primary-nav a.active:not(.login-link),
+.kv-nav-list .kv-pill-active,
+.kv-nav-menu .kv-nav-link.is-active,
+.nav-links .nav-link.active,
+.kv-nav-links > a.kv-active,
+.kv-nav-links > a.active,
+.navbar .nav-links > a.active{
+  color:#fff !important;
+  background:linear-gradient(145deg,#19733f,#126332) !important;
+  border-color:#126332 !important;
+  box-shadow:5px 6px 14px rgba(22,101,52,.18),-3px -3px 8px rgba(255,255,255,.65),inset 0 1px 0 rgba(255,255,255,.16) !important;
+}
+
+.main-nav a.active:not(.login-button):hover,
+.primary-nav a.active:not(.login-link):hover,
+.kv-nav-list .kv-pill-active:hover,
+.kv-nav-menu .kv-nav-link.is-active:hover,
+.nav-links .nav-link.active:hover,
+.kv-nav-links > a.kv-active:hover,
+.kv-nav-links > a.active:hover,
+.navbar .nav-links > a.active:hover{
+  color:#fff !important;
+  background:linear-gradient(145deg,#1d7944,#146a36) !important;
+  transform:translateY(-2px) !important;
+}
+
+/* =========================================================
+   MASTER PRIMARY / SECONDARY CTA BUTTONS
+   ========================================================= */
+.primary-button,
+.button-primary,
+.btn-primary,
+.kv-btn-primary,
+.kv-btn--primary,
+.login-button,
+.login-link,
+.btn-login-nav,
+.login-btn,
+.explore-button,
+.primary-cta{
+  border-radius:999px !important;
+  background:linear-gradient(145deg,#19733f,#126332) !important;
+  border:1px solid #126b3a !important;
+  color:#fff !important;
+  box-shadow:5px 6px 14px rgba(22,101,52,.18),-3px -3px 8px rgba(255,255,255,.65),inset 0 1px 0 rgba(255,255,255,.16) !important;
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease !important;
+}
+
+.primary-button:hover,
+.button-primary:hover,
+.btn-primary:hover,
+.kv-btn-primary:hover,
+.kv-btn--primary:hover,
+.login-button:hover,
+.login-link:hover,
+.btn-login-nav:hover,
+.login-btn:hover,
+.explore-button:hover,
+.primary-cta:hover{
+  background:linear-gradient(145deg,#1d7944,#146a36) !important;
+  transform:translateY(-2px) !important;
+  box-shadow:7px 9px 20px rgba(22,101,52,.22),-4px -4px 10px rgba(255,255,255,.75),inset 0 1px 0 rgba(255,255,255,.18) !important;
+}
+
+.text-button,
+.button-secondary,
+.button-light,
+.btn-secondary,
+.kv-btn-outline,
+.kv-btn--secondary,
+.read-article-btn,
+.back-btn{
+  border-radius:999px !important;
+  background:linear-gradient(145deg,#f9fcf7,#edf5ea) !important;
+  border:1px solid #d8e6d4 !important;
+  color:#176b3b !important;
+  box-shadow:4px 5px 12px rgba(42,92,52,.07),-4px -4px 10px rgba(255,255,255,.95),inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+
+.text-button:hover,
+.button-secondary:hover,
+.button-light:hover,
+.btn-secondary:hover,
+.kv-btn-outline:hover,
+.kv-btn--secondary:hover,
+.read-article-btn:hover,
+.back-btn:hover{
+  background:#fff !important;
+  border-color:#cfe2c9 !important;
+  color:var(--kv-master-green) !important;
+  transform:translateY(-2px) !important;
+}
+
+/* Small action buttons keep the same family without becoming huge. */
+.kv-btn-ghost,
+.kv-btn-danger,
+.btn,
+.small-btn,
+.action-btn{
+  border-radius:999px !important;
+}
+
+/* =========================================================
+   MASTER LANGUAGE TRIGGER — based on Login's lang-select
+   ========================================================= */
+.language-select,
+.lang-select,
+.kv-lang{
+  min-height:40px !important;
+  padding:10px 16px !important;
+  border:1.5px solid #d8e6d4 !important;
+  border-radius:999px !important;
+  background:#fff !important;
+  color:#183226 !important;
+  font:500 14px 'Plus Jakarta Sans','Outfit',sans-serif !important;
+  box-shadow:0 2px 8px rgba(22,101,52,.05) !important;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background .22s ease !important;
+}
+
+.language-select:hover,
+.lang-select:hover,
+.kv-lang:hover{
+  border-color:#166534 !important;
+  background:#fff !important;
+  transform:translateY(-1px) !important;
+  box-shadow:0 5px 14px rgba(22,101,52,.10) !important;
+}
+
+/* Globe icon for selectors that do not already contain one. */
+.language-select::before,
+.kv-lang::before{
+  content:'🌐';
+  display:inline-block;
+  margin-right:7px;
+  font-size:13px;
+  line-height:1;
+}
+
+.language-select select{
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  border:0 !important;
+  outline:0 !important;
+  background:transparent !important;
+  color:#183226 !important;
+  font:500 14px 'Plus Jakarta Sans','Outfit',sans-serif !important;
+  cursor:pointer !important;
+  min-width:82px;
+  padding:0 16px 0 0 !important;
+}
+
+.language-select{
+  position:relative !important;
+}
+
+.language-select::after{
+  content:'⌄';
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-55%);
+  color:#587064;
+  pointer-events:none;
+  font-size:13px;
+}
+
+/* Login's Font Awesome globe already exists, so don't add another globe. */
+.lang-select::before{ content:none; }
+
+/* =========================================================
+   MASTER HEADER LOGO
+   Contact page's leaf mark is the reference.
+   ========================================================= */
+.brand,
+.kv-brand,
+.logo{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  text-decoration:none !important;
+  white-space:nowrap !important;
+}
+
+/* Replace page-specific marks with the same simple leaf mark. */
+.brand-mark,
+.brand-icon,
+.kv-brand-mark,
+.kv-brand__leaf,
+.logo > span:first-child{
+  width:35px !important;
+  height:35px !important;
+  min-width:35px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  border-radius:11px !important;
+  background:var(--kv-master-green) !important;
+  color:#fff !important;
+  box-shadow:0 5px 13px rgba(22,101,52,.17) !important;
+  font-size:20px !important;
+  transform:none !important;
+}
+
+.brand-mark,
+.brand-icon,
+.kv-brand-mark{
+  font-size:0 !important;
+}
+.brand-mark::before,
+.brand-icon::before,
+.kv-brand-mark::before{
+  content:'🌿';
+  font-size:19px;
+  line-height:1;
+}
+.brand-mark > *,
+.brand-icon > *,
+.kv-brand-mark > *{
+  display:none !important;
+}
+
+/* Contact's actual leaf wrapper stays visually identical. */
+.kv-brand__leaf{
+  font-size:0 !important;
+}
+.kv-brand__leaf::before{
+  content:'🌿';
+  font-size:20px;
+}
+
+.logo > span:first-child{ font-size:0 !important; }
+.logo > span:first-child::before{ content:'🌿'; font-size:20px; }
+
+/* Header wordmark: Kisan larger, Vision slightly smaller. */
+.brand-name,
+.kv-brand__name,
+.kv-brand-text,
+.logo h2{
+  font-family:'Outfit',sans-serif !important;
+  font-size:23px !important;
+  line-height:1 !important;
+  font-weight:700 !important;
+  letter-spacing:-.045em !important;
+  color:var(--kv-master-deep) !important;
+}
+
+.brand-name strong,
+.brand em,
+.kv-brand-accent,
+.kv-brand__name .kv-brand-accent{
+  color:#54a356 !important;
+  font-weight:600 !important;
+}
+
+/* For the newly split wordmark spans. */
+.kv-brand-main,
+.brand-main{
+  color:var(--kv-master-deep) !important;
+  font-weight:750 !important;
+  font-size:23px !important;
+}
+.kv-brand-accent,
+.brand-accent{
+  color:#54a356 !important;
+  font-weight:600 !important;
+  font-size:19px !important;
+}
+
+/* Contact/login brand tagline remains below the wordmark where present. */
+.brand-text{ gap:3px !important; }
+.brand-tagline{ font-size:10px !important; }
+
+/* Prevent old underline effects from returning on the master pills. */
+.nav-link::after,
+.kv-nav-links a::after,
+.nav-links a::after{ display:none !important; }
+
+/* =========================================================
+   RESPONSIVE SAFETY
+   ========================================================= */
+@media (max-width:780px){
+  .language-select,
+  .lang-select,
+  .kv-lang{ min-height:40px !important; }
+  .brand-name,
+  .kv-brand__name,
+  .kv-brand-text,
+  .logo h2{ font-size:21px !important; }
+  .kv-brand-main,
+  .brand-main{ font-size:21px !important; }
+  .kv-brand-accent,
+  .brand-accent{ font-size:18px !important; }
+}
+
+
+/* KISAN VISION GLOBAL CHATBOT */
+.kv-chatbot {
+  position: fixed; right: 24px; bottom: 24px; z-index: 9999;
+  width: 58px; height: 58px; border: 1px solid #126b3a;
+  border-radius: 50%; background: linear-gradient(145deg,#19733f,#126332);
+  color: #fff; display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; box-shadow: 0 8px 22px rgba(22,101,52,.20);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.kv-chatbot:hover { transform: translateY(-2px); box-shadow: 0 11px 26px rgba(22,101,52,.26); }
+.kv-chatbot:focus-visible { outline: 3px solid #a7d59a; outline-offset: 3px; }
+.kv-chatbot svg { width: 26px; height: 26px; }
+.kv-blog-language { margin-right: 2px; }
+.kv-blog-language select {
+  min-height: 40px; padding: 0 30px 0 15px; border: 1px solid #dcebd7;
+  border-radius: 999px; background: linear-gradient(145deg,#f9fcf7,#edf5ea);
+  color:#50705e; font: 600 14px/1.2 Outfit, sans-serif;
+  box-shadow: 0 2px 8px rgba(22,101,52,.05); cursor:pointer;
+}
+@media (max-width: 780px) { .kv-chatbot { width: 52px; height: 52px; right: 16px; bottom: 16px; } }
+
+/* ============================================================
+   BLOG HEADER LANGUAGE BUTTON — final Home-style override
+   Loaded after page CSS so it remains consistent on every Blog page.
+   ============================================================ */
+.main-nav .language-select,
+.kv-nav-actions .kv-blog-language {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:4px !important;
+  width:auto !important;
+  min-width:0 !important;
+  max-width:max-content !important;
+  height:40px !important;
+  min-height:40px !important;
+  padding:10px 15px !important;
+  margin:0 !important;
+  border:1px solid rgba(22,101,52,.09) !important;
+  border-radius:999px !important;
+  background:linear-gradient(145deg,#f9fcf7,#edf5ea) !important;
+  color:#166534 !important;
+  font:700 12px/1.2 Outfit,sans-serif !important;
+  box-shadow:4px 5px 12px rgba(42,92,52,.09),-4px -4px 10px rgba(255,255,255,.95),inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+.main-nav .language-select:hover,
+.kv-nav-actions .kv-blog-language:hover {
+  background:linear-gradient(145deg,#fff,#e7f3e3) !important;
+  border-color:#cfe2c9 !important;
+  transform:translateY(-1px) !important;
+  box-shadow:6px 8px 18px rgba(42,92,52,.13),-5px -5px 12px rgba(255,255,255,1) !important;
+}
+.main-nav .language-select::before,
+.main-nav .language-select::after,
+.kv-nav-actions .kv-blog-language::before,
+.kv-nav-actions .kv-blog-language::after {
+  content:none !important;
+  display:none !important;
+}
+.main-nav .language-select select,
+.kv-nav-actions .kv-blog-language select {
+  appearance:auto !important;
+  -webkit-appearance:auto !important;
+  width:auto !important;
+  min-width:0 !important;
+  max-width:none !important;
+  height:auto !important;
+  min-height:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+  outline:0 !important;
+  background:transparent !important;
+  color:#166534 !important;
+  font:700 12px/1.2 Outfit,sans-serif !important;
+  cursor:pointer !important;
+}

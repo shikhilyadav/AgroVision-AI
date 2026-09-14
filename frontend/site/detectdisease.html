@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detect Disease | Kisan Vision</title>
+<meta content="Upload crop leaf images and let Kisan Vision AI detect diseases quickly and accurately." name="description"/>
+<link href="detectdisease.css" rel="stylesheet"/>
+<link rel="stylesheet" href="kv-global-theme.css">
+</head>
+<body>
+<!-- =========================
+       HEADER / NAVBAR
+       (Matches existing Kisan Vision navbar style)
+       ========================= -->
+<header class="kv-header" role="banner">
+<div class="kv-container kv-navbar">
+<a aria-label="Kisan Vision Home" class="kv-brand" href="windows.html">
+<!-- The header uses a CSS logo mark, so no separate logo asset is required here. -->
+<span aria-hidden="true" class="kv-brand-mark">
+<svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C7 2 3 6 3 11c0 6 5 11 9 11s9-5 9-11c0-5-4-9-9-9zm0 4c3 0 5 2.2 5 5 0 2.7-2 5-5 5s-5-2.3-5-5c0-2.8 2-5 5-5z"></path>
+</svg>
+</span>
+<span class="kv-brand-text"><span class="kv-brand-main">Kisan</span> <span class="kv-brand-accent">Vision</span></span>
+</a>
+<button aria-expanded="false" aria-label="Toggle navigation menu" class="kv-menu-toggle" id="kvMenuToggle">
+<span></span><span></span><span></span>
+</button>
+<nav aria-label="Primary" class="kv-nav" id="kvNav">
+<ul class="kv-nav-list">
+<li><a class="kv-pill" data-i18n-text="Home" href="windows.html">Home</a></li>
+<li><a class="kv-pill" data-i18n-text="How It Works" href="howitwork.html">How It Works</a></li>
+<li><a aria-current="page" class="kv-pill kv-pill-active" data-i18n-text="Detect Disease" href="detectdisease.html">Detect Disease</a></li>
+<li><a class="kv-pill" data-i18n-text="Farming Guide" href="farmingguide.html">Farming Guide</a></li>
+<li><a class="kv-pill" data-i18n-text="Blog" href="blog.html">Blog</a></li>
+<li><a class="kv-pill" data-i18n-text="Contact" href="contact.html">Contact</a></li>
+<li>
+<button aria-label="Language selector" class="kv-pill kv-lang" type="button">
+              English
+              <svg aria-hidden="true" fill="currentColor" height="14" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5H7z"></path></svg>
+</button>
+</li>
+<li><a class="kv-pill kv-login" data-i18n-text="Login" href="login.html">Login</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<!-- =========================
+       MAIN CONTENT
+       ========================= -->
+<main class="kv-main">
+<section class="kv-container kv-hero">
+<span class="kv-eyebrow" data-i18n-text="AI-Powered Crop Health">AI-Powered Crop Health</span>
+<h1 class="kv-title" data-i18n-text="Detect Crop Disease">Detect Crop Disease</h1>
+<p class="kv-subtitle" data-i18n-text="Upload 1 to 3 clear images of the same leaf for better AI analysis">Upload 1 to 3 clear images of the same leaf for better AI analysis</p>
+</section>
+<!-- Upload Card -->
+<section class="kv-container">
+<div aria-live="polite" class="kv-card kv-upload-card" id="kvUploadCard">
+<div aria-label="Upload leaf images. Click or drag and drop." class="kv-dropzone" id="kvDropzone" role="button" tabindex="0">
+<div aria-hidden="true" class="kv-dropzone-icon">
+<svg fill="currentColor" height="42" viewbox="0 0 24 24" width="42" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 13v6H5v-6H3v6a2 2 0 002 2h14a2 2 0 002-2v-6h-2zM12 3l-5 5h3v6h4V8h3l-5-5z"></path>
+</svg>
+</div>
+<h3 class="kv-dropzone-title" data-i18n-text="Drop leaf images here or click to browse">Drop leaf images here or click to browse</h3>
+<p class="kv-dropzone-hint" data-i18n-text="JPG, PNG, or WEBP · Up to 3 images · 10 MB each">JPG, PNG, or WEBP · Up to 3 images · 10 MB each</p>
+<button class="kv-btn kv-btn-outline" data-i18n-text="Choose Images" id="kvBrowseBtn" type="button">Choose Images</button>
+<input accept="image/jpeg,image/jpg,image/png,image/webp" aria-hidden="true" hidden="" id="kvFileInput" multiple="" type="file"/>
+</div>
+<!-- Selected Images Preview -->
+<div class="kv-selected" hidden="" id="kvSelectedWrap">
+<div class="kv-selected-header">
+<h4 class="kv-section-title"><span data-i18n-text="Selected Images">Selected Images </span><span class="kv-count" id="kvCount">0/3</span></h4>
+<div class="kv-selected-actions">
+<button class="kv-btn kv-btn-ghost" data-i18n-text="+ Add More Images" id="kvAddMore" type="button">+ Add More Images</button>
+<button class="kv-btn kv-btn-ghost kv-btn-danger" data-i18n-text="Remove Images" id="kvRemoveAll" type="button">Remove Images</button>
+</div>
+</div>
+<div class="kv-previews" id="kvPreviews" role="list"></div>
+</div>
+<!-- Inline Message / Validation -->
+<div class="kv-inline-message" hidden="" id="kvMessage" role="alert"></div>
+<!-- Analyze Button -->
+<div class="kv-analyze-row">
+<button class="kv-btn kv-btn-primary kv-btn-lg" disabled="" id="kvAnalyzeBtn" type="button">
+<span class="kv-btn-label" data-i18n-text="Analyze Leaves">Analyze Leaves</span>
+<span aria-hidden="true" class="kv-spinner"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- =========================
+         RESULT SECTION (hidden initially)
+         ========================= -->
+<section aria-live="polite" class="kv-container kv-result" hidden="" id="kvResult">
+<div class="kv-result-badge" data-i18n-text="AI ANALYSIS COMPLETE">AI ANALYSIS COMPLETE</div>
+<h2 class="kv-result-title" data-i18n-text="Detection Result">Detection Result</h2>
+<div class="kv-result-grid">
+<div class="kv-result-card">
+<span class="kv-result-label" data-i18n-text="CROP">CROP</span>
+<strong class="kv-result-value" id="kvCrop">—</strong>
+</div>
+<div class="kv-result-card">
+<span class="kv-result-label" data-i18n-text="DISEASE / CONDITION">DISEASE / CONDITION</span>
+<strong class="kv-result-value" id="kvDisease">—</strong>
+</div>
+<div class="kv-result-card kv-result-card-accent">
+<span class="kv-result-label" data-i18n-text="AI CONFIDENCE">AI CONFIDENCE</span>
+<strong class="kv-result-value" id="kvConfidence">—</strong>
+<div aria-hidden="true" class="kv-confidence-bar">
+<div class="kv-confidence-fill" id="kvConfidenceFill"></div>
+</div>
+</div>
+</div>
+<!-- Condition Details -->
+<div class="kv-details-grid">
+<article class="kv-card kv-detail-card" id="kvAboutCard">
+<h3 class="kv-detail-title" data-i18n-text="About the Condition">About the Condition</h3>
+<p class="kv-detail-body" id="kvAboutBody">—</p>
+</article>
+<article class="kv-card kv-detail-card" id="kvSymptomsCard">
+<h3 class="kv-detail-title" data-i18n-text="Symptoms">Symptoms</h3>
+<ul class="kv-detail-list" id="kvSymptomsList"></ul>
+<p class="kv-detail-body kv-detail-empty" hidden="" id="kvSymptomsEmpty"><span data-i18n-text="No specific symptom data available for this prediction.">No specific symptom data available for this prediction.</span></p>
+</article>
+<article class="kv-card kv-detail-card" id="kvManageCard">
+<h3 class="kv-detail-title" data-i18n-text="Recommended Management">Recommended Management</h3>
+<ul class="kv-detail-list" id="kvManageList"></ul>
+<p class="kv-detail-body kv-detail-empty" hidden="" id="kvManageEmpty"><span data-i18n-text="No management recommendations available.">No management recommendations available.</span></p>
+</article>
+<article class="kv-card kv-detail-card" id="kvTreatCard">
+<h3 class="kv-detail-title" data-i18n-text="Treatment Guidance">Treatment Guidance</h3>
+<p class="kv-detail-body" id="kvTreatBody">—</p>
+</article>
+</div>
+<!-- Alternative Predictions -->
+<div class="kv-card kv-alt-card">
+<div class="kv-alt-header">
+<h3 class="kv-detail-title" data-i18n-text="Alternative Predictions">Alternative Predictions</h3>
+<p class="kv-detail-subtitle" data-i18n-text="Other possibilities considered by the AI model">Other possibilities considered by the AI model</p>
+</div>
+<ol class="kv-alt-list" id="kvAltList"></ol>
+<p class="kv-detail-body kv-detail-empty" hidden="" id="kvAltEmpty"><span data-i18n-text="No alternative predictions returned.">No alternative predictions returned.</span></p>
+</div>
+<!-- Confidence Message -->
+<div class="kv-confidence-msg" id="kvConfidenceMsg" role="status"></div>
+<!-- Disclaimer -->
+<div class="kv-disclaimer" role="note">
+<strong><span data-i18n-text="Important:">Important:</span></strong><span data-i18n-text="Kisan Vision AI provides a screening and decision-support result. Always verify the diagnosis with a qualified agricultural expert and follow current local agricultural guidance and product labels before applying any treatment."> Kisan Vision AI provides a screening and decision-support result. Always verify the diagnosis with a qualified agricultural expert and follow current local agricultural guidance and product labels before applying any treatment.
+      </span></div>
+<div class="kv-analyze-row">
+<button class="kv-btn kv-btn-primary kv-btn-lg" data-i18n-text="Analyze Another Crop" id="kvResetBtn" type="button">Analyze Another Crop</button>
+</div>
+</section>
+</main>
+<!-- =========================
+       FOOTER
+       ========================= -->
+<footer class="kv-footer" role="contentinfo">
+<div class="kv-container kv-footer-grid">
+<div class="kv-footer-brand">
+<div class="kv-brand kv-brand-footer">
+<span aria-hidden="true" class="kv-brand-mark">
+<svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C7 2 3 6 3 11c0 6 5 11 9 11s9-5 9-11c0-5-4-9-9-9zm0 4c3 0 5 2.2 5 5 0 2.7-2 5-5 5s-5-2.3-5-5c0-2.8 2-5 5-5z"></path></svg>
+</span>
+<span class="kv-brand-text"><span class="kv-brand-main">Kisan</span> <span class="kv-brand-accent">Vision</span></span>
+</div>
+<p class="kv-footer-tagline"><span data-i18n-text="Empowering farmers with AI-driven crop insights.">Empowering farmers with AI-driven crop insights.</span></p>
+</div>
+<div class="kv-footer-col">
+<h5><span data-i18n-text="Explore">Explore</span></h5>
+<ul>
+<li><a data-i18n-text="Home" href="windows.html">Home</a></li>
+<li><a data-i18n-text="Detect Disease" href="detectdisease.html">Detect Disease</a></li>
+<li><a data-i18n-text="Farming Guide" href="farmingguide.html">Farming Guide</a></li>
+<li><a data-i18n-text="Blog" href="blog.html">Blog</a></li>
+</ul>
+</div>
+<div class="kv-footer-col">
+<h5 data-i18n-text="Support">Support</h5>
+<ul>
+<li><a data-i18n-text="Contact" href="contact.html">Contact</a></li>
+<li><a data-i18n-text="Login" href="login.html">Login</a></li>
+</ul>
+</div>
+</div>
+<div class="kv-footer-bottom">
+<div class="kv-container">
+<p>© <span id="kvYear"></span><span data-i18n-text="Kisan Vision. All rights reserved."> Kisan Vision. All rights reserved.</span></p>
+</div>
+</div>
+</footer>
+<!-- =========================
+       CHATBOT FLOATING BUTTON (Placeholder only)
+       Located here so you can wire it up later.
+       ========================= -->
+<button aria-label="Open chatbot" class="kv-chatbot" id="kvChatbotBtn" title="Chatbot (coming soon)" type="button">
+<svg aria-hidden="true" fill="currentColor" height="26" viewbox="0 0 24 24" width="26" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 2H4a2 2 0 00-2 2v14l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2zM7 9h10v2H7V9zm0 4h7v2H7v-2z"></path>
+</svg>
+</button>
+<script src="detectdisease.js"></script>
+<script src="language.js"></script></body>
+</html>

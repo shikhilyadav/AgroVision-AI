@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Crop Recommendation History | KisanVision</title>
+
+  <meta
+    name="description"
+    content="View your previous KisanVision crop recommendation results."
+  >
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- KisanVision Global Theme -->
+  <link rel="stylesheet" href="kv-global-theme.css">
+
+  <!-- Crop History Styles -->
+  <link rel="stylesheet" href="crop-history.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+
+  <header class="kv-header">
+
+    <nav class="kv-navbar" aria-label="Primary navigation">
+
+      <!-- Brand -->
+      <a
+        class="kv-brand"
+        href="windows.html"
+        aria-label="KisanVision Home"
+      >
+
+        <span
+          class="kv-brand__leaf"
+          aria-hidden="true"
+        >
+          🌿
+        </span>
+
+        <span class="kv-brand__name">
+
+          <span class="kv-brand-main">
+            Kisan
+          </span>
+
+          <span class="kv-brand-accent">
+            Vision
+          </span>
+
+        </span>
+
+      </a>
+
+
+      <!-- Navigation -->
+      <div class="kv-nav-menu">
+
+        <a
+          class="kv-nav-link kv-btn kv-btn--secondary"
+          href="windows.html"
+        >
+          Home
+        </a>
+
+        <a
+          class="kv-nav-link kv-btn kv-btn--secondary"
+          href="howitwork.html"
+        >
+          How It Works
+        </a>
+
+        <a
+          class="kv-nav-link kv-btn kv-btn--secondary"
+          href="detectdisease.html"
+        >
+          Detect Disease
+        </a>
+
+        <a
+          class="kv-nav-link kv-btn kv-btn--secondary"
+          href="farmingguide.html"
+        >
+          Farming Guide
+        </a>
+
+        <a
+          class="kv-nav-link kv-btn kv-btn--secondary"
+          href="blog.html"
+        >
+          Blog
+        </a>
+
+        <a
+          class="kv-nav-link kv-btn kv-btn--secondary"
+          href="contact.html"
+        >
+          Contact
+        </a>
+
+        <a
+          class="kv-nav-link kv-btn kv-btn--primary is-active"
+          href="crop-history.html"
+        >
+          Crop History
+        </a>
+
+        <a
+          class="kv-btn kv-btn--primary"
+          id="cropHistoryLoginBtn"
+          href="login.html"
+        >
+          Login →
+        </a>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================================================
+       MAIN
+       ========================================================= -->
+
+  <main class="crop-history-page">
+
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+
+    <section class="crop-history-hero">
+
+      <div class="crop-history-hero__content">
+
+        <p class="crop-history-hero__badge">
+          🌾 KISANVISION
+        </p>
+
+        <h1>
+          Crop Recommendation
+          <span>History</span>
+        </h1>
+
+        <p>
+          View your previous crop recommendation
+          results in one place.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         HISTORY CONTENT
+         ======================================================= -->
+
+    <section class="crop-history-section">
+
+      <div class="crop-history-container">
+
+
+        <!-- Heading -->
+        <div class="crop-history-heading">
+
+          <div>
+
+            <p class="crop-history-eyebrow">
+              YOUR RECOMMENDATIONS
+            </p>
+
+            <h2>
+              Previous Crop Recommendations
+            </h2>
+
+            <p>
+              Your crop recommendation results are
+              securely linked to your account.
+            </p>
+
+          </div>
+
+
+          <!-- Refresh -->
+          <button
+            type="button"
+            class="crop-history-refresh-btn"
+            id="cropHistoryRefreshBtn"
+          >
+            ↻ Refresh
+          </button>
+
+        </div>
+
+
+        <!-- Message -->
+        <div
+          class="crop-history-message"
+          id="cropHistoryMessage"
+          hidden
+          role="status"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- Loading -->
+        <div
+          class="crop-history-loading"
+          id="cropHistoryLoading"
+        >
+
+          <div class="crop-history-spinner"></div>
+
+          <p>
+            Loading your crop recommendation history...
+          </p>
+
+        </div>
+
+
+        <!-- Empty State -->
+        <div
+          class="crop-history-empty"
+          id="cropHistoryEmpty"
+          hidden
+        >
+
+          <div class="crop-history-empty__icon">
+            🌱
+          </div>
+
+          <h3>
+            No Crop Recommendations Yet
+          </h3>
+
+          <p>
+            You haven't generated any crop recommendations
+            yet. Start your first recommendation to see
+            your results here.
+          </p>
+
+          <a
+            href="windows.html"
+            class="kv-btn kv-btn--primary"
+          >
+            Get Recommendation →
+          </a>
+
+        </div>
+
+
+        <!-- History Cards -->
+        <div
+          class="crop-history-grid"
+          id="cropHistoryGrid"
+        ></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer class="kv-footer">
+
+    <div class="kv-footer__top">
+
+
+      <!-- Brand -->
+      <div class="kv-footer__brand">
+
+        <div class="kv-footer__logo">
+
+          <span
+            class="kv-brand__leaf"
+            aria-hidden="true"
+          >
+            🌿
+          </span>
+
+          <span class="kv-footer__name">
+            Kisan Vision
+          </span>
+
+        </div>
+
+        <p class="kv-footer__tagline">
+          Smart Farming • Brighter Tomorrow
+        </p>
+
+        <p class="kv-footer__desc">
+          Empowering farmers with AI-driven insights
+          for a healthier and more productive future.
+        </p>
+
+      </div>
+
+
+      <!-- Quick Links -->
+      <div class="kv-footer__col">
+
+        <h3 class="kv-footer__heading">
+          Quick Links
+        </h3>
+
+        <a
+          class="kv-footer__link"
+          href="windows.html"
+        >
+          Home
+        </a>
+
+        <a
+          class="kv-footer__link"
+          href="howitwork.html"
+        >
+          How It Works
+        </a>
+
+        <a
+          class="kv-footer__link"
+          href="detectdisease.html"
+        >
+          Detect Disease
+        </a>
+
+        <a
+          class="kv-footer__link"
+          href="crop-history.html"
+        >
+          Crop History
+        </a>
+
+        <a
+          class="kv-footer__link"
+          href="contact.html"
+        >
+          Contact
+        </a>
+
+      </div>
+
+
+      <!-- Support -->
+      <div class="kv-footer__col">
+
+        <h3 class="kv-footer__heading">
+          Support
+        </h3>
+
+        <a
+          class="kv-footer__link"
+          href="farmingguide.html"
+        >
+          Farming Guide
+        </a>
+
+        <a
+          class="kv-footer__link"
+          href="blog.html"
+        >
+          Blog
+        </a>
+
+        <a
+          class="kv-footer__link"
+          href="contact.html"
+        >
+          Contact Us
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
+  <script src="language.js"></script>
+  <script src="crop-history.js"></script>
+
+</body>
+
+</html>

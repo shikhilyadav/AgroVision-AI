@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>History | Kisan Vision</title>
+
+  <link
+    rel="stylesheet"
+    href="kv-global-theme.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="history.css"
+  >
+</head>
+
+
+<body class="history-page">
+
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="kv-header">
+
+    <div class="kv-header-container">
+
+      <a
+        href="windows.html"
+        class="kv-brand"
+      >
+        <span class="kv-brand-mark">🌱</span>
+
+        <span class="kv-brand-text">
+          Kisan Vision
+        </span>
+      </a>
+
+
+      <nav class="kv-nav">
+
+        <a href="windows.html">
+          Home
+        </a>
+
+        <a href="howitwork.html">
+          How It Works
+        </a>
+
+        <a href="detectdisease.html">
+          Detect Disease
+        </a>
+
+        <a href="farmingguide.html">
+          Farming Guide
+        </a>
+
+        <a href="blogs.html">
+          Blog
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a
+          href="history.html"
+          class="active"
+        >
+          History
+        </a>
+
+        <a
+          href="login.html"
+          id="historyLoginBtn"
+          class="kv-login-btn"
+        >
+          Login
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <section class="history-hero">
+
+    <div class="history-container">
+
+      <span class="history-hero-badge">
+        YOUR FARMING JOURNEY
+      </span>
+
+      <h1>
+        Your History
+      </h1>
+
+      <p>
+        View your previous crop recommendations
+        and crop disease detection results in one place.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+       ===================================================== -->
+
+  <main class="history-main">
+
+    <div class="history-container">
+
+
+      <!-- =================================================
+           PAGE HEADER
+           ================================================= -->
+
+      <div class="history-heading-row">
+
+        <div>
+
+          <p class="history-eyebrow">
+            SAVED ACTIVITY
+          </p>
+
+          <h2>
+            Previous Activity
+          </h2>
+
+          <p class="history-subtitle">
+            Your recent Kisan Vision results are shown below.
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          id="historyRefreshBtn"
+          class="history-refresh-btn"
+        >
+          ↻ Refresh
+        </button>
+
+      </div>
+
+
+      <!-- =================================================
+           MESSAGE
+           ================================================= -->
+
+      <div
+        id="historyMessage"
+        class="history-message"
+        hidden
+      ></div>
+
+
+
+      <!-- =================================================
+           LOADING
+           ================================================= -->
+
+      <div
+        id="historyLoading"
+        class="history-loading"
+      >
+
+        <div class="history-spinner"></div>
+
+        <p>
+          Loading your history...
+        </p>
+
+      </div>
+
+
+
+      <!-- =================================================
+           EMPTY STATE
+           ================================================= -->
+
+      <section
+        id="historyEmpty"
+        class="history-empty"
+        hidden
+      >
+
+        <div class="history-empty-icon">
+          📋
+        </div>
+
+        <h3>
+          No History Yet
+        </h3>
+
+        <p>
+          Your crop recommendations and disease detection
+          results will appear here after you use Kisan Vision.
+        </p>
+
+        <a
+          href="detectdisease.html"
+          class="history-empty-btn"
+        >
+          Detect a Crop Disease
+        </a>
+
+      </section>
+
+
+
+      <!-- =================================================
+           CROP RECOMMENDATION HISTORY
+           ================================================= -->
+
+      <section class="history-section">
+
+        <div class="history-section-heading">
+
+          <div class="history-section-icon">
+            🌾
+          </div>
+
+          <div>
+
+            <p class="history-section-eyebrow">
+              CROP PLANNING
+            </p>
+
+            <h3>
+              Crop Recommendation History
+            </h3>
+
+            <p>
+              Previous crop recommendations based on your
+              farm conditions.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="cropHistoryGrid"
+          class="history-grid"
+        ></div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           DISEASE DETECTION HISTORY
+           ================================================= -->
+
+      <section class="history-section">
+
+        <div class="history-section-heading">
+
+          <div class="history-section-icon">
+            🌿
+          </div>
+
+          <div>
+
+            <p class="history-section-eyebrow">
+              CROP HEALTH
+            </p>
+
+            <h3>
+              Disease Detection History
+            </h3>
+
+            <p>
+              Previous AI-based crop disease detection results.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="diseaseHistoryGrid"
+          class="history-grid"
+        ></div>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="kv-footer">
+
+    <div class="history-container">
+
+      <p>
+        © 2026 Kisan Vision. All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       SCRIPTS
+       ===================================================== -->
+
+  <script src="language.js"></script>
+
+  <script src="history.js"></script>
+
+</body>
+
+</html>

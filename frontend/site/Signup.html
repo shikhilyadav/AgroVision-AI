@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<title>Kisan Vision — Sign Up</title>
+
+<meta
+  content="Create your Kisan Vision account and access smarter farming tools and resources."
+  name="description"
+/>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&display=swap"
+  rel="stylesheet"
+/>
+
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  rel="stylesheet"
+/>
+
+<link href="login.css" rel="stylesheet"/>
+<link rel="stylesheet" href="kv-global-theme.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
+
+<header class="navbar" data-testid="navbar">
+
+  <div class="navbar-inner">
+
+    <a
+      class="brand"
+      data-testid="brand-logo"
+      href="windows.html"
+    >
+
+      <span class="brand-icon">
+        <i class="fa-solid fa-leaf"></i>
+      </span>
+
+      <span class="brand-text">
+
+        <span class="brand-name">
+
+          <span class="kv-brand-main">
+            Kisan
+          </span>
+
+          <span class="kv-brand-accent">
+            Vision
+          </span>
+
+        </span>
+
+        <span class="brand-tagline">
+
+          <span
+            data-i18n-text="Smarter Farming • Brighter Tomorrow"
+          >
+            Smarter Farming • Brighter Tomorrow
+          </span>
+
+        </span>
+
+      </span>
+
+    </a>
+
+
+    <nav
+      class="nav-links"
+      data-testid="nav-links"
+      id="navLinks"
+    >
+
+      <a
+        class="nav-link"
+        data-i18n-text="Home"
+        href="windows.html"
+      >
+        Home
+      </a>
+
+      <a
+        class="nav-link"
+        data-i18n-text="How It Works"
+        href="howitwork.html"
+      >
+        How It Works
+      </a>
+
+      <a
+        class="nav-link"
+        data-i18n-text="Detect Disease"
+        href="detectdisease.html"
+      >
+        Detect Disease
+      </a>
+
+      <a
+        class="nav-link"
+        data-i18n-text="Farming Guide"
+        href="farmingguide.html"
+      >
+        Farming Guide
+      </a>
+
+      <a
+        class="nav-link"
+        data-i18n-text="Blog"
+        href="blog.html"
+      >
+        Blog
+      </a>
+
+      <a
+        class="nav-link"
+        data-i18n-text="Contact"
+        href="contact.html"
+      >
+        Contact
+      </a>
+
+
+      <div class="nav-actions">
+
+        <button
+          class="lang-select"
+          data-testid="language-selector"
+          type="button"
+        >
+
+          <i class="fa-solid fa-globe"></i>
+
+          English
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+
+        <a
+          class="btn-login-nav active"
+          data-testid="nav-login-button"
+          href="login.html"
+          data-i18n-text="Login"
+        >
+          Login
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+      </div>
+
+    </nav>
+
+
+    <button
+      aria-label="Open menu"
+      class="hamburger"
+      data-testid="hamburger-button"
+      id="hamburger"
+      type="button"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN HERO
+     ========================================================= -->
+
+<main
+  class="hero"
+  data-testid="signup-hero"
+>
+
+  <div class="hero-inner">
+
+
+    <!-- =====================================================
+         LEFT SIDE
+         ===================================================== -->
+
+    <section
+      class="hero-left"
+      data-testid="hero-left"
+    >
+
+      <p class="hero-eyebrow">
+
+        <i class="fa-solid fa-leaf"></i>
+
+        <span
+          data-i18n-text="FOR A HEALTHIER TOMORROW"
+        >
+          FOR A HEALTHIER TOMORROW
+        </span>
+
+      </p>
+
+
+      <h1 class="hero-title">
+
+        <span data-i18n-text="Empowering">
+          Empowering
+        </span>
+
+        <br/>
+
+        <span data-i18n-text="Farmers with">
+          Farmers with
+        </span>
+
+        <br/>
+
+        <span data-i18n-text="Smart Solutions">
+          Smart Solutions
+        </span>
+
+      </h1>
+
+
+      <p
+        class="hero-subtitle"
+        data-i18n-text="Create your Kisan Vision account to access AI-powered crop insights, expert advice and modern farming resources — all in one place."
+      >
+        Create your Kisan Vision account to access AI-powered
+        crop insights, expert advice and modern farming
+        resources — all in one place.
+      </p>
+
+
+      <ul class="feature-list">
+
+
+        <li class="feature-item">
+
+          <span class="feature-icon">
+
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+
+          </span>
+
+          <span class="feature-text">
+
+            <strong data-i18n-text="Detect crop diseases">
+              Detect crop diseases
+            </strong>
+
+            <small
+              data-i18n-text="Upload a photo and get instant AI insights"
+            >
+              Upload a photo and get instant AI insights
+            </small>
+
+          </span>
+
+        </li>
+
+
+        <li class="feature-item">
+
+          <span class="feature-icon">
+
+            <i class="fa-solid fa-seedling"></i>
+
+          </span>
+
+          <span class="feature-text">
+
+            <strong
+              data-i18n-text="Learn modern farming"
+            >
+              Learn modern farming
+            </strong>
+
+            <small
+              data-i18n-text="Step-by-step guides for better yield"
+            >
+              Step-by-step guides for better yield
+            </small>
+
+          </span>
+
+        </li>
+
+
+        <li class="feature-item">
+
+          <span class="feature-icon">
+
+            <i class="fa-solid fa-user-group"></i>
+
+          </span>
+
+          <span class="feature-text">
+
+            <strong
+              data-i18n-text="Connect with experts"
+            >
+              Connect with experts
+            </strong>
+
+            <small
+              data-i18n-text="Get support from farming professionals"
+            >
+              Get support from farming professionals
+            </small>
+
+          </span>
+
+        </li>
+
+      </ul>
+
+
+      <p class="handwritten">
+
+        <span data-i18n-text="Stronger Farmers’">
+          Stronger Farmers’
+        </span>
+
+        <br/>
+
+        <span data-i18n-text="Greener Future">
+          Greener Future
+        </span>
+
+
+        <svg
+          aria-hidden="true"
+          class="handwritten-arrow"
+          fill="none"
+          viewbox="0 0 120 40"
+        >
+
+          <path
+            d="M4 6 C 40 34, 80 34, 112 14"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="2.5"
+          ></path>
+
+          <path
+            d="M104 10 L 114 13 L 108 22"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+          ></path>
+
+        </svg>
+
+      </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SIGNUP CARD
+         ===================================================== -->
+
+    <section
+      class="login-card"
+      data-testid="signup-card"
+    >
+
+
+      <span class="card-leaf">
+
+        <i class="fa-solid fa-leaf"></i>
+
+      </span>
+
+
+      <h2
+        class="card-title"
+        data-i18n-text="Create Account"
+      >
+        Create Account
+      </h2>
+
+
+      <p
+        class="card-subtitle"
+        data-i18n-text="Sign up for Kisan Vision and start your journey towards smarter farming."
+      >
+        Sign up for Kisan Vision and start your journey
+        towards smarter farming.
+      </p>
+
+
+
+      <!-- ===================================================
+           SIGNUP FORM
+           =================================================== -->
+
+      <form
+        data-testid="signup-form"
+        id="signupForm"
+        novalidate
+      >
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+          <label
+            class="form-label"
+            for="fullName"
+            data-i18n-text="Full Name"
+          >
+            Full Name
+          </label>
+
+
+          <div class="input-wrap">
+
+            <i class="fa-regular fa-user input-icon"></i>
+
+            <input
+              autocomplete="name"
+              class="form-input"
+              id="fullName"
+              name="name"
+              placeholder="Enter your full name"
+              type="text"
+              required
+            />
+
+          </div>
+
+
+          <small
+            class="field-error"
+            id="fullNameError"
+          ></small>
+
+        </div>
+
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+          <label
+            class="form-label"
+            for="email"
+            data-i18n-text="E-mail Address"
+          >
+            E-mail Address
+          </label>
+
+
+          <div class="input-wrap">
+
+            <i class="fa-regular fa-envelope input-icon"></i>
+
+            <input
+              autocomplete="email"
+              class="form-input"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              type="email"
+              required
+            />
+
+          </div>
+
+
+          <small
+            class="field-error"
+            id="emailError"
+          ></small>
+
+        </div>
+
+
+
+        <!-- MOBILE -->
+
+        <div class="form-group">
+
+          <label
+            class="form-label"
+            for="mobile"
+            data-i18n-text="Mobile Number"
+          >
+            Mobile Number
+          </label>
+
+
+          <div class="input-wrap">
+
+            <i class="fa-solid fa-mobile-screen-button input-icon"></i>
+
+            <input
+              autocomplete="tel"
+              class="form-input"
+              id="mobile"
+              name="mobile"
+              placeholder="Enter your 10-digit mobile number"
+              type="tel"
+              maxlength="10"
+              inputmode="numeric"
+              required
+            />
+
+          </div>
+
+
+          <small
+            class="field-error"
+            id="mobileError"
+          ></small>
+
+        </div>
+
+
+
+        <!-- PASSWORD -->
+
+        <div class="form-group">
+
+          <label
+            class="form-label"
+            for="password"
+            data-i18n-text="Password"
+          >
+            Password
+          </label>
+
+
+          <div class="input-wrap">
+
+            <i class="fa-solid fa-lock input-icon"></i>
+
+
+            <input
+              autocomplete="new-password"
+              class="form-input"
+              id="password"
+              name="password"
+              placeholder="Create a password"
+              type="password"
+              minlength="8"
+              required
+            />
+
+
+            <button
+              aria-label="Show password"
+              class="eye-toggle"
+              id="eyeToggle"
+              type="button"
+            >
+
+              <i class="fa-regular fa-eye"></i>
+
+            </button>
+
+          </div>
+
+
+          <small
+            class="field-error"
+            id="passwordError"
+          ></small>
+
+        </div>
+
+
+
+        <!-- CONFIRM PASSWORD -->
+
+        <div class="form-group">
+
+          <label
+            class="form-label"
+            for="confirmPassword"
+            data-i18n-text="Confirm Password"
+          >
+            Confirm Password
+          </label>
+
+
+          <div class="input-wrap">
+
+            <i class="fa-solid fa-lock input-icon"></i>
+
+
+            <input
+              autocomplete="new-password"
+              class="form-input"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              type="password"
+              minlength="8"
+              required
+            />
+
+
+            <button
+              aria-label="Show password"
+              class="eye-toggle"
+              id="confirmEyeToggle"
+              type="button"
+            >
+
+              <i class="fa-regular fa-eye"></i>
+
+            </button>
+
+          </div>
+
+
+          <small
+            class="field-error"
+            id="confirmPasswordError"
+          ></small>
+
+        </div>
+
+
+
+        <!-- FORM MESSAGE -->
+
+        <p
+          class="form-message"
+          id="formMessage"
+        ></p>
+
+
+
+        <!-- SIGNUP BUTTON -->
+
+        <button
+          class="btn-primary"
+          id="signupButton"
+          type="submit"
+          data-i18n-text="Create Account"
+        >
+
+          Create Account
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+      </form>
+
+
+
+      <div class="divider">
+
+        <span></span>
+
+      </div>
+
+
+
+      <!-- LOGIN LINK -->
+
+      <p class="signup-line">
+
+        <span
+          data-i18n-text="Already have an account?"
+        >
+          Already have an account?
+        </span>
+
+        <a
+          class="signup-link"
+          href="login.html"
+          data-i18n-text="Login"
+        >
+          Login
+        </a>
+
+      </p>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer
+  class="footer"
+  data-testid="footer"
+>
+
+  <div class="footer-inner">
+
+
+    <div class="footer-col footer-brand">
+
+      <a
+        class="brand brand-footer"
+        href="windows.html"
+      >
+
+        <span class="brand-icon">
+
+          <i class="fa-solid fa-leaf"></i>
+
+        </span>
+
+
+        <span class="brand-text">
+
+          <span class="brand-name">
+
+            <span class="kv-brand-main">
+              Kisan
+            </span>
+
+            <span class="kv-brand-accent">
+              Vision
+            </span>
+
+          </span>
+
+        </span>
+
+      </a>
+
+
+      <p
+        class="footer-desc"
+        data-i18n-text="Using technology to support farmers, protect crops and build a healthier, greener tomorrow."
+      >
+        Using technology to support farmers, protect crops and
+        build a healthier, greener tomorrow.
+      </p>
+
+    </div>
+
+
+
+    <div class="footer-col">
+
+      <h4 data-i18n-text="Quick Links">
+        Quick Links
+      </h4>
+
+      <a
+        href="windows.html"
+        data-i18n-text="Home"
+      >
+        Home
+      </a>
+
+      <a
+        href="howitwork.html"
+        data-i18n-text="How It Works"
+      >
+        How It Works
+      </a>
+
+      <a
+        href="detectdisease.html"
+        data-i18n-text="Detect Disease"
+      >
+        Detect Disease
+      </a>
+
+      <a
+        href="farmingguide.html"
+        data-i18n-text="Farming Guide"
+      >
+        Farming Guide
+      </a>
+
+      <a
+        href="blog.html"
+        data-i18n-text="Blog"
+      >
+        Blog
+      </a>
+
+      <a
+        href="contact.html"
+        data-i18n-text="Contact"
+      >
+        Contact
+      </a>
+
+    </div>
+
+
+
+    <div class="footer-col">
+
+      <h4 data-i18n-text="Support">
+        Support
+      </h4>
+
+      <a
+        href="#"
+        data-i18n-text="Help Center"
+      >
+        Help Center
+      </a>
+
+      <a
+        href="#"
+        data-i18n-text="FAQs"
+      >
+        FAQs
+      </a>
+
+      <a
+        href="#"
+        data-i18n-text="Privacy Policy"
+      >
+        Privacy Policy
+      </a>
+
+      <a
+        href="#"
+        data-i18n-text="Terms of Service"
+      >
+        Terms of Service
+      </a>
+
+    </div>
+
+
+
+    <div class="footer-col footer-newsletter">
+
+      <h4 data-i18n-text="Newsletter">
+        Newsletter
+      </h4>
+
+      <p
+        data-i18n-text="Get the latest farming tips and updates."
+      >
+        Get the latest farming tips and updates.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="footer-bottom">
+
+    <p>
+
+      <span
+        data-i18n-text="© 2026 Kisan Vision. All rights reserved."
+      >
+        © 2026 Kisan Vision. All rights reserved.
+      </span>
+
+    </p>
+
+
+    <p class="footer-tag">
+
+      <span
+        data-i18n-text="Smarter Farming • Brighter Tomorrow"
+      >
+        Smarter Farming • Brighter Tomorrow
+      </span>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+
+<script src="signup.js"></script>
+<script src="language.js"></script>
+
+
+<!-- CHATBOT -->
+
+<button
+  aria-label="Open chatbot"
+  class="kv-chatbot"
+  id="kvChatbotBtn"
+  title="Chatbot (coming soon)"
+  type="button"
+>
+
+  <svg
+    aria-hidden="true"
+    fill="currentColor"
+    height="26"
+    viewbox="0 0 24 24"
+    width="26"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+
+    <path
+      d="M20 2H4a2 2 0 00-2 2v14l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2zM7 9h10v2H7V9zm0 4h7v2H7v-2z"
+    ></path>
+
+  </svg>
+
+</button>
+
+
+</body>
+</html>

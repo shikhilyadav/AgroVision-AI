@@ -1,0 +1,570 @@
+/* =========================================================
+   KISANVISION - CROP RECOMMENDATION HISTORY
+   ========================================================= */
+
+.crop-history-page {
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.crop-history-hero {
+  padding: 90px 20px 85px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(22, 101, 52, 0.96),
+      rgba(34, 197, 94, 0.82)
+    );
+  color: #ffffff;
+  text-align: center;
+}
+
+.crop-history-hero__content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.crop-history-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.crop-history-hero h1 {
+  margin: 0;
+  font-size: clamp(36px, 5vw, 62px);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.crop-history-hero h1 span {
+  display: inline-block;
+  color: #dcfce7;
+}
+
+.crop-history-hero p:not(.crop-history-hero__badge) {
+  max-width: 650px;
+  margin: 20px auto 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* =========================================================
+   HISTORY SECTION
+   ========================================================= */
+
+.crop-history-section {
+  padding: 70px 20px 90px;
+  background: #f8faf8;
+}
+
+.crop-history-container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.crop-history-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.crop-history-eyebrow {
+  margin: 0 0 8px;
+  color: #16a34a;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.crop-history-heading h2 {
+  margin: 0;
+  color: #17251b;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+}
+
+.crop-history-heading > div > p:last-child {
+  margin: 10px 0 0;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.crop-history-refresh-btn {
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 20px;
+  background: #166534;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.crop-history-refresh-btn:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(22, 101, 52, 0.2);
+}
+
+.crop-history-refresh-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.crop-history-message {
+  margin-bottom: 25px;
+  padding: 15px 18px;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  background: #fef2f2;
+  color: #991b1b;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.crop-history-loading {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #64748b;
+}
+
+.crop-history-loading p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.crop-history-spinner {
+  width: 42px;
+  height: 42px;
+  border: 4px solid #dcfce7;
+  border-top-color: #16a34a;
+  border-radius: 50%;
+  animation: cropHistorySpin 0.8s linear infinite;
+}
+
+@keyframes cropHistorySpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.crop-history-empty {
+  max-width: 650px;
+  margin: 30px auto 0;
+  padding: 55px 30px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.crop-history-empty__icon {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #dcfce7;
+  font-size: 34px;
+}
+
+.crop-history-empty h3 {
+  margin: 0;
+  color: #17251b;
+  font-size: 25px;
+}
+
+.crop-history-empty p {
+  max-width: 520px;
+  margin: 12px auto 25px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   HISTORY GRID
+   ========================================================= */
+
+.crop-history-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+
+/* =========================================================
+   HISTORY CARD
+   ========================================================= */
+
+.crop-history-card {
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.crop-history-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.1);
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.crop-history-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.crop-history-card__best {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.crop-history-card__icon {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #ecfdf5;
+  font-size: 30px;
+}
+
+.crop-history-card__eyebrow {
+  margin: 0 0 4px;
+  color: #16a34a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.crop-history-card__crop {
+  margin: 0;
+  color: #17251b;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.crop-history-card__date {
+  flex-shrink: 0;
+  margin: 2px 0 0;
+  color: #94a3b8;
+  font-size: 13px;
+  text-align: right;
+}
+
+
+/* =========================================================
+   SCORE
+   ========================================================= */
+
+.crop-history-score {
+  padding: 20px 24px;
+  background: #f8fafc;
+}
+
+.crop-history-score__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.crop-history-score__label {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.crop-history-score__value {
+  color: #166534;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.crop-history-score__bar {
+  width: 100%;
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dcfce7;
+}
+
+.crop-history-score__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: #16a34a;
+}
+
+
+/* =========================================================
+   INPUT DETAILS
+   ========================================================= */
+
+.crop-history-inputs {
+  padding: 22px 24px;
+}
+
+.crop-history-inputs__title {
+  margin: 0 0 15px;
+  color: #17251b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.crop-history-input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.crop-history-input {
+  padding: 13px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.crop-history-input__label {
+  display: block;
+  margin-bottom: 4px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.crop-history-input__value {
+  display: block;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   RECOMMENDATIONS
+   ========================================================= */
+
+.crop-history-recommendations {
+  padding: 0 24px 24px;
+}
+
+.crop-history-recommendations__title {
+  margin: 0 0 14px;
+  color: #17251b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.crop-history-recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.crop-history-recommendation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 14px;
+  border: 1px solid #f1f5f9;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.crop-history-recommendation__name {
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.crop-history-recommendation__score {
+  color: #16a34a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   EVIDENCE
+   ========================================================= */
+
+.crop-history-evidence {
+  margin: 0 24px 24px;
+  padding: 15px 16px;
+  border-left: 4px solid #16a34a;
+  border-radius: 10px;
+  background: #f0fdf4;
+}
+
+.crop-history-evidence__title {
+  margin: 0 0 5px;
+  color: #166534;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.crop-history-evidence__text {
+  margin: 0;
+  color: #4b5563;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .crop-history-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .crop-history-hero {
+    padding: 70px 18px 65px;
+  }
+
+  .crop-history-section {
+    padding: 50px 16px 70px;
+  }
+
+  .crop-history-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .crop-history-refresh-btn {
+    width: 100%;
+  }
+
+  .crop-history-card__header {
+    flex-direction: column;
+  }
+
+  .crop-history-card__date {
+    text-align: left;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .crop-history-hero h1 {
+    font-size: 34px;
+  }
+
+  .crop-history-hero p:not(.crop-history-hero__badge) {
+    font-size: 16px;
+  }
+
+  .crop-history-card__header,
+  .crop-history-inputs,
+  .crop-history-recommendations {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .crop-history-score {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .crop-history-evidence {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .crop-history-input-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crop-history-empty {
+    padding: 40px 20px;
+  }
+
+}

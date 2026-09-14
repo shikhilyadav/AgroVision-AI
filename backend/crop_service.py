@@ -2,8 +2,10 @@ import json
 import os
 
 from fastapi import HTTPException
+
 from agriculture_data_service import (
     get_district_crop_score,
+    get_district_crop_details,
 )
 
 from config import (
@@ -60,6 +62,10 @@ else:
 # ============================================================
 # DISTRICT CROP DATABASE
 # ============================================================
+
+# Historical district crop evidence is now loaded
+# through agriculture_data_service.py.
+# DISTRICT_CROP_DATA_PATH is kept in config for compatibility.
 
 
 # ============================================================
@@ -133,7 +139,6 @@ def exact_match(
 # ============================================================
 # DISTRICT CROP SCORE
 # ============================================================
-
 
 
 # ============================================================
@@ -218,6 +223,19 @@ def calculate_location(
 
     district_crop_score = (
         get_district_crop_score(
+            state,
+            district,
+            season,
+            crop_name
+        )
+    )
+
+    # --------------------------------------------------------
+    # HISTORICAL DISTRICT CROP DETAILS
+    # --------------------------------------------------------
+
+    historical_evidence = (
+        get_district_crop_details(
             state,
             district,
             season,
@@ -318,6 +336,9 @@ def calculate_location(
 
         "district_crop_score":
             district_crop_score,
+
+        "historical_evidence":
+            historical_evidence,
 
         "location_score":
             location_score,
@@ -905,6 +926,188 @@ def recommend_crops(data):
             suitability = "low"
 
         # ====================================================
+        # HISTORICAL EVIDENCE
+        # ====================================================
+
+        historical_evidence = (
+            location_result.get(
+                "historical_evidence"
+            )
+        )
+
+        # Convert CSV values into useful numeric values
+        # where possible, while preserving missing data.
+
+        if historical_evidence:
+
+            historical_evidence = {
+                "available": True,
+
+                "observed_years": (
+                    historical_evidence.get(
+                        "observed_years"
+                    )
+                ),
+
+                "first_year": (
+                    historical_evidence.get(
+                        "first_year"
+                    )
+                ),
+
+                "last_year": (
+                    historical_evidence.get(
+                        "last_year"
+                    )
+                ),
+
+                "active_years": (
+                    historical_evidence.get(
+                        "active_years"
+                    )
+                ),
+
+                "mean_area_1000ha": (
+                    historical_evidence.get(
+                        "mean_area_1000ha"
+                    )
+                ),
+
+                "total_area_1000ha": (
+                    historical_evidence.get(
+                        "total_area_1000ha"
+                    )
+                ),
+
+                "mean_production_1000t": (
+                    historical_evidence.get(
+                        "mean_production_1000t"
+                    )
+                ),
+
+                "total_production_1000t": (
+                    historical_evidence.get(
+                        "total_production_1000t"
+                    )
+                ),
+
+                "mean_yield_kg_ha": (
+                    historical_evidence.get(
+                        "mean_yield_kg_ha"
+                    )
+                ),
+
+                "mean_t2m_max": (
+                    historical_evidence.get(
+                        "mean_t2m_max"
+                    )
+                ),
+
+                "area_share": (
+                    historical_evidence.get(
+                        "area_share"
+                    )
+                ),
+
+                "consistency_score": (
+                    historical_evidence.get(
+                        "consistency_score"
+                    )
+                ),
+
+                "evidence_score": (
+                    historical_evidence.get(
+                        "evidence_score"
+                    )
+                )
+            }
+
+        else:
+
+            historical_evidence = {
+                "available": False
+            }
+
+
+                    # ====================================================
+        # FARMER-FRIENDLY EVIDENCE SUMMARY
+        # ====================================================
+
+        evidence_summary = None
+
+        if historical_evidence.get("available"):
+
+            first_year = historical_evidence.get(
+                "first_year"
+            )
+
+            last_year = historical_evidence.get(
+                "last_year"
+            )
+
+            observed_years = historical_evidence.get(
+                "observed_years"
+            )
+
+            mean_area = historical_evidence.get(
+                "mean_area_1000ha"
+            )
+
+            mean_production = historical_evidence.get(
+                "mean_production_1000t"
+            )
+
+            mean_yield = historical_evidence.get(
+                "mean_yield_kg_ha"
+            )
+
+            evidence_score = historical_evidence.get(
+                "evidence_score"
+            )
+
+            evidence_summary = {
+                "title": "Historical Crop Evidence",
+
+                "crop": crop_name,
+
+                "location": (
+                    f"{district}, {state}"
+                ),
+
+                "period": (
+                    f"{first_year}–{last_year}"
+                    if first_year and last_year
+                    else None
+                ),
+
+                "observed_years": observed_years,
+
+                "average_area": (
+                    f"{float(mean_area):.2f} thousand ha"
+                    if mean_area is not None
+                    else None
+                ),
+
+                "average_production": (
+                    f"{float(mean_production):.2f} thousand tonnes"
+                    if mean_production is not None
+                    else None
+                ),
+
+                "average_yield": (
+                    f"{float(mean_yield):.2f} kg/ha"
+                    if mean_yield is not None
+                    else None
+                ),
+
+                "evidence_strength": (
+                    f"{float(evidence_score) * 100:.1f}%"
+                    if evidence_score is not None
+                    else None
+                )
+            }
+
+        # ====================================================
         # PREPARE RESULT
         # ====================================================
 
@@ -963,7 +1166,12 @@ def recommend_crops(data):
                         ],
 
                     "location_score":
-                        location_score
+                        location_score,
+
+                    "historical_evidence":
+                        historical_evidence,
+                    "evidence_summary":
+                       evidence_summary
                 },
 
             "reasons":

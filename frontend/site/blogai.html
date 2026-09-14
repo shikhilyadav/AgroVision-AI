@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How AI is Changing Modern Farming | Kisan Vision</title>
+<meta content="Learn how artificial intelligence is helping farmers monitor crops, detect problems early, use resources more efficiently and make smarter farming decisions." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="blogcropdisease.css" rel="stylesheet"/>
+<link href="kv-global-theme.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- ================= NAVBAR ================= -->
+<header class="kv-nav" data-testid="site-nav">
+<div class="kv-container kv-nav-inner">
+<a class="kv-brand" data-testid="nav-brand" href="windows.html">
+<span class="kv-brand-mark">
+<svg fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="19">
+<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+<path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+</svg>
+</span>
+<span><span class="kv-brand-main">Kisan</span> <span class="kv-brand-accent">Vision</span></span>
+</a>
+<nav class="kv-nav-links" data-testid="nav-links" id="navLinks">
+<a data-i18n-text="Home" data-testid="nav-link-home" href="windows.html">Home</a>
+<a data-i18n-text="How It Works" data-testid="nav-link-how" href="howitwork.html">How It Works</a>
+<a data-i18n-text="Detect Disease" data-testid="nav-link-detect" href="detectdisease.html">Detect Disease</a>
+<a data-i18n-text="Farming Guide" data-testid="nav-link-guide" href="farmingguide.html">Farming Guide</a>
+<a class="kv-active" data-i18n-text="Blog" data-testid="nav-link-blog" href="blog.html">Blog</a>
+<a data-i18n-text="Contact" data-testid="nav-link-contact" href="contact.html">Contact</a>
+</nav>
+<div class="kv-nav-actions">
+<label aria-label="Choose language" class="language-select kv-blog-language">
+<select aria-label="Choose language" id="language">
+<option value="en">English</option>
+<option value="hi">हिन्दी</option>
+<option value="mr">मराठी</option>
+<option value="pa">ਪੰਜਾਬੀ</option>
+<option value="gu">ગુજરાતી</option>
+</select>
+</label>
+<a class="primary-button kv-btn-sm" data-testid="nav-detect-btn" href="detectdisease.html">
+          Detect Disease <span class="btn-arrow">→</span>
+</a>
+<button aria-expanded="false" aria-label="Toggle menu" class="kv-menu-toggle" data-testid="nav-menu-toggle" id="menuToggle">
+<svg class="icon-menu" fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" viewbox="0 0 24 24" width="19">
+<line x1="4" x2="20" y1="7" y2="7"></line><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="17" y2="17"></line>
+</svg>
+<svg class="icon-close" fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" style="display:none" viewbox="0 0 24 24" width="19">
+<line x1="6" x2="18" y1="6" y2="18"></line><line x1="18" x2="6" y1="6" y2="18"></line>
+</svg>
+</button>
+</div>
+</div>
+<nav class="kv-mobile-menu" data-testid="nav-mobile-menu" id="mobileMenu">
+<a data-i18n-text="Home" href="windows.html">Home</a>
+<a data-i18n-text="How It Works" href="howitwork.html">How It Works</a>
+<a data-i18n-text="Detect Disease" href="detectdisease.html">Detect Disease</a>
+<a data-i18n-text="Farming Guide" href="farmingguide.html">Farming Guide</a>
+<a data-i18n-text="Blog" href="blog.html">Blog</a>
+<a data-i18n-text="Contact" href="contact.html">Contact</a>
+<a data-i18n-text="Login" href="login.html">Login</a>
+</nav>
+</header>
+<div class="kv-progress" data-testid="reading-progress" id="readingProgress"></div>
+<main class="kv-container kv-article" data-testid="article-page">
+<!-- Back to Blog -->
+<a class="text-button" data-testid="back-to-blog-btn" href="blog.html">
+<span class="btn-arrow-back">←</span> Back to Blog
+    </a>
+<!-- Article header -->
+<div class="kv-article-head">
+<span class="kv-badge" data-i18n-text="AI &amp; Technology" data-testid="article-category">AI &amp; Technology</span>
+<h1 data-i18n-text="How AI is Changing Modern Farming" data-testid="article-title">How AI is Changing Modern Farming</h1>
+<div class="kv-meta" data-testid="article-meta">
+<span class="kv-author-chip" data-testid="article-author">
+<span class="kv-avatar">KV</span> Kisan Vision Team
+        </span>
+<span class="kv-dot"></span>
+<span data-i18n-text="12 September 2026" data-testid="article-date">12 September 2026</span>
+<span class="kv-dot"></span>
+<span data-i18n-text="7 min read" data-testid="article-read-time">7 min read</span>
+</div>
+</div>
+<!-- Image + gallery -->
+<figure class="kv-gallery" data-testid="article-gallery">
+<img alt="AI and robotics technology" class="kv-article-hero" data-testid="article-hero-image" id="mainImage" src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"/>
+<figcaption class="kv-caption" id="mainCaption">
+        Artificial intelligence is bringing faster insights and smarter decisions to modern farms.
+      </figcaption>
+<div aria-label="Article image gallery" class="kv-thumbs" role="tablist">
+<button aria-selected="true" class="kv-thumb kv-thumb-active" data-alt="AI and robotics technology" data-caption="Artificial intelligence is bringing faster insights and smarter decisions to modern farms." data-src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" role="tab">
+<img alt="AI technology thumbnail" src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&amp;fit=crop&amp;w=300&amp;q=80"/>
+</button>
+<button aria-selected="false" class="kv-thumb" data-alt="Technology being used in a modern workspace" data-caption="AI tools can turn large amounts of farm data into useful information for everyday decisions." data-src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" role="tab">
+<img alt="Technology thumbnail" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&amp;fit=crop&amp;w=300&amp;q=80"/>
+</button>
+<button aria-selected="false" class="kv-thumb" data-alt="Green agricultural field" data-caption="Field images and crop data can help farmers notice changes before visible damage becomes widespread." data-src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" role="tab">
+<img alt="Agricultural field thumbnail" src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&amp;fit=crop&amp;w=300&amp;q=80"/>
+</button>
+<button aria-selected="false" class="kv-thumb" data-alt="Healthy agricultural field" data-caption="The goal of AI in farming is simple: better information at the right time, so farmers can act with confidence." data-src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" role="tab">
+<img alt="Healthy field thumbnail" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&amp;fit=crop&amp;w=300&amp;q=80"/>
+</button>
+</div>
+</figure>
+<!-- Article body -->
+<article class="kv-article-body" data-testid="article-content">
+<p class="kv-lead" data-i18n-text="Farming has always depended on observation, experience and timing. Today, artificial intelligence
+        is adding another powerful tool to that process. By analysing crop images, weather information,
+        field data and other signals, AI can help farmers spot problems earlier and make more informed
+        decisions.">
+        Farming has always depended on observation, experience and timing. Today, artificial intelligence
+        is adding another powerful tool to that process. By analysing crop images, weather information,
+        field data and other signals, AI can help farmers spot problems earlier and make more informed
+        decisions.
+      </p>
+<h2 data-i18n-text="1. Earlier crop problem detection">1. Earlier crop problem detection</h2>
+<p data-i18n-text="One of the most useful applications of AI is image-based crop monitoring. A farmer can photograph
+        a leaf or plant and use an AI system to look for visual patterns associated with disease, stress
+        or other crop problems. Early detection matters because a small affected area is usually easier
+        to manage than a problem that has already spread across the field.">
+        One of the most useful applications of AI is image-based crop monitoring. A farmer can photograph
+        a leaf or plant and use an AI system to look for visual patterns associated with disease, stress
+        or other crop problems. Early detection matters because a small affected area is usually easier
+        to manage than a problem that has already spread across the field.
+      </p>
+<h2 data-i18n-text="2. Smarter use of water and other resources">2. Smarter use of water and other resources</h2>
+<p data-i18n-text="AI can combine information such as weather conditions, crop stage and field observations to support
+        irrigation decisions. Instead of treating every part of a field exactly the same, data-driven
+        systems can help identify where attention or resources may be needed most.">
+        AI can combine information such as weather conditions, crop stage and field observations to support
+        irrigation decisions. Instead of treating every part of a field exactly the same, data-driven
+        systems can help identify where attention or resources may be needed most.
+      </p>
+<h2 data-i18n-text="3. Turning farm data into useful decisions">3. Turning farm data into useful decisions</h2>
+<p data-i18n-text="Modern farms can generate a lot of information from images, sensors, weather services and regular
+        field observations. The challenge is making sense of it. AI can process these signals quickly and
+        present patterns or warnings in a simpler form, helping farmers focus on the actions that matter.">
+        Modern farms can generate a lot of information from images, sensors, weather services and regular
+        field observations. The challenge is making sense of it. AI can process these signals quickly and
+        present patterns or warnings in a simpler form, helping farmers focus on the actions that matter.
+      </p>
+<h2 data-i18n-text="4. Supporting farmers in the field">4. Supporting farmers in the field</h2>
+<p data-i18n-text="AI is not meant to replace a farmer's experience. The strongest use is as a second pair of eyes.
+        A farmer can combine local knowledge with AI-based insights, then decide what action makes sense
+        for the crop, soil, weather and stage of the season.">
+        AI is not meant to replace a farmer's experience. The strongest use is as a second pair of eyes.
+        A farmer can combine local knowledge with AI-based insights, then decide what action makes sense
+        for the crop, soil, weather and stage of the season.
+      </p>
+<blockquote data-i18n-text="Better technology does not replace good farming — it gives farmers better information at the right time.">
+        Better technology does not replace good farming — it gives farmers better information at the right time.
+      </blockquote>
+<h2 data-i18n-text="5. What AI can help farmers monitor">5. What AI can help farmers monitor</h2>
+<ul>
+<li><strong>Crop health:</strong> identify visual signs that may indicate disease or plant stress</li>
+<li><strong>Field conditions:</strong> organise observations and highlight changes that deserve attention</li>
+<li><strong>Water management:</strong> support more informed irrigation planning</li>
+<li><strong>Weather decisions:</strong> combine weather information with crop observations</li>
+<li><strong>Seasonal records:</strong> keep useful information that can improve future decisions</li>
+</ul>
+<h2 data-i18n-text="What farmers should keep in mind">What farmers should keep in mind</h2>
+<ol class="kv-steps-list">
+<li><strong>Use clear photos:</strong> capture affected leaves or plants in good lighting and keep the subject in focus.</li>
+<li><strong>Check the field:</strong> use AI results together with what you see around the affected plant.</li>
+<li><strong>Confirm before acting:</strong> an AI result is guidance, not a substitute for professional agricultural advice when the situation is serious.</li>
+<li><strong>Keep records:</strong> save observations, dates and crop stages so patterns become easier to recognise.</li>
+<li><strong>Act early:</strong> use timely information to investigate a problem before it becomes widespread.</li>
+</ol>
+<h2 data-i18n-text="The future of smarter farming">The future of smarter farming</h2>
+<p data-i18n-text="As AI systems become more useful and accessible, farmers can gain faster access to information that
+        was once difficult to analyse. The real value is not technology for its own sake — it is helping
+        farmers spend less time guessing and more time making informed decisions for their fields.">
+        As AI systems become more useful and accessible, farmers can gain faster access to information that
+        was once difficult to analyse. The real value is not technology for its own sake — it is helping
+        farmers spend less time guessing and more time making informed decisions for their fields.
+      </p>
+<p data-i18n-text="Kisan Vision brings this idea into a simple workflow: take a crop photo, get an easy-to-understand
+        health insight, and use that information as a starting point for the next step.">
+        Kisan Vision brings this idea into a simple workflow: take a crop photo, get an easy-to-understand
+        health insight, and use that information as a starting point for the next step.
+      </p>
+</article>
+<!-- Tags -->
+<div class="kv-tag-row" data-testid="article-tags">
+<span class="kv-badge">AI in Agriculture</span>
+<span class="kv-badge" data-i18n-text="Smart Farming">Smart Farming</span>
+<span class="kv-badge">Crop Monitoring</span>
+<span class="kv-badge">Technology</span>
+</div>
+<!-- CTA -->
+<section class="kv-cta" data-testid="detect-cta">
+<div>
+<h2 data-i18n-text="Want to use AI for your crop?">Want to use AI for your crop?</h2>
+<p data-i18n-text="Upload a clear crop photo and let Kisan Vision help you identify possible crop problems
+          and understand what to check next.">
+          Upload a clear crop photo and let Kisan Vision help you identify possible crop problems
+          and understand what to check next.
+        </p>
+</div>
+<a class="primary-button" data-testid="detect-disease-cta-btn" href="detectdisease.html">
+        Detect Disease <span class="btn-arrow">→</span>
+</a>
+</section>
+<!-- Related articles -->
+<section class="kv-related" data-testid="related-articles">
+<h2 data-i18n-text="Related Articles">Related Articles</h2>
+<p class="kv-related-sub" data-i18n-text="Keep reading — more practical guides from the Kisan Vision team.">Keep reading — more practical guides from the Kisan Vision team.</p>
+<div class="kv-card-grid">
+<article class="kv-card">
+<a class="kv-card-img-link" href="blogcropdisease.html">
+<img alt="Healthy crop leaves" loading="lazy" src="https://images.unsplash.com/photo-1624720114682-3c8c43b75227?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/>
+</a>
+<div class="kv-card-body">
+<span class="kv-badge">Disease Guide</span>
+<h3><a href="blogcropdisease.html">5 Early Signs of Crop Disease You Should Never Ignore</a></h3>
+<p data-i18n-text="Learn how to recognise early warning signs and take action before a crop problem spreads.">Learn how to recognise early warning signs and take action before a crop problem spreads.</p>
+<a class="text-button" href="blogcropdisease.html">Read More <span class="btn-arrow">→</span></a>
+</div>
+</article>
+<article class="kv-card">
+<a class="kv-card-img-link" href="blogsmartfarming.html">
+<img alt="Smart agriculture field" loading="lazy" src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/>
+</a>
+<div class="kv-card-body">
+<span class="kv-badge" data-i18n-text="Smart Farming">Smart Farming</span>
+<h3><a href="blogsmartfarming.html">Smart Irrigation: Give Your Crops the Right Amount of Water</a></h3>
+<p data-i18n-text="Discover simple irrigation practices that can help maintain healthy crops and reduce water waste.">Discover simple irrigation practices that can help maintain healthy crops and reduce water waste.</p>
+<a class="text-button" href="blogsmartfarming.html">Read More <span class="btn-arrow">→</span></a>
+</div>
+</article>
+<article class="kv-card">
+<a class="kv-card-img-link" href="blogcropcare.html">
+<img alt="Farmer and crops" loading="lazy" src="https://images.unsplash.com/photo-1523742810066-7c9d6b8b1d9d?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/>
+</a>
+<div class="kv-card-body">
+<span class="kv-badge" data-i18n-text="Crop Care">Crop Care</span>
+<h3><a href="blogcropcare.html">How to Keep Your Soil Healthy</a></h3>
+<p data-i18n-text="Healthy soil supports healthy crops. Explore simple practices for better plant growth.">Healthy soil supports healthy crops. Explore simple practices for better plant growth.</p>
+<a class="text-button" href="blogcropcare.html">Read More <span class="btn-arrow">→</span></a>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- ================= FOOTER ================= -->
+<footer class="kv-footer" data-testid="site-footer">
+<div class="kv-container kv-footer-inner">
+<div>
+<a class="kv-brand" data-testid="footer-brand" href="windows.html">
+<span class="kv-brand-mark">
+<svg fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="19">
+<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+<path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+</svg>
+</span>
+<span><span class="kv-brand-main">Kisan</span> <span class="kv-brand-accent">Vision</span></span>
+</a>
+<p>
+          AI-powered crop disease detection for Indian farmers. Scan a leaf, get a diagnosis,
+          protect your harvest.
+        </p>
+</div>
+<nav class="kv-footer-links" data-testid="footer-links">
+<a data-i18n-text="Home" href="windows.html">Home</a>
+<a data-i18n-text="How It Works" href="howitwork.html">How It Works</a>
+<a data-i18n-text="Detect Disease" href="detectdisease.html">Detect Disease</a>
+<a data-i18n-text="Farming Guide" href="farmingguide.html">Farming Guide</a>
+<a data-i18n-text="Blog" href="blog.html">Blog</a>
+<a data-i18n-text="Contact" href="contact.html">Contact</a>
+<a data-i18n-text="Login" href="login.html">Login</a>
+</nav>
+</div>
+<div class="kv-footer-bar">© <span id="footerYear">2026</span> Kisan Vision. Growing smarter harvests.</div>
+</footer>
+<script src="blogcropdisease.js"></script>
+<script src="language.js"></script>
+<!-- Kisan Vision chatbot button (UI placeholder; backend can be connected later) -->
+<button aria-label="Open chatbot" class="kv-chatbot" data-i18n-aria-label="common.chatbotOpen" data-i18n-title="common.chatbotTitle" id="kvChatbotBtn" title="Chatbot (coming soon)" type="button">
+<svg aria-hidden="true" fill="currentColor" height="26" viewbox="0 0 24 24" width="26" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 2H4a2 2 0 00-2 2v14l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2zM7 9h10v2H7V9zm0 4h7v2H7v-2z"></path>
+</svg>
+</button>
+</body>
+</html>

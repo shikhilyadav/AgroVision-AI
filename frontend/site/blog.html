@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kisan Vision — Blog</title>
+<link href="blog.css" rel="stylesheet"/>
+<link rel="stylesheet" href="kv-global-theme.css">
+</head>
+<body>
+<!-- NAVBAR  -->
+<header class="site-header">
+<div class="nav-shell">
+<!-- Logo -->
+<a class="brand" href="windows.html">
+<span class="brand-mark">⌁</span>
+<span class="kv-brand-main">Kisan</span> <span class="kv-brand-accent">Vision</span>
+</a>
+<!-- Mobile Menu -->
+<button class="menu-button" id="menuButton">
+                ☰
+            </button>
+<!-- Navigation -->
+<nav class="main-nav" id="mainNav">
+<a data-i18n-text="Home" href="windows.html">Home</a>
+<a data-i18n-text="How It Works" href="howitwork.html">
+                    How It Works
+                </a>
+<a data-i18n-text="Detect Disease" href="detectdisease.html">
+                    Detect Disease
+                </a>
+<a data-i18n-text="Farming Guide" href="farmingguide.html">
+                    Farming Guide
+                </a>
+<a class="active" data-i18n-text="Blog" href="blog.html">
+                    Blog
+                </a>
+<a data-i18n-text="Contact" href="contact.html">
+                    Contact
+                </a>
+<!-- Language -->
+<label class="language-select">
+<select id="language">
+<option value="en">English</option>
+<option value="hi">Hindi</option>
+<option value="mr">Marathi</option>
+<option value="pa">Punjabi</option>
+<option value="gu">Gujarati</option>
+</select>
+</label>
+<!-- Login -->
+<a class="login-button" href="login.html">
+                    Login <span>→</span>
+</a>
+</nav>
+</div>
+</header>
+<!-- BLOG HERO  -->
+<main>
+<section class="blog-hero">
+<p class="eyebrow" data-i18n-text="KISAN VISION BLOG">
+                KISAN VISION BLOG
+            </p>
+<h1><span data-i18n-text="Learn. Grow.">
+                Learn. Grow.
+                </span><span data-i18n-text="Harvest Better.">Harvest Better.</span>
+</h1>
+<p data-i18n-text="Practical farming tips, crop-care knowledge and AI-powered insights to help you protect your crops and make smarter farming decisions.">
+                Practical farming tips, crop-care knowledge and
+                AI-powered insights to help you protect your crops
+                and make smarter farming decisions.
+            </p>
+</section>
+<!-- ================= SEARCH ================= -->
+<section class="blog-tools">
+<div class="search-box">
+<span>⌕</span>
+<input data-i18n-placeholder-text="Search farming articles..." id="searchInput" onkeydown="handleSearch(event)" placeholder="Search farming articles..." type="text"/>
+</div>
+<div class="categories" id="categories">
+
+    <button class="category active"
+            data-category="all"
+            data-i18n-text="All"
+            onclick="window.location.href='blog.html'">
+        All
+    </button>
+
+    <button class="category"
+            data-category="Crop Disease"
+            data-i18n-text="Crop Disease"
+            onclick="window.location.href='blogcropdisease.html'">
+        Crop Disease
+    </button>
+
+    <button class="category"
+            data-category="Smart Farming"
+            data-i18n-text="Smart Farming"
+            onclick="window.location.href='blogsmartfarming.html'">
+        Smart Farming
+    </button>
+
+    <button class="category"
+            data-category="Crop Care"
+            data-i18n-text="Crop Care"
+            onclick="window.location.href='blogcropcare.html'">
+        Crop Care
+    </button>
+
+    <button class="category"
+            data-category="AI &amp; Technology"
+            data-i18n-text="AI &amp; Technology"
+            onclick="window.location.href='blogai.html'">
+        AI &amp; Technology
+    </button>
+
+    <button class="category"
+            data-category="Seasonal Tips"
+            data-i18n-text="Seasonal Tips"
+            onclick="window.location.href='blogseasonaltips.html'">
+        Seasonal Tips
+    </button>
+
+</div>
+</section>
+<!-- ================= FEATURED ARTICLE ================= -->
+<section class="featured-section">
+<div class="featured-image">
+<img alt="Healthy green agricultural field" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+</div>
+<div class="featured-content">
+<span class="article-category"><span data-i18n-text="CROP DISEASE">
+                    CROP DISEASE
+                </span></span>
+<h2 data-i18n-text="Early Signs of Crop Disease You Should Never Ignore">
+                    Early Signs of Crop Disease
+                    You Should Never Ignore
+                </h2>
+<p><span data-i18n-text="Crop diseases can spread quickly and affect your entire harvest. Learn how to recognize early warning signs and take action before the problem becomes serious.">
+                    Crop diseases can spread quickly and affect
+                    your entire harvest. Learn how to recognize
+                    early warning signs and take action before
+                    the problem becomes serious.
+                </span></p>
+<div class="article-info">
+<span><span data-i18n-text="🌱 Kisan Vision">🌱 Kisan Vision</span></span>
+<span data-i18n-text="Farming Guide">Farming Guide</span>
+</div>
+<a class="read-article-btn" href="blogcropdisease.html"><span data-i18n-text="Read Article">
+                 Read Article </span><span>→</span>
+</a>
+</div>
+</section>
+<!-- ================= LATEST ARTICLES ================= -->
+<section class="articles-section">
+<div class="section-title">
+<div>
+<p class="eyebrow"><span data-i18n-text="FARMING KNOWLEDGE">
+                        FARMING KNOWLEDGE
+                    </span></p>
+<h2 data-i18n-text="Latest Articles">
+                        Latest Articles
+                    </h2>
+</div>
+<p data-i18n-text="Simple and useful knowledge for better farming.">
+                    Simple and useful knowledge
+                    for better farming.
+                </p>
+</div>
+<div class="articles-grid" id="articlesGrid">
+<!-- Article 1 -->
+<article class="article-card" data-category="Crop Disease">
+<div class="article-image">
+<img alt="Crop leaves" src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+</div>
+<div class="article-content">
+<span class="article-category"><span data-i18n-text="CROP DISEASE">
+                            CROP DISEASE
+                        </span></span>
+<h3><span data-i18n-text="5 Early Signs of Crop Disease You Should Never Ignore">
+                            5 Early Signs of Crop Disease
+                            You Should Never Ignore
+                        </span></h3>
+<p><span data-i18n-text="Learn how yellowing leaves, unusual spots and wilting can indicate a possible crop disease.">
+                            Learn how yellowing leaves, unusual
+                            spots and wilting can indicate a
+                            possible crop disease.
+                        </span></p>
+<a class="article-link" href="blogcropdisease.html"><span data-i18n-text="Read More →">
+                            Read More →
+                        </span></a>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="article-card" data-category="Smart Farming">
+<div class="article-image">
+<img alt="Smart agriculture" src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+</div>
+<div class="article-content">
+<span class="article-category"><span data-i18n-text="SMART FARMING">
+                            SMART FARMING
+                        </span></span>
+<h3><span data-i18n-text="Smart Irrigation: Give Your Crops the Right Amount of Water">
+                            Smart Irrigation: Give Your Crops
+                            the Right Amount of Water
+                        </span></h3>
+<p><span data-i18n-text="Discover simple irrigation practices that can help maintain healthy crops and reduce water waste.">
+                            Discover simple irrigation practices
+                            that can help maintain healthy crops
+                            and reduce water waste.
+                        </span></p>
+<a class="article-link" href="blogsmartfarming.html"><span data-i18n-text="Read More →">
+                            Read More →
+                        </span></a>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="article-card" data-category="AI &amp; Technology">
+<div class="article-image">
+<img alt="Agriculture technology" src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+</div>
+<div class="article-content">
+<span class="article-category"><span data-i18n-text="AI &amp; TECHNOLOGY">
+                            AI &amp; TECHNOLOGY
+                        </span></span>
+<h3><span data-i18n-text="How AI is Changing Modern Farming">
+                            How AI is Changing Modern Farming
+                        </span></h3>
+<p><span data-i18n-text="Discover how Artificial Intelligence can help farmers identify crop problems and make better decisions.">
+                            Discover how Artificial Intelligence
+                            can help farmers identify crop problems
+                            and make better decisions.
+                        </span></p>
+<a class="article-link" href="blogai.html"><span data-i18n-text="Read More →">
+                            Read More →
+                        </span></a>
+</div>
+</article>
+<!-- Article 4 -->
+<article class="article-card" data-category="Crop Care">
+<div class="article-image">
+<img alt="Farmer and crops" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+</div>
+<div class="article-content">
+<span class="article-category"><span data-i18n-text="CROP CARE">
+                            CROP CARE
+                        </span></span>
+<h3><span data-i18n-text="How to Keep Your Soil Healthy">
+                            How to Keep Your Soil Healthy
+                        </span></h3>
+<p><span data-i18n-text="Healthy soil is the foundation of a healthy crop. Learn simple soil-care practices for better plant growth.">
+                            Healthy soil is the foundation of a
+                            healthy crop. Learn simple soil-care
+                            practices for better plant growth.
+                        </span></p>
+<a class="article-link" href="blogcropcare.html"><span data-i18n-text="Read More →">
+                            Read More →
+                        </span></a>
+</div>
+</article>
+<!-- Article 5 -->
+<article class="article-card" data-category="Crop Disease">
+<div class="article-image">
+<img alt="Crop protection" src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+</div>
+<div class="article-content">
+<span class="article-category"><span data-i18n-text="CROP DISEASE">
+                            CROP DISEASE
+                        </span></span>
+<h3><span data-i18n-text="Common Crop Pests and How to Prevent Them">
+                            Common Crop Pests and
+                            How to Prevent Them
+                        </span></h3>
+<p><span data-i18n-text="Learn how to identify common pests and take preventive steps to protect your crops.">
+                            Learn how to identify common pests
+                            and take preventive steps to protect
+                            your crops.
+                        </span></p>
+<a class="article-link" href="blogcroppests.html"><span data-i18n-text="Read More →">
+                            Read More →
+                        </span></a>
+</div>
+</article>
+<!-- Article 6 -->
+<article class="article-card" data-category="Seasonal Tips">
+<div class="article-image">
+<img alt="Agriculture field" src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+</div>
+<div class="article-content">
+<span class="article-category"><span data-i18n-text="SEASONAL TIPS">
+                            SEASONAL TIPS
+                        </span></span>
+<h3><span data-i18n-text="Seasonal Farming Tips for Better Yield">
+                            Seasonal Farming Tips
+                            for Better Yield
+                        </span></h3>
+<p><span data-i18n-text="Explore practical tips for preparing your field, managing water and protecting crops throughout the season.">
+                            Explore practical tips for preparing
+                            your field, managing water and
+                            protecting crops throughout the season.
+                        </span></p>
+<a class="article-link" href="blogseasonaltips.html"><span data-i18n-text="Read More →">
+                            Read More →
+                        </span></a>
+</div>
+</article>
+</div>
+</section>
+<!-- ================= CTA ================= -->
+<section class="blog-cta">
+<div>
+<p class="eyebrow" data-i18n-text="NEED HELP WITH YOUR CROP?">
+                    NEED HELP WITH YOUR CROP?
+                </p>
+<h2 data-i18n-text="Don't just read about it. Check your crop.">
+                    Don't just read about it.
+                    Check your crop.
+                </h2>
+<p data-i18n-text="Upload a photo and let Kisan Vision help identify possible crop diseases.">
+                    Upload a photo and let Kisan Vision
+                    help identify possible crop diseases.
+                </p>
+</div>
+<a class="primary-button" href="detectdisease.html"><span data-i18n-text="Detect Crop Disease →">
+                Detect Crop Disease →
+            </span></a>
+</section>
+</main>
+<!-- ================= FOOTER ================= -->
+<footer>
+<a class="brand" href="windows.html">
+<span class="brand-mark">
+                ⌁
+            </span>
+<span>
+                Kisan <em>Vision</em>
+</span>
+</a>
+<p data-i18n-text="Smarter farming, naturally.">
+            Smarter farming, naturally.
+        </p>
+<span><span data-i18n-text="© 2026 Kisan Vision">
+            © 2026 Kisan Vision
+        </span></span>
+</footer>
+<script>
+
+function searchGoogle() {
+
+    const query = document.getElementById("searchInput").value.trim();
+
+    if (query === "") {
+        return;
+    }
+
+    const searchURL =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(query + " farming");
+
+    window.open(searchURL, "_blank");
+}
+
+
+function handleSearch(event) {
+
+    if (event.key === "Enter") {
+        searchGoogle();
+    }
+
+}
+
+</script>
+<script src="language.js"></script>
+<!-- Kisan Vision chatbot button (UI placeholder; backend can be connected later) -->
+<button aria-label="Open chatbot" class="kv-chatbot" id="kvChatbotBtn" title="Chatbot (coming soon)" type="button">
+<svg aria-hidden="true" fill="currentColor" height="26" viewbox="0 0 24 24" width="26" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 2H4a2 2 0 00-2 2v14l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2zM7 9h10v2H7V9zm0 4h7v2H7v-2z"></path>
+</svg>
+</button>
+
+</body>
+</html>

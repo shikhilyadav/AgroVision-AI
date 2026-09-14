@@ -1,7 +1,11 @@
+import os
 import re
-from datetime import datetime, timezone
+
+from datetime import datetime, timezone, timedelta
 
 import bcrypt
+import jwt
+
 from pymongo.errors import DuplicateKeyError
 
 from database import db
@@ -15,15 +19,38 @@ users_collection = db["users"]
 
 
 # ============================================================
+# JWT CONFIGURATION
+# ============================================================
+
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+
+if not JWT_SECRET_KEY:
+    raise RuntimeError(
+        "JWT_SECRET_KEY is not configured."
+    )
+
+JWT_ALGORITHM = "HS256"
+JWT_EXPIRATION_DAYS = 7
+
+
+# ============================================================
 # VALIDATION
 # ============================================================
 
 def validate_email(email):
+
     pattern = r"^[^@\s]+@[^@\s]+\.[^@\s]+$"
-    return bool(re.match(pattern, email))
+
+    return bool(
+        re.match(
+            pattern,
+            email
+        )
+    )
 
 
 def validate_mobile(mobile):
+
     return bool(
         re.fullmatch(
             r"[6-9]\d{9}",
@@ -37,6 +64,7 @@ def validate_mobile(mobile):
 # ============================================================
 
 def hash_password(password):
+
     return bcrypt.hashpw(
         password.encode("utf-8"),
         bcrypt.gensalt()
@@ -44,10 +72,63 @@ def hash_password(password):
 
 
 def verify_password(password, password_hash):
+
     return bcrypt.checkpw(
         password.encode("utf-8"),
         password_hash.encode("utf-8")
     )
+
+
+# ============================================================
+# CREATE JWT TOKEN
+# ============================================================
+
+def create_access_token(user):
+
+    payload = {
+        "user_id": str(user["_id"]),
+        "email": user["email"],
+        "name": user["name"],
+        "exp": (
+            datetime.now(timezone.utc)
+            + timedelta(days=JWT_EXPIRATION_DAYS)
+        )
+    }
+
+    return jwt.encode(
+        payload,
+        JWT_SECRET_KEY,
+        algorithm=JWT_ALGORITHM
+    )
+
+
+# ============================================================
+# VERIFY JWT TOKEN
+# ============================================================
+
+def verify_access_token(token):
+
+    try:
+
+        payload = jwt.decode(
+            token,
+            JWT_SECRET_KEY,
+            algorithms=[JWT_ALGORITHM]
+        )
+
+        return payload
+
+    except jwt.ExpiredSignatureError:
+
+        raise ValueError(
+            "Session has expired. Please login again."
+        )
+
+    except jwt.InvalidTokenError:
+
+        raise ValueError(
+            "Invalid authentication token."
+        )
 
 
 # ============================================================
@@ -66,21 +147,25 @@ def register_user(
     email = email.strip().lower()
 
     if not name:
+
         raise ValueError(
             "Name is required."
         )
 
     if not validate_mobile(mobile):
+
         raise ValueError(
             "Please enter a valid 10-digit mobile number."
         )
 
     if not validate_email(email):
+
         raise ValueError(
             "Please enter a valid email address."
         )
 
     if len(password) < 8:
+
         raise ValueError(
             "Password must be at least 8 characters."
         )
@@ -101,11 +186,13 @@ def register_user(
     if existing_user:
 
         if existing_user.get("email") == email:
+
             raise ValueError(
                 "Email is already registered."
             )
 
         if existing_user.get("mobile") == mobile:
+
             raise ValueError(
                 "Mobile number is already registered."
             )
@@ -115,11 +202,20 @@ def register_user(
     # --------------------------------------------------------
 
     user = {
+
         "name": name,
+
         "mobile": mobile,
+
         "email": email,
-        "password_hash": hash_password(password),
-        "created_at": datetime.now(timezone.utc)
+
+        "password_hash": hash_password(
+            password
+        ),
+
+        "created_at": datetime.now(
+            timezone.utc
+        )
     }
 
     try:
@@ -135,9 +231,14 @@ def register_user(
         )
 
     return {
+
         "success": True,
+
         "message": "Registration successful.",
-        "user_id": str(result.inserted_id)
+
+        "user_id": str(
+            result.inserted_id
+        )
     }
 
 
@@ -153,11 +254,13 @@ def login_user(
     identifier = identifier.strip()
 
     if not identifier:
+
         raise ValueError(
             "Name or email is required."
         )
 
     if not password:
+
         raise ValueError(
             "Password is required."
         )
@@ -169,8 +272,14 @@ def login_user(
     user = users_collection.find_one(
         {
             "$or": [
-                {"email": identifier.lower()},
-                {"name": identifier}
+                {
+                    "email":
+                    identifier.lower()
+                },
+                {
+                    "name":
+                    identifier
+                }
             ]
         }
     )
@@ -196,13 +305,36 @@ def login_user(
             "Invalid name/email or password."
         )
 
+    # --------------------------------------------------------
+    # CREATE JWT TOKEN
+    # --------------------------------------------------------
+
+    token = create_access_token(
+        user
+    )
+
+    # --------------------------------------------------------
+    # LOGIN RESPONSE
+    # --------------------------------------------------------
+
     return {
+
         "success": True,
+
         "message": "Login successful.",
+
+        "token": token,
+
         "user": {
-            "id": str(user["_id"]),
+
+            "id": str(
+                user["_id"]
+            ),
+
             "name": user["name"],
+
             "email": user["email"],
+
             "mobile": user["mobile"]
         }
     }

@@ -1,0 +1,1876 @@
+/* ============================================================
+   Kisan Vision — Login Page
+   Plain CSS3. Fonts: Outfit (headings) + Plus Jakarta Sans (body)
+   ============================================================ */
+
+:root {
+  --green: #166534;
+  --deep-green: #0b4426;
+  --mint: #eff8e9;
+  --text: #183226;
+  --muted: #587064;
+  --cream: #fdfdf8;
+  --white: #ffffff;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --shadow-soft: 0 10px 30px rgba(11, 68, 38, 0.10);
+  --shadow-card: 0 24px 60px rgba(11, 68, 38, 0.18);
+  --shadow-btn: 0 8px 20px rgba(22, 101, 52, 0.35);
+  --font-head: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ==================== NAVBAR ==================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 2px 18px rgba(11, 68, 38, 0.07);
+}
+
+.navbar-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--green), var(--deep-green));
+  color: #fff;
+  font-size: 18px;
+  box-shadow: var(--shadow-btn);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-name {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--deep-green);
+}
+
+.brand-tagline {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-link {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text);
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--green);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover {
+  color: var(--green);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: 8px;
+}
+
+.lang-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1.5px solid #d8e6d4;
+  background: var(--white);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lang-select:hover {
+  border-color: var(--green);
+  box-shadow: var(--shadow-soft);
+}
+
+.lang-select .fa-chevron-down {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.btn-login-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1d7a41, var(--deep-green));
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  box-shadow: var(--shadow-btn);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-login-nav .fa-arrow-right {
+  transition: transform 0.25s ease;
+}
+
+.btn-login-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(22, 101, 52, 0.42);
+}
+
+.btn-login-nav:hover .fa-arrow-right {
+  transform: translateX(4px);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: var(--deep-green);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ==================== HERO ==================== */
+
+.hero {
+  position: relative;
+  background: url('images/login-background.png.png') center / cover no-repeat;
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(239, 248, 233, 0.88) 0%,
+    rgba(239, 248, 233, 0.62) 34%,
+    rgba(239, 248, 233, 0.18) 58%,
+    rgba(11, 68, 38, 0.10) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 72px 32px 88px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ---------- Left content ---------- */
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  color: var(--green);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(22, 101, 52, 0.18);
+  padding: 8px 18px;
+  border-radius: 999px;
+  margin-bottom: 26px;
+  backdrop-filter: blur(6px);
+}
+
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 4.2vw, 3.7rem);
+  font-weight: 800;
+  line-height: 1.12;
+  color: var(--deep-green);
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 480px;
+  margin-bottom: 36px;
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 44px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mint);
+  border: 1px solid rgba(22, 101, 52, 0.14);
+  color: var(--green);
+  font-size: 19px;
+  box-shadow: 0 6px 16px rgba(11, 68, 38, 0.08);
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-text strong {
+  font-family: var(--font-head);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.feature-text small {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.handwritten {
+  position: relative;
+  display: inline-block;
+  font-family: 'Caveat', cursive;
+  font-size: 27px;
+  line-height: 1.25;
+  color: var(--green);
+  transform: rotate(-2deg);
+}
+
+.handwritten-arrow {
+  position: absolute;
+  right: -110px;
+  bottom: -14px;
+  width: 100px;
+  height: 34px;
+  color: var(--green);
+  opacity: 0.75;
+}
+
+/* ---------- Login card ---------- */
+
+.login-card {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 44px 42px 36px;
+  max-width: 470px;
+  width: 100%;
+  justify-self: end;
+}
+
+.card-leaf {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--green), var(--deep-green));
+  color: #fff;
+  font-size: 20px;
+  box-shadow: var(--shadow-btn);
+  margin-bottom: 22px;
+}
+
+.card-title {
+  font-family: var(--font-head);
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--deep-green);
+  margin-bottom: 8px;
+}
+
+.card-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 17px;
+  color: var(--muted);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 46px 14px 46px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: var(--text);
+  background: #fbfdf9;
+  border: 1.5px solid #dfe9db;
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.form-input::placeholder {
+  color: #9db0a4;
+}
+
+.form-input:focus {
+  border-color: var(--green);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(22, 101, 52, 0.10);
+}
+
+.input-wrap.invalid .form-input {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 4px rgba(192, 57, 43, 0.08);
+}
+
+.eye-toggle {
+  position: absolute;
+  right: 14px;
+  padding: 6px;
+  color: var(--muted);
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.eye-toggle:hover {
+  color: var(--green);
+}
+
+.field-error {
+  display: block;
+  min-height: 17px;
+  font-size: 12.5px;
+  color: #c0392b;
+  margin-top: 5px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2px 0 20px;
+}
+
+.forgot-link {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--green);
+  transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+  color: var(--deep-green);
+  text-decoration: underline;
+}
+
+.form-message {
+  min-height: 20px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-message.success {
+  color: var(--green);
+}
+
+.form-message.error {
+  color: #c0392b;
+}
+
+.btn-primary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #1d7a41, var(--deep-green));
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: var(--shadow-btn);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary .fa-arrow-right {
+  transition: transform 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(22, 101, 52, 0.45);
+}
+
+.btn-primary:hover .fa-arrow-right {
+  transform: translateX(5px);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.divider {
+  margin: 26px 0 18px;
+}
+
+.divider span {
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #dde7da, transparent);
+}
+
+.signup-line {
+  text-align: center;
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+.signup-link {
+  font-weight: 700;
+  color: var(--green);
+  margin-left: 6px;
+  transition: color 0.2s ease;
+}
+
+.signup-link:hover {
+  color: var(--deep-green);
+  text-decoration: underline;
+}
+
+/* ==================== FOOTER ==================== */
+
+.footer {
+  background: var(--deep-green);
+  color: #d9e8dc;
+}
+
+.footer-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 64px 32px 48px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+  gap: 48px;
+}
+
+.brand-footer .brand-name {
+  color: #fff;
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: #a9c4b0;
+  margin: 18px 0 22px;
+  max-width: 300px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.10);
+  color: #e6f2e9;
+  font-size: 14px;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.social-icons a:hover {
+  background: var(--green);
+  transform: translateY(-3px);
+}
+
+.footer-col h4 {
+  font-family: var(--font-head);
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.footer-col a:not(.brand) {
+  display: block;
+  font-size: 14px;
+  color: #a9c4b0;
+  margin-bottom: 11px;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-col a:not(.brand):hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.footer-newsletter p {
+  font-size: 13.5px;
+  color: #a9c4b0;
+  margin-bottom: 16px;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 5px 5px 5px 18px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+}
+
+.newsletter-form input::placeholder {
+  color: #8fae97;
+}
+
+.newsletter-form button {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1d7a41, var(--green));
+  color: #fff;
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+
+.newsletter-form button:hover {
+  transform: translateX(3px);
+}
+
+.newsletter-msg {
+  display: block;
+  min-height: 18px;
+  font-size: 12.5px;
+  margin-top: 8px;
+}
+
+.newsletter-msg.success {
+  color: #9fe6b8;
+}
+
+.newsletter-msg.error {
+  color: #f0a9a0;
+}
+
+.footer-bottom {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 22px 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  color: #a9c4b0;
+}
+
+.footer-tag {
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1280px) {
+  .hero-inner {
+    gap: 44px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-link {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: 16px;
+    right: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: var(--shadow-card);
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    padding: 11px 14px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+
+  .nav-link:hover {
+    background: var(--mint);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-actions {
+    margin: 12px 0 0;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lang-select,
+  .btn-login-nav {
+    justify-content: center;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 52px;
+    padding: 60px 32px 72px;
+  }
+
+  .login-card {
+    justify-self: center;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-inner {
+    padding: 12px 20px;
+  }
+
+  .brand-tagline {
+    display: none;
+  }
+
+  .hero-inner {
+    padding: 48px 20px 60px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+  }
+
+  .handwritten-arrow {
+    right: -80px;
+    width: 70px;
+  }
+
+  .footer-inner {
+    padding: 52px 24px 40px;
+    gap: 36px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.15rem;
+  }
+
+  .login-card {
+    padding: 32px 24px 28px;
+    border-radius: 20px;
+  }
+
+  .card-title {
+    font-size: 26px;
+  }
+
+  .feature-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 16px;
+  }
+
+  .handwritten {
+    font-size: 23px;
+  }
+}
+
+
+/* ==================== COMPACT DESKTOP SIZE ==================== */
+/* Only sizing/spacing reduced — design, colors and background unchanged. */
+
+@media (min-width: 1025px) {
+  .navbar-inner {
+    max-width: 1240px;
+    padding: 10px 28px;
+    gap: 18px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+  .brand-tagline {
+    font-size: 10px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+  }
+
+  .nav-actions {
+    gap: 10px;
+    margin-left: 4px;
+  }
+
+  .lang-select {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+
+  .btn-login-nav {
+    padding: 9px 20px;
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: calc(100vh - 60px);
+  }
+
+  .hero-inner {
+    max-width: 1240px;
+    padding: 48px 28px 58px;
+    gap: 42px;
+  }
+
+  .hero-eyebrow {
+    font-size: 11.5px;
+    padding: 7px 15px;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.1rem, 3.5vw, 3.15rem);
+    margin-bottom: 16px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    max-width: 430px;
+    margin-bottom: 28px;
+  }
+
+  .feature-list {
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .feature-item {
+    gap: 13px;
+  }
+
+  .feature-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 17px;
+  }
+
+  .feature-text strong {
+    font-size: 15px;
+  }
+
+  .feature-text small {
+    font-size: 12px;
+  }
+
+  .handwritten {
+    font-size: 23px;
+  }
+
+  .handwritten-arrow {
+    right: -95px;
+    width: 85px;
+  }
+
+  .login-card {
+    max-width: 420px;
+    padding: 34px 34px 28px;
+  }
+
+  .card-leaf {
+    width: 46px;
+    height: 46px;
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+
+  .card-title {
+    font-size: 27px;
+    margin-bottom: 6px;
+  }
+
+  .card-subtitle {
+    font-size: 13px;
+    margin-bottom: 22px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-label {
+    font-size: 12.5px;
+    margin-bottom: 6px;
+  }
+
+  .input-icon {
+    left: 15px;
+    font-size: 14px;
+  }
+
+  .form-input {
+    padding: 12px 42px 12px 42px;
+    font-size: 13.5px;
+  }
+
+  .eye-toggle {
+    right: 12px;
+    font-size: 14px;
+  }
+
+  .field-error {
+    min-height: 14px;
+    font-size: 11.5px;
+    margin-top: 4px;
+  }
+
+  .form-row {
+    margin: 1px 0 16px;
+  }
+
+  .forgot-link {
+    font-size: 12.5px;
+  }
+
+  .form-message {
+    min-height: 17px;
+    font-size: 12.5px;
+    margin-bottom: 7px;
+  }
+
+  .btn-primary {
+    padding: 13px;
+    font-size: 14.5px;
+  }
+
+  .divider {
+    margin: 20px 0 14px;
+  }
+
+  .signup-line {
+    font-size: 13px;
+  }
+
+  .footer-inner {
+    max-width: 1240px;
+    padding: 48px 28px 36px;
+    gap: 36px;
+  }
+
+  .footer-desc {
+    font-size: 13px;
+    margin: 14px 0 18px;
+  }
+
+  .footer-col h4 {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .footer-col a:not(.brand) {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .footer-newsletter p {
+    font-size: 12.5px;
+    margin-bottom: 12px;
+  }
+
+  .footer-bottom {
+    max-width: 1240px;
+    padding: 18px 28px;
+    font-size: 12px;
+  }
+}
+
+
+/* ==================== EXTRA COMPACT DESKTOP ==================== */
+/* Further reduces desktop sizing only. Existing design and image unchanged. */
+
+@media (min-width: 1025px) {
+  .navbar-inner {
+    max-width: 1180px;
+    padding: 8px 24px;
+    gap: 14px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .brand-tagline {
+    font-size: 9px;
+  }
+
+  .nav-links {
+    gap: 17px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .lang-select {
+    padding: 7px 13px;
+    font-size: 12px;
+  }
+
+  .btn-login-nav {
+    padding: 8px 17px;
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: calc(100vh - 52px);
+  }
+
+  .hero-inner {
+    max-width: 1180px;
+    padding: 36px 24px 44px;
+    gap: 34px;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    padding: 6px 13px;
+    margin-bottom: 15px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.85rem, 3vw, 2.7rem);
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 12.5px;
+    max-width: 390px;
+    margin-bottom: 22px;
+  }
+
+  .feature-list {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .feature-item {
+    gap: 10px;
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .feature-text strong {
+    font-size: 13.5px;
+  }
+
+  .feature-text small {
+    font-size: 10.5px;
+  }
+
+  .handwritten {
+    font-size: 20px;
+  }
+
+  .handwritten-arrow {
+    right: -80px;
+    width: 72px;
+  }
+
+  .login-card {
+    max-width: 380px;
+    padding: 28px 30px 24px;
+  }
+
+  .card-leaf {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .card-title {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+
+  .card-subtitle {
+    font-size: 11.5px;
+    margin-bottom: 18px;
+  }
+
+  .form-group {
+    margin-bottom: 11px;
+  }
+
+  .form-label {
+    font-size: 11.5px;
+    margin-bottom: 5px;
+  }
+
+  .input-icon {
+    left: 13px;
+    font-size: 12.5px;
+  }
+
+  .form-input {
+    padding: 10px 38px 10px 38px;
+    font-size: 12px;
+    border-radius: 13px;
+  }
+
+  .eye-toggle {
+    right: 10px;
+    font-size: 12.5px;
+  }
+
+  .field-error {
+    min-height: 12px;
+    font-size: 10px;
+    margin-top: 3px;
+  }
+
+  .form-row {
+    margin: 0 0 12px;
+  }
+
+  .forgot-link {
+    font-size: 11.5px;
+  }
+
+  .form-message {
+    min-height: 14px;
+    font-size: 11.5px;
+    margin-bottom: 5px;
+  }
+
+  .btn-primary {
+    padding: 11px;
+    font-size: 13px;
+  }
+
+  .divider {
+    margin: 16px 0 11px;
+  }
+
+  .signup-line {
+    font-size: 11.5px;
+  }
+
+  .footer-inner {
+    max-width: 1180px;
+    padding: 38px 24px 28px;
+    gap: 28px;
+  }
+
+  .footer-desc {
+    font-size: 11.5px;
+    margin: 11px 0 14px;
+  }
+
+  .footer-col h4 {
+    font-size: 12.5px;
+    margin-bottom: 11px;
+  }
+
+  .footer-col a:not(.brand) {
+    font-size: 11.5px;
+    margin-bottom: 6px;
+  }
+
+  .footer-newsletter p {
+    font-size: 11px;
+    margin-bottom: 9px;
+  }
+
+  .footer-bottom {
+    max-width: 1180px;
+    padding: 15px 24px;
+    font-size: 10.5px;
+  }
+}
+
+
+/* ==================== FOOTER POLISH ==================== */
+/* Only fixes newsletter email field and social icons. */
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons a {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.10);
+  color: #e6f2e9;
+  font-size: 13px;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.social-icons a i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  transform: translateY(8px);
+}
+
+.newsletter-form {
+  height: 46px;
+  padding: 4px 4px 4px 16px;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.newsletter-form input {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent !important;
+  color: #ffffff !important;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1;
+  box-shadow: none !important;
+}
+
+.newsletter-form input::placeholder {
+  color: #8fae97;
+  opacity: 1;
+}
+
+.newsletter-form input:-webkit-autofill,
+.newsletter-form input:-webkit-autofill:hover,
+.newsletter-form input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.newsletter-form button {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border-radius: 50%;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ============================================================
+   KISAN VISION — SHARED BUTTON DESIGN
+   Applied to all normal buttons / CTAs on this page.
+   Based on the polished Login + English button styling.
+   ============================================================ */
+
+:root {
+  --kv-btn-green: #166534;
+  --kv-btn-deep: #0b4426;
+  --kv-btn-shadow: 0 8px 20px rgba(22, 101, 52, 0.28);
+  --kv-btn-shadow-hover: 0 12px 26px rgba(22, 101, 52, 0.38);
+}
+
+/* Primary / CTA buttons */
+.button,
+.button-primary,
+.button-light,
+.button-secondary,
+.btn-primary,
+.btn-secondary,
+.btn,
+.cta-button,
+.primary-button,
+.secondary-button,
+.learn-more,
+.read-more,
+.read-article-btn,
+.practice-link,
+.form-submit-row button,
+.disease-cta .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 13.5px;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Green primary style — same visual language as Login */
+.button-primary,
+.btn-primary,
+.btn,
+.primary-button,
+.cta-button,
+.form-submit-row button,
+.disease-cta .button {
+  background: linear-gradient(135deg, #1d7a41, var(--kv-btn-deep));
+  color: #fff;
+  box-shadow: var(--kv-btn-shadow);
+}
+
+.button-primary:hover,
+.btn-primary:hover,
+.btn:hover,
+.primary-button:hover,
+.cta-button:hover,
+.form-submit-row button:hover,
+.disease-cta .button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--kv-btn-shadow-hover);
+}
+
+/* Light secondary style — same polished feel as English */
+.button-light,
+.button-secondary,
+.btn-secondary,
+.secondary-button,
+.learn-more,
+.read-more,
+.read-article-btn,
+.practice-link {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--kv-btn-green);
+  border-color: #d8e6d4;
+  box-shadow: 0 5px 16px rgba(11, 68, 38, 0.08);
+}
+
+.button-light:hover,
+.button-secondary:hover,
+.btn-secondary:hover,
+.secondary-button:hover,
+.learn-more:hover,
+.read-more:hover,
+.read-article-btn:hover,
+.practice-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--kv-btn-green);
+  box-shadow: var(--kv-btn-shadow);
+  color: var(--kv-btn-deep);
+}
+
+/* Arrow animation */
+.button span,
+.button-primary span,
+.button-light span,
+.button-secondary span,
+.btn span,
+.btn-primary span,
+.btn-secondary span,
+.cta-button span,
+.primary-button span,
+.secondary-button span,
+.learn-more span,
+.read-more span,
+.read-article-btn span {
+  transition: transform 0.25s ease;
+}
+
+.button:hover span,
+.button-primary:hover span,
+.button-light:hover span,
+.button-secondary:hover span,
+.btn:hover span,
+.btn-primary:hover span,
+.btn-secondary:hover span,
+.cta-button:hover span,
+.primary-button:hover span,
+.secondary-button:hover span,
+.learn-more:hover span,
+.read-more:hover span,
+.read-article-btn:hover span {
+  transform: translateX(4px);
+}
+
+/* Keyboard accessibility */
+.button:focus-visible,
+.button-primary:focus-visible,
+.button-light:focus-visible,
+.button-secondary:focus-visible,
+.btn:focus-visible,
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.cta-button:focus-visible,
+.primary-button:focus-visible,
+.secondary-button:focus-visible,
+.learn-more:focus-visible,
+.read-more:focus-visible,
+.read-article-btn:focus-visible,
+.practice-link:focus-visible {
+  outline: 3px solid rgba(22, 101, 52, 0.22);
+  outline-offset: 3px;
+}
+
+/* Navbar: Home / How It Works / other page links become buttons */
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 15px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.nav-link::after {
+  display: none;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  border-color: #d8e6d4;
+  background: #fff;
+  color: var(--kv-btn-green);
+  box-shadow: 0 5px 16px rgba(11, 68, 38, 0.08);
+}
+
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  background: linear-gradient(135deg, #1d7a41, var(--kv-btn-deep));
+  color: #fff;
+  box-shadow: var(--kv-btn-shadow);
+}
+
+/* English selector — keep its polished existing style */
+.lang-select {
+  border-radius: 999px;
+  border: 1.5px solid #d8e6d4;
+  background: var(--white);
+  color: var(--text);
+  box-shadow: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.lang-select:hover {
+  border-color: var(--kv-btn-green);
+  box-shadow: 0 5px 16px rgba(11, 68, 38, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Login button remains the reference style */
+.btn-login-nav {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1d7a41, var(--kv-btn-deep));
+  color: #fff;
+  box-shadow: var(--kv-btn-shadow);
+}
+
+.btn-login-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--kv-btn-shadow-hover);
+}
+
+/* Mobile nav buttons */
+@media (max-width: 1024px) {
+  .nav-link {
+    justify-content: flex-start;
+    min-height: 42px;
+    padding: 11px 15px;
+    border-radius: 12px;
+  }
+
+  .nav-link:hover {
+    transform: translateX(2px);
+  }
+
+  .nav-link.active,
+  .nav-link[aria-current="page"] {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   FINAL NAV BUTTONS — SAME FEEL AS ENGLISH
+   Each item gets its own soft rounded capsule with side space.
+   ============================================================ */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+    padding: 10px 18px;
+
+    color: #50705e;
+    background: #f8fbf6;
+    border: 1px solid #d8e6d4;
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-decoration: none;
+
+    box-shadow: 0 2px 8px rgba(22,101,52,.05);
+
+    transition:
+        color .22s ease,
+        background .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease,
+        transform .22s ease;
+}
+
+/* No underline */
+.main-nav a::after {
+    display: none;
+}
+
+/* Hover — very subtle */
+.main-nav a:hover {
+    color: var(--green);
+    background: #ffffff;
+    border-color: #c9ddc4;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(22,101,52,.10);
+}
+
+/* Active */
+.main-nav .active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #1d7a41, #0b4426);
+    border-color: #126b3a;
+    box-shadow: 0 5px 14px rgba(22,101,52,.16);
+}
+
+.main-nav .active:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #20834a, #0d4d2b);
+    transform: translateY(-1px);
+    box-shadow: 0 7px 17px rgba(22,101,52,.19);
+}
+
+/* English — same capsule language as nav buttons */
+.language-select {
+    min-height: 42px;
+    padding: 10px 16px;
+    border-radius: 999px;
+
+    background: #f8fbf6;
+    border: 1px solid #d8e6d4;
+
+    box-shadow: 0 2px 8px rgba(22,101,52,.05);
+}
+
+.language-select:hover {
+    background: #ffffff;
+    border-color: #c9ddc4;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(22,101,52,.10);
+}
+
+/* Login stays the stronger green action */
+.login-button {
+    min-height: 42px;
+    padding: 11px 19px;
+    border-radius: 999px;
+}
+
+
+
+/* ============================================================
+   KISAN VISION — FINAL SHARED BUTTON DESIGN
+   Only button styling is standardized. Page layout/design unchanged.
+   ============================================================ */
+
+/* Header navigation buttons */
+.nav-links .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 10px 16px;
+    border: 1px solid #d8e6d4;
+    border-radius: 999px;
+    background: linear-gradient(145deg, #f9fcf7, #edf5ea);
+    color: #50705e;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(22,101,52,.05);
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        background .22s ease,
+        color .22s ease,
+        border-color .22s ease;
+}
+
+.nav-links .nav-link::after {
+    display: none;
+}
+
+.nav-links .nav-link:hover {
+    color: var(--green);
+    background: #fff;
+    border-color: #cfe2c9;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(22,101,52,.10);
+}
+
+.nav-links .nav-link.active,
+.nav-links .nav-link[aria-current="page"] {
+    color: #fff;
+    background: linear-gradient(145deg, #19733f, #126332);
+    border-color: #126332;
+    border-radius: 999px;
+    box-shadow: 0 5px 14px rgba(22,101,52,.14);
+}
+
+.nav-links .nav-link.active:hover,
+.nav-links .nav-link[aria-current="page"]:hover {
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 17px rgba(22,101,52,.19);
+}
+
+/* English selector */
+.lang-select {
+    min-height: 40px;
+    padding: 0 12px 0 14px;
+    border: 1px solid #d8e6d4;
+    border-radius: 999px;
+    background: linear-gradient(145deg, #f9fcf7, #edf5ea);
+    box-shadow: 0 2px 8px rgba(22,101,52,.05);
+}
+
+.lang-select:hover {
+    border-color: #cfe2c9;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(22,101,52,.10);
+}
+
+/* Login */
+.btn-login-nav {
+    min-height: 40px;
+    padding: 10px 17px;
+    border: 1px solid #126b3a;
+    border-radius: 999px;
+    background: linear-gradient(145deg, #19733f, #126332);
+    color: #fff;
+    box-shadow: 0 5px 14px rgba(22,101,52,.14);
+}
+
+.btn-login-nav:hover {
+    background: linear-gradient(145deg, #1d7944, #146a36);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(22,101,52,.19);
+}
+
+/* Main Login button */
+.btn-primary {
+    border-radius: 999px;
+    box-shadow: 0 5px 14px rgba(22,101,52,.14);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(22,101,52,.19);
+}
+
+/* Newsletter action button keeps its compact circular design */
+.newsletter-form button {
+    border-radius: 50%;
+}

@@ -1,0 +1,1238 @@
+:root{
+  --kv-primary:#166534;
+  --kv-dark:#0b4426;
+  --kv-green:#19733f;
+  --kv-light:#eff8e9;
+  --kv-text:#183226;
+  --kv-muted:#587064;
+  --kv-border:#dcebd7;
+  --kv-white:#ffffff;
+  --kv-bg:#f9fcf7;
+
+  --kv-shadow-soft: 0 4px 20px rgba(0,0,0,.03);
+  --kv-shadow-float: 0 10px 40px rgba(0,0,0,.05);
+  --kv-radius-lg: 1.5rem;
+  --kv-radius-md: .9rem;
+  --kv-radius-pill: 999px;
+  --kv-container-pad: 5%;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family:'Outfit', sans-serif;
+  color:var(--kv-text);
+  background:var(--kv-bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; }
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+/* Buttons (shared Kisan Vision pill system) */
+.kv-btn{
+  border-radius:var(--kv-radius-pill);
+  padding:.75rem 1.25rem;
+  font-weight:500;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.4rem;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  cursor:pointer;
+  user-select:none;
+  white-space:nowrap;
+}
+.kv-btn--primary{
+  background:linear-gradient(145deg,#19733f,#126332);
+  border:1px solid #126b3a;
+  color:#fff;
+  box-shadow:0 5px 14px rgba(22,101,52,.14);
+}
+.kv-btn--primary:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px rgba(22,101,52,.19);
+}
+.kv-btn--secondary{
+  background:linear-gradient(145deg,#f9fcf7,#edf5ea);
+  border:1px solid #d8e6d4;
+  color:#50705e;
+  box-shadow:0 2px 8px rgba(22,101,52,.05);
+}
+.kv-btn--secondary:hover{
+  background:#fff;
+  border-color:#cfe2c9;
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(22,101,52,.08);
+}
+
+.kv-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--kv-border);
+}
+.kv-navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1rem var(--kv-container-pad);
+  gap:1rem;
+}
+.kv-brand{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+.kv-brand__leaf{ display:inline-flex; }
+.kv-brand__name{ color:var(--kv-dark); }
+.kv-nav-menu{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+}
+.kv-nav-link{ padding:.65rem 1rem; }
+.kv-nav-link.is-active{
+  background:linear-gradient(145deg,#19733f,#126332);
+  border:1px solid #126b32;
+  color:#fff;
+  box-shadow:0 5px 14px rgba(22,101,52,.14);
+}
+.kv-lang{ padding:.65rem 1rem; }
+.kv-nav-toggle{
+  display:none;
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  border:1px solid var(--kv-border);
+  background:linear-gradient(145deg,#f9fcf7,#edf5ea);
+  box-shadow:0 2px 8px rgba(22,101,52,.05);
+  cursor:pointer;
+  padding:0;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  flex-direction:column;
+}
+.kv-nav-toggle__bar{
+  width:18px;
+  height:2px;
+  background:var(--kv-dark);
+  border-radius:999px;
+}
+
+/* Hero */
+.kv-hero{
+  position:relative;
+  padding:6rem var(--kv-container-pad) 10rem;
+  background-image:url("images/contactheader.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  overflow:hidden;
+}
+.kv-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, rgba(249,252,247,.94) 0%, rgba(249,252,247,.78) 46%, rgba(249,252,247,.18) 72%, rgba(249,252,247,0) 100%);
+}
+.kv-hero__inner{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:2rem;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+}
+.kv-hero__label{
+  margin:0 0 1rem;
+  color:var(--kv-dark);
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.9rem;
+}
+.kv-hero__title{
+  margin:0 0 1rem;
+  font-size:clamp(2.6rem, 5vw, 4rem);
+  line-height:1.06;
+  letter-spacing:-.02em;
+  color:var(--kv-dark);
+}
+.kv-hero__title-accent{
+  color:#1f8a4c;
+}
+.kv-hero__subtitle{
+  margin:0 0 1.5rem;
+  color:var(--kv-muted);
+  max-width:52ch;
+  font-size:1.05rem;
+}
+.kv-hero__badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+}
+.kv-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  padding:.5rem .85rem;
+  border-radius:var(--kv-radius-pill);
+  background:linear-gradient(145deg,#f9fcf7,#edf5ea);
+  border:1px solid var(--kv-border);
+  color:#50705e;
+  box-shadow:0 2px 8px rgba(22,101,52,.05);
+  font-size:.92rem;
+}
+
+.kv-hero__card{
+  justify-self:end;
+  width:min(360px, 100%);
+  background:rgba(255,255,255,.86);
+  border:1px solid var(--kv-border);
+  border-radius:1.25rem;
+  box-shadow:0 10px 40px rgba(0,0,0,.06);
+  padding:1.25rem 1.25rem;
+}
+.kv-hero__card-text{
+  margin:0;
+  color:var(--kv-dark);
+  font-weight:600;
+  line-height:1.35;
+}
+
+/* Floating contact info */
+.kv-contact-strip{
+  margin: -80px var(--kv-container-pad) 4rem;
+  position:relative;
+  z-index:10;
+}
+.kv-contact-strip__card{
+  background:var(--kv-white);
+  border:1px solid var(--kv-border);
+  border-radius:var(--kv-radius-lg);
+  box-shadow:var(--kv-shadow-float);
+  padding:1.75rem;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:1.25rem;
+  max-width:1200px;
+  margin:0 auto;
+}
+.kv-contact-item{
+  display:flex;
+  gap:1rem;
+  align-items:flex-start;
+  padding:.25rem .25rem;
+}
+.kv-contact-item__icon{
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  background:var(--kv-light);
+  border:1px solid var(--kv-border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--kv-dark);
+  flex:0 0 auto;
+}
+.kv-contact-item__title{
+  margin:0 0 .25rem;
+  font-size:.82rem;
+  letter-spacing:.10em;
+  color:var(--kv-muted);
+  font-weight:700;
+}
+.kv-contact-item__main{
+  margin:0;
+  font-weight:600;
+  color:var(--kv-dark);
+}
+.kv-contact-item__sub{
+  margin:.15rem 0 0;
+  color:var(--kv-muted);
+  font-size:.92rem;
+}
+.kv-linklike{
+  border:0;
+  padding:0;
+  background:transparent;
+  color:var(--kv-green);
+  font-weight:600;
+  cursor:pointer;
+  margin-top:.35rem;
+}
+.kv-linklike:hover{ text-decoration:underline; }
+
+/* Cards */
+.kv-main{
+  padding:0 var(--kv-container-pad) 6rem;
+}
+.kv-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap:1.75rem;
+  align-items:start;
+}
+.kv-card{
+  background:var(--kv-white);
+  border:1px solid var(--kv-border);
+  border-radius:var(--kv-radius-lg);
+  padding:1.75rem;
+  box-shadow:var(--kv-shadow-soft);
+}
+.kv-card__title{
+  margin:0 0 .35rem;
+  font-size:1.35rem;
+  letter-spacing:-.01em;
+  color:var(--kv-dark);
+}
+.kv-card__subtitle{
+  margin:0 0 1.25rem;
+  color:var(--kv-muted);
+}
+.kv-stack{
+  display:grid;
+  gap:1.75rem;
+}
+
+/* Form */
+.kv-form{ margin-top:.25rem; }
+.kv-form__row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+.kv-field{ margin-bottom:1rem; }
+.kv-field__label{
+  display:block;
+  margin:0 0 .45rem;
+  color:var(--kv-dark);
+  font-weight:600;
+  font-size:.95rem;
+}
+.kv-field__input{
+  width:100%;
+  background:#fff;
+  border:1px solid var(--kv-border);
+  border-radius:.85rem;
+  padding:.9rem 1rem;
+  color:var(--kv-text);
+  transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.kv-field__input:focus{
+  outline:none;
+  border-color:var(--kv-green);
+  box-shadow:0 0 0 3px rgba(25,115,63,.15);
+}
+.kv-field__textarea{ resize:vertical; min-height:140px; }
+.kv-field__error{
+  margin:.45rem 0 0;
+  color:#9b1c1c;
+  font-size:.88rem;
+  min-height:1.1em;
+}
+.kv-form__submit{
+  width:100%;
+  padding:1rem 1.25rem;
+  font-weight:600;
+}
+.kv-form__note{
+  margin:1rem 0 0;
+  color:var(--kv-muted);
+  font-size:.92rem;
+  text-align:center;
+}
+.kv-form__success{
+  margin: .9rem 0 0;
+  color: var(--kv-dark);
+  background: rgba(239,248,233,.9);
+  border: 1px solid var(--kv-border);
+  border-radius: 1rem;
+  padding: .9rem 1rem;
+  display:none;
+}
+.kv-form__success.is-visible{ display:block; }
+
+/* Map placeholder */
+.kv-map{
+  position:relative;
+  border-radius:1.25rem;
+  border:1px solid var(--kv-border);
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(25,115,63,.12), transparent 55%),
+    radial-gradient(circle at 70% 60%, rgba(25,115,63,.10), transparent 55%),
+    linear-gradient(180deg, #fbfefc, #f4fbf1);
+  min-height:220px;
+}
+.kv-map__bg{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, transparent 0 46%, rgba(24,50,38,.06) 46% 54%, transparent 54% 100%),
+    linear-gradient(0deg, transparent 0 42%, rgba(24,50,38,.06) 42% 58%, transparent 58% 100%),
+    linear-gradient(135deg, transparent 0 52%, rgba(24,50,38,.04) 52% 60%, transparent 60% 100%);
+  opacity:.9;
+}
+.kv-map__marker{
+  position:absolute;
+  top:58px;
+  left:50%;
+  transform:translateX(-50%);
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.kv-map__pin{
+  width:18px;
+  height:18px;
+  background:var(--kv-green);
+  border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);
+  box-shadow:0 10px 20px rgba(22,101,52,.18);
+  border:2px solid rgba(255,255,255,.85);
+}
+.kv-map__label{
+  position:absolute;
+  left:18px;
+  bottom:16px;
+  background:rgba(255,255,255,.9);
+  border:1px solid var(--kv-border);
+  border-radius:1rem;
+  padding:.8rem .9rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+  max-width:calc(100% - 36px);
+}
+.kv-map__name{ margin:0; font-weight:700; color:var(--kv-dark); }
+.kv-map__city{ margin:.15rem 0 0; color:var(--kv-muted); font-size:.92rem; }
+
+/* FAQ */
+.kv-faq{ display:grid; gap:.75rem; }
+.kv-faq__item{
+  border:1px solid var(--kv-border);
+  border-radius:1rem;
+  background:linear-gradient(145deg,#f9fcf7,#ffffff);
+  overflow:hidden;
+}
+.kv-faq__question{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1rem 1rem;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  color:var(--kv-dark);
+  font-weight:600;
+  text-align:left;
+}
+.kv-faq__arrow{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  border:1px solid var(--kv-border);
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--kv-muted);
+  transition:transform .2s ease;
+  flex:0 0 auto;
+}
+.kv-faq__answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .25s ease;
+}
+.kv-faq__answer p{
+  margin:0;
+  padding:0 1rem 1rem;
+  color:var(--kv-muted);
+}
+.kv-faq__item.is-active .kv-faq__arrow{ transform:rotate(180deg); }
+
+/* Experts */
+.kv-experts__list{
+  display:grid;
+  gap:.9rem;
+}
+.kv-expert{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:1rem;
+  align-items:center;
+  padding:1rem;
+  border:1px solid var(--kv-border);
+  border-radius:1.25rem;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.02);
+}
+.kv-expert__avatar{
+  width:52px;
+  height:52px;
+  border-radius:999px;
+  background:linear-gradient(145deg,#eff8e9,#ffffff);
+  border:1px solid var(--kv-border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--kv-dark);
+  font-weight:700;
+  letter-spacing:.02em;
+}
+.kv-expert__name{
+  margin:0;
+  font-size:1.02rem;
+  color:var(--kv-dark);
+}
+.kv-expert__role{
+  margin:.15rem 0 .4rem;
+  color:var(--kv-muted);
+  font-size:.92rem;
+}
+.kv-expert__line{
+  margin:0;
+  color:var(--kv-muted);
+  font-size:.92rem;
+}
+.kv-expert__btn{
+  padding:.55rem .9rem;
+  font-size:.92rem;
+}
+.kv-advice{
+  margin-top:1.25rem;
+  display:flex;
+  gap:.9rem;
+  align-items:flex-start;
+  padding:1rem;
+  border-radius:1.25rem;
+  background:rgba(239,248,233,.9);
+  border:1px solid var(--kv-border);
+}
+.kv-advice__icon{
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid var(--kv-border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.kv-advice__title{
+  margin:0 0 .2rem;
+  font-weight:700;
+  color:var(--kv-dark);
+}
+.kv-advice__text{
+  margin:0;
+  color:var(--kv-muted);
+  font-size:.95rem;
+}
+
+/* CTA banner */
+.kv-cta{
+  position:relative;
+  margin:0 var(--kv-container-pad) 4rem;
+  border-radius:2rem;
+  overflow:hidden;
+  background-image:url("images/contactfooter.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  box-shadow:0 18px 60px rgba(0,0,0,.08);
+}
+.kv-cta__overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, rgba(11,68,38,.62), rgba(11,68,38,.22), rgba(255,255,255,0));
+}
+.kv-cta__content{
+  position:relative;
+  z-index:1;
+  max-width:1200px;
+  margin:0 auto;
+  padding:4rem 1.5rem;
+  text-align:center;
+  color:#fff;
+}
+.kv-cta__title{
+  margin:0 0 .75rem;
+  font-size:clamp(1.9rem, 3vw, 2.6rem);
+  letter-spacing:-.01em;
+}
+.kv-cta__text{
+  margin:0 0 1.75rem;
+  color:rgba(255,255,255,.92);
+  font-size:1.02rem;
+}
+.kv-cta__btn{
+  padding:1rem 1.5rem;
+  font-weight:600;
+}
+
+/* Footer */
+.kv-footer{
+  background:#ffffff;
+  border-top:1px solid var(--kv-border);
+}
+.kv-footer__top{
+  max-width:1200px;
+  margin:0 auto;
+  padding:3.5rem var(--kv-container-pad) 2.5rem;
+  display:grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.1fr;
+  gap:2rem;
+  align-items:start;
+}
+.kv-footer__logo{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:800;
+  color:var(--kv-dark);
+}
+.kv-footer__name{ font-size:1.1rem; }
+.kv-footer__tagline{
+  margin:.75rem 0 .75rem;
+  color:var(--kv-green);
+  font-weight:600;
+}
+.kv-footer__desc{
+  margin:0;
+  color:var(--kv-muted);
+}
+.kv-footer__heading{
+  margin:0 0 .9rem;
+  color:var(--kv-dark);
+  font-size:1rem;
+}
+.kv-footer__link{
+  display:block;
+  margin:.45rem 0;
+  color:var(--kv-muted);
+}
+.kv-footer__link:hover{ color:var(--kv-dark); text-decoration:underline; }
+.kv-social{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+}
+.kv-social__icon{
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  border:1px solid var(--kv-border);
+  background:linear-gradient(145deg,#f9fcf7,#edf5ea);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#50705e;
+  font-weight:700;
+  font-size:.85rem;
+  box-shadow:0 2px 8px rgba(22,101,52,.05);
+}
+.kv-social__icon:hover{
+  background:#fff;
+  transform:translateY(-1px);
+}
+.kv-footer__quote{
+  display:flex;
+  justify-content:flex-end;
+}
+.kv-quote-card{
+  width:100%;
+  max-width:320px;
+  background:linear-gradient(145deg,#f9fcf7,#ffffff);
+  border:1px solid var(--kv-border);
+  border-radius:1.5rem;
+  padding:1.25rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.04);
+}
+.kv-quote-card__leaf{
+  display:inline-flex;
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  background:rgba(239,248,233,.95);
+  border:1px solid var(--kv-border);
+  align-items:center;
+  justify-content:center;
+  margin-bottom:.75rem;
+}
+.kv-quote-card__text{
+  margin:0;
+  color:var(--kv-dark);
+  font-weight:700;
+  line-height:1.35;
+}
+.kv-footer__bottom{
+  border-top:1px solid var(--kv-border);
+  padding:1.25rem var(--kv-container-pad);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  color:var(--kv-muted);
+  font-size:.95rem;
+}
+
+/* Toast */
+.kv-toast{
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  transform:translate(-50%, 10px);
+  opacity:0;
+  pointer-events:none;
+  background:rgba(255,255,255,.95);
+  border:1px solid var(--kv-border);
+  border-radius:999px;
+  box-shadow:0 18px 60px rgba(0,0,0,.10);
+  padding:.85rem 1.1rem;
+  color:var(--kv-dark);
+  font-weight:600;
+  transition:opacity .2s ease, transform .2s ease;
+  z-index:200;
+  max-width:min(520px, calc(100% - 32px));
+  text-align:center;
+}
+.kv-toast.is-visible{
+  opacity:1;
+  transform:translate(-50%, 0);
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .kv-grid{ grid-template-columns:1fr 1fr; }
+  .kv-form-card{ grid-column:1 / -1; }
+  .kv-contact-strip__card{ grid-template-columns:repeat(2, 1fr); }
+  .kv-footer__top{ grid-template-columns:1fr 1fr; }
+  .kv-footer__quote{ justify-content:flex-start; }
+}
+
+@media (max-width: 860px){
+  .kv-nav-toggle{ display:inline-flex; }
+  .kv-nav-menu{
+    position:absolute;
+    top:72px;
+    left:var(--kv-container-pad);
+    right:var(--kv-container-pad);
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:.6rem;
+    padding:1rem;
+    background:rgba(255,255,255,.96);
+    border:1px solid var(--kv-border);
+    border-radius:1.25rem;
+    box-shadow:0 18px 60px rgba(0,0,0,.08);
+  }
+  .kv-nav-menu.is-open{ display:flex; }
+  .kv-nav-link, .kv-lang{ width:100%; justify-content:center; }
+
+  .kv-hero{ padding:4.5rem var(--kv-container-pad) 8rem; }
+  .kv-hero__inner{ grid-template-columns:1fr; }
+  .kv-hero__card{ justify-self:start; }
+  .kv-grid{ grid-template-columns:1fr; }
+  .kv-form__row{ grid-template-columns:1fr; }
+  .kv-contact-strip{ margin:-70px var(--kv-container-pad) 3rem; }
+  .kv-contact-strip__card{ grid-template-columns:1fr; }
+  .kv-cta{ margin:0 var(--kv-container-pad) 3rem; }
+  .kv-footer__top{ grid-template-columns:1fr; }
+  .kv-footer__bottom{ flex-direction:column; align-items:flex-start; }
+}
+
+
+/* ============================================================
+   KISAN VISION — CONTACT PAGE SCALE FIX
+   Keeps the existing design intact; only reduces oversized
+   spacing, typography and component dimensions.
+   ============================================================ */
+
+/* Compact desktop navbar */
+.kv-navbar{
+  padding: .75rem var(--kv-container-pad);
+}
+
+.kv-nav-menu{
+  gap: .55rem;
+}
+
+.kv-nav-link,
+.kv-lang{
+  padding: .6rem .9rem;
+}
+
+/* Hero: reduce vertical scale while keeping the same image */
+.kv-hero{
+  padding: 4rem var(--kv-container-pad) 7.5rem;
+}
+
+.kv-hero__inner{
+  max-width: 1200px;
+  gap: 1.5rem;
+}
+
+.kv-hero__label{
+  margin-bottom: .75rem;
+  font-size: .82rem;
+}
+
+.kv-hero__title{
+  font-size: clamp(2.45rem, 4.2vw, 3.55rem);
+  line-height: 1.05;
+  margin-bottom: .85rem;
+}
+
+.kv-hero__subtitle{
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  max-width: 50ch;
+}
+
+.kv-hero__badges{
+  gap: .5rem;
+}
+
+.kv-badge{
+  padding: .45rem .75rem;
+  font-size: .86rem;
+}
+
+.kv-hero__card{
+  width: min(320px, 100%);
+  padding: 1rem 1.1rem;
+}
+
+/* Floating contact strip: more compact */
+.kv-contact-strip{
+  margin: -62px var(--kv-container-pad) 3rem;
+}
+
+.kv-contact-strip__card{
+  padding: 1.35rem;
+  gap: 1rem;
+  max-width: 1200px;
+}
+
+.kv-contact-item{
+  gap: .8rem;
+}
+
+.kv-contact-item__icon{
+  width: 42px;
+  height: 42px;
+}
+
+.kv-contact-item__title{
+  font-size: .76rem;
+}
+
+.kv-contact-item__main{
+  font-size: .95rem;
+}
+
+.kv-contact-item__sub{
+  font-size: .82rem;
+}
+
+/* Main content: reduce card size and gaps */
+.kv-main{
+  padding: 0 var(--kv-container-pad) 4.5rem;
+}
+
+.kv-grid{
+  max-width: 1200px;
+  gap: 1.25rem;
+}
+
+.kv-card{
+  padding: 1.35rem;
+  border-radius: 1.25rem;
+}
+
+.kv-card__title{
+  font-size: 1.2rem;
+}
+
+.kv-card__subtitle{
+  margin-bottom: 1rem;
+  font-size: .9rem;
+}
+
+.kv-stack{
+  gap: 1.25rem;
+}
+
+/* Form */
+.kv-form__row{
+  gap: .8rem;
+}
+
+.kv-field{
+  margin-bottom: .8rem;
+}
+
+.kv-field__label{
+  margin-bottom: .35rem;
+  font-size: .88rem;
+}
+
+.kv-field__input{
+  padding: .72rem .85rem;
+  border-radius: .75rem;
+  font-size: .9rem;
+}
+
+.kv-field__textarea{
+  min-height: 120px;
+}
+
+.kv-form__submit{
+  padding: .82rem 1.1rem;
+}
+
+.kv-form__note{
+  margin-top: .75rem;
+  font-size: .82rem;
+}
+
+/* Map */
+.kv-map{
+  min-height: 190px;
+  border-radius: 1rem;
+}
+
+.kv-map__label{
+  left: 14px;
+  bottom: 12px;
+  padding: .65rem .75rem;
+}
+
+.kv-map__city{
+  font-size: .82rem;
+}
+
+/* FAQ */
+.kv-faq{
+  gap: .6rem;
+}
+
+.kv-faq__item{
+  border-radius: .85rem;
+}
+
+.kv-faq__question{
+  padding: .78rem .85rem;
+  font-size: .88rem;
+}
+
+.kv-faq__arrow{
+  width: 30px;
+  height: 30px;
+}
+
+.kv-faq__answer p{
+  padding: 0 .85rem .8rem;
+  font-size: .86rem;
+}
+
+/* Experts */
+.kv-experts__list{
+  gap: .65rem;
+}
+
+.kv-expert{
+  grid-template-columns: auto 1fr auto;
+  gap: .7rem;
+  padding: .7rem;
+  border-radius: 1rem;
+}
+
+.kv-expert__avatar{
+  width: 48px;
+  height: 48px;
+}
+
+.kv-expert__name{
+  font-size: .94rem;
+}
+
+.kv-expert__role,
+.kv-expert__line{
+  font-size: .82rem;
+}
+
+.kv-expert__role{
+  margin-bottom: .25rem;
+}
+
+.kv-expert__btn{
+  padding: .45rem .72rem;
+  font-size: .8rem;
+}
+
+.kv-advice{
+  margin-top: .9rem;
+  gap: .7rem;
+  padding: .8rem;
+  border-radius: 1rem;
+}
+
+.kv-advice__icon{
+  width: 36px;
+  height: 36px;
+}
+
+.kv-advice__text{
+  font-size: .82rem;
+}
+
+/* CTA/footer visual: keep contactfooter.png but make section compact */
+.kv-cta{
+  margin: 0 var(--kv-container-pad) 3rem;
+  border-radius: 1.5rem;
+}
+
+.kv-cta__content{
+  padding: 2.4rem 1.5rem;
+}
+
+.kv-cta__title{
+  font-size: clamp(1.7rem, 2.6vw, 2.25rem);
+  margin-bottom: .55rem;
+}
+
+.kv-cta__text{
+  margin-bottom: 1.2rem;
+  font-size: .92rem;
+}
+
+.kv-cta__btn{
+  padding: .82rem 1.3rem;
+}
+
+/* Footer: match the compact scale of the other Kisan Vision pages */
+.kv-footer__top{
+  padding: 2.75rem var(--kv-container-pad) 2rem;
+  gap: 1.5rem;
+}
+
+.kv-footer__name{
+  font-size: 1rem;
+}
+
+.kv-footer__tagline{
+  margin: .55rem 0;
+}
+
+.kv-footer__desc{
+  font-size: .88rem;
+}
+
+.kv-footer__heading{
+  font-size: .92rem;
+  margin-bottom: .7rem;
+}
+
+.kv-footer__link{
+  margin: .35rem 0;
+  font-size: .88rem;
+}
+
+.kv-social{
+  gap: .5rem;
+}
+
+.kv-social__icon{
+  width: 36px;
+  height: 36px;
+}
+
+.kv-quote-card{
+  max-width: 280px;
+  padding: 1rem;
+  border-radius: 1.25rem;
+}
+
+.kv-quote-card__leaf{
+  width: 36px;
+  height: 36px;
+  margin-bottom: .55rem;
+}
+
+.kv-footer__bottom{
+  padding: 1rem var(--kv-container-pad);
+  font-size: .84rem;
+}
+
+/* Keep mobile layout, but reduce the oversized values there too */
+@media (max-width: 860px){
+  .kv-navbar{
+    padding: .7rem var(--kv-container-pad);
+  }
+
+  .kv-nav-toggle{
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+  }
+
+  .kv-nav-menu{
+    top: 64px;
+  }
+
+  .kv-hero{
+    padding: 3.5rem var(--kv-container-pad) 6.5rem;
+  }
+
+  .kv-hero__title{
+    font-size: clamp(2.25rem, 10vw, 3.25rem);
+  }
+
+  .kv-contact-strip{
+    margin: -52px var(--kv-container-pad) 2.5rem;
+  }
+
+  .kv-contact-strip__card{
+    padding: 1.1rem;
+  }
+
+  .kv-main{
+    padding-bottom: 3.5rem;
+  }
+
+  .kv-card{
+    padding: 1.2rem;
+  }
+
+  .kv-cta{
+    margin-bottom: 2.5rem;
+  }
+
+  .kv-cta__content{
+    padding: 2.2rem 1.2rem;
+  }
+
+  .kv-footer__top{
+    padding-top: 2.4rem;
+    padding-bottom: 1.8rem;
+  }
+}
+
+
+/* Final hero height adjustment */
+.kv-hero {
+    padding-top: 3.25rem;
+    padding-bottom: 6.25rem;
+}
+
+.kv-hero__inner {
+    min-height: 350px;
+}
+
+.kv-hero__title {
+    font-size: clamp(2.25rem, 4vw, 3.35rem);
+}
+
+.kv-hero__subtitle {
+    font-size: .98rem;
+    margin-bottom: 1.15rem;
+}
+
+.kv-hero__label {
+    margin-bottom: .7rem;
+}
+
+.kv-hero__badges {
+    gap: .5rem;
+}
+
+.kv-badge {
+    padding: .42rem .72rem;
+    font-size: .84rem;
+}
+
+.kv-hero__card {
+    width: min(320px, 100%);
+    padding: 1rem;
+}
+
+/* Keep the hero compact on smaller screens too */
+@media (max-width: 860px) {
+    .kv-hero {
+        padding-top: 3rem;
+        padding-bottom: 6rem;
+    }
+
+    .kv-hero__inner {
+        min-height: 0;
+    }
+}
+
+
+/* FINAL COMPACT MAIN CONTACT SECTION */
+.kv-main{ padding:0 var(--kv-container-pad) 4rem; }
+.kv-grid{ max-width:1200px; gap:1.25rem; }
+.kv-card{ border-radius:1.25rem; padding:1.35rem; }
+.kv-card__title{ font-size:1.2rem; margin-bottom:.25rem; }
+.kv-card__subtitle{ margin-bottom:1rem; font-size:.92rem; }
+.kv-stack{ gap:1.25rem; }
+.kv-form__row{ gap:.8rem; }
+.kv-field{ margin-bottom:.8rem; }
+.kv-field__label{ margin-bottom:.35rem; font-size:.88rem; }
+.kv-field__input{ padding:.72rem .85rem; border-radius:.75rem; font-size:.9rem; }
+.kv-field__textarea{ min-height:120px; }
+.kv-form__submit{ padding:.82rem 1.1rem; }
+.kv-form__note{ margin-top:.75rem; font-size:.82rem; }
+.kv-map{ min-height:185px; border-radius:1rem; }
+.kv-map__label{ left:14px; bottom:12px; padding:.65rem .75rem; border-radius:.85rem; }
+.kv-map__city{ font-size:.82rem; }
+.kv-faq{ gap:.55rem; }
+.kv-faq__item{ border-radius:.85rem; }
+.kv-faq__question{ padding:.78rem .85rem; font-size:.88rem; }
+.kv-faq__arrow{ width:30px; height:30px; }
+.kv-faq__answer p{ padding:0 .85rem .8rem; font-size:.85rem; }
+.kv-experts__list{ gap:.65rem; }
+.kv-expert{ grid-template-columns:auto 1fr auto; gap:.7rem; padding:.75rem; border-radius:1rem; }
+.kv-expert__avatar{ width:46px; height:46px; }
+.kv-expert__name{ font-size:.94rem; }
+.kv-expert__role,.kv-expert__line{ font-size:.8rem; }
+.kv-expert__role{ margin:.1rem 0 .25rem; }
+.kv-expert__btn{ padding:.45rem .72rem; font-size:.8rem; }
+.kv-advice{ margin-top:.85rem; gap:.65rem; padding:.75rem; border-radius:1rem; }
+.kv-advice__icon{ width:34px; height:34px; }
+.kv-advice__text{ font-size:.82rem; }
+@media (max-width:1100px){ .kv-grid{ gap:1rem; } .kv-card{ padding:1.2rem; } }
+@media (max-width:860px){ .kv-main{ padding-bottom:3rem; } .kv-card{ padding:1.15rem; } .kv-grid{ gap:1rem; } }
+
+
+/* Contact page — Login button size only */
+.kv-nav-menu .kv-btn--primary{
+  padding:.6rem .9rem;
+  font-size:.95rem;
+}

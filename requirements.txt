@@ -4,3 +4,7 @@ python-multipart
 numpy
 Pillow
 tensorflow==2.15.1
+python-dotenv
+pymongo
+bcrypt
+groq

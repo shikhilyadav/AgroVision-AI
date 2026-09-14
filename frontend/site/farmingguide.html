@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Practical crop care, seasonal tips and smarter farming guidance from Kisan Vision." name="description"/>
+<title>Farming Guide | Kisan Vision</title>
+<link href="farming.css" rel="stylesheet"/>
+<script defer="" src="farming.js"></script>
+<link rel="stylesheet" href="kv-global-theme.css">
+</head>
+<body>
+<a class="skip-link" data-testid="skip-to-content-link" href="#main-content"><span data-i18n-text="Skip to content">Skip to content</span></a>
+<header class="site-header" data-testid="site-header">
+<div class="container navbar">
+<a aria-label="Kisan Vision home" class="brand" data-testid="brand-home-link" href="windows.html">
+<span aria-hidden="true" class="brand-mark"><span></span><span></span><span></span></span>
+<span class="brand-name"><span class="kv-brand-main">Kisan</span> <span class="kv-brand-accent">Vision</span></span>
+</a>
+<button aria-controls="primary-navigation" aria-expanded="false" class="menu-toggle" data-testid="mobile-menu-toggle-button" type="button">
+<span class="sr-only"><span data-i18n-text="Open navigation menu">Open navigation menu</span></span>
+<span></span><span></span><span></span>
+</button>
+<div class="nav-panel" id="primary-navigation">
+<nav aria-label="Primary navigation" class="primary-nav" data-testid="primary-navigation">
+<a data-i18n-text="Home" data-testid="nav-home-link" href="windows.html">Home</a>
+<a data-i18n-text="How It Works" data-testid="nav-how-it-works-link" href="howitwork.html">How It Works</a>
+<a data-i18n-text="Detect Disease" data-testid="nav-detect-disease-link" href="detectdisease.html">Detect Disease</a>
+<a aria-current="page" class="active" data-i18n-text="Farming Guide" data-testid="nav-farming-guide-link" href="farmingguide.html">Farming Guide</a>
+<a data-i18n-text="Blog" data-testid="nav-blog-link" href="blog.html">Blog</a>
+<a data-i18n-text="Contact" data-testid="nav-contact-link" href="contact.html">Contact</a>
+</nav>
+<div class="nav-actions">
+<label class="language-select" for="language-choice">
+<span class="sr-only"><span data-i18n-text="Choose language">Choose language</span></span>
+<select data-testid="language-select" id="language-choice">
+<option value="en">English</option>
+<option value="hi">Hindi</option>
+<option value="mr">Marathi</option>
+<option value="pa">Punjabi</option>
+<option value="gu">Gujarati</option>
+</select>
+</label>
+<a class="login-link" data-testid="login-link" href="login.html">Login <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</div>
+</header>
+<main id="main-content">
+<section aria-labelledby="hero-title" class="hero-section" data-testid="farming-guide-hero">
+<div class="container hero-grid">
+<div class="hero-copy">
+<p class="eyebrow" data-i18n-text="Smart farming knowledge" data-testid="hero-eyebrow">Smart farming knowledge</p>
+<h1 data-testid="hero-heading" id="hero-title"><span data-i18n-text="Grow Better With the Right">Grow Better With the Right </span><em><span data-i18n-text="Farming Guidance.">Farming Guidance.</span></em></h1>
+<p class="hero-description" data-testid="hero-description"><span data-i18n-text="Simple, practical and easy-to-follow farming guidance to help you care for your crops, improve soil health and make better decisions throughout the season.">
+              Simple, practical and easy-to-follow farming guidance to help you care for your crops, improve soil health and make better decisions throughout the season.
+            </span></p>
+<div class="hero-actions" data-testid="hero-actions">
+<a class="button button-primary" data-testid="explore-crop-guides-button" href="explorecropguide.html"><span data-i18n-text="Explore Crop Guides">Explore Crop Guides </span><span aria-hidden="true">→</span></a>
+<a class="button button-secondary" data-testid="hero-detect-disease-button" href="detectdisease.html"><span data-i18n-text="Detect Crop Disease">Detect Crop Disease </span><span aria-hidden="true">→</span></a>
+</div>
+<div class="hero-note" data-testid="hero-note">
+<span aria-hidden="true" class="note-icon">✦</span>
+<span><span data-i18n-text="Guidance made for every growing season">Guidance made for every growing season</span></span>
+</div>
+</div>
+<div class="hero-visual" data-testid="hero-image-panel">
+<div class="hero-image-wrap">
+<img alt="Healthy green crop field glowing in warm morning light" data-testid="hero-image" src="https://images.unsplash.com/photo-1603106116068-02fc27fe5131?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;q=85"/>
+</div>
+<div class="hero-stat hero-stat-top" data-testid="hero-stat-guides">
+<span class="stat-number">06</span>
+<span class="stat-label"><span data-i18n-text="essential crop">essential crop</span><br/><span data-i18n-text="guides">guides</span></span>
+</div>
+<div class="hero-stat hero-stat-bottom" data-testid="hero-stat-practical">
+<span aria-hidden="true" class="stat-check">✓</span>
+<span><strong><span data-i18n-text="Practical tips">Practical tips</span></strong><br/><span data-i18n-text="for healthier crops">for healthier crops</span></span>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="crop-guides-title" class="section crop-section" data-testid="crop-guides-section" id="crop-guides">
+<div class="container">
+<div class="section-heading split-heading">
+<div>
+<p class="eyebrow" data-testid="crop-guides-eyebrow"><span data-i18n-text="Start with your crop">Start with your crop</span></p>
+<h2 data-testid="crop-guides-heading" id="crop-guides-title"><span data-i18n-text="Find the Right Guide">Find the Right Guide </span><em data-i18n-text="for Your Crop">for Your Crop</em></h2>
+</div>
+<p class="section-description" data-i18n-text="Choose a crop to discover practical information about cultivation, watering, nutrients, common problems and crop care." data-testid="crop-guides-description">Choose a crop to discover practical information about cultivation, watering, nutrients, common problems and crop care.</p>
+</div>
+<div class="crop-grid" data-testid="crop-card-grid">
+<article class="crop-card" data-crop="wheat" data-testid="crop-card-wheat" tabindex="0">
+<div class="crop-image-wrap"><img alt="Golden wheat field" data-testid="crop-image-wheat" src="https://images.unsplash.com/photo-1719338950449-994b80b7a1c4?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;q=85"/><span class="crop-index">01</span></div>
+<div class="crop-card-body"><div class="crop-card-topline"><h3 data-i18n-text="Wheat" data-testid="crop-name-wheat">Wheat</h3><span class="season-tag" data-i18n-text="Rabi">Rabi</span></div><p data-testid="crop-description-wheat"><span data-i18n-text="Build strong roots and healthy grain with timely care.">Build strong roots and healthy grain with timely care.</span></p><div class="crop-card-footer"><span><span data-i18n-text="Oct – Apr">Oct – Apr</span></span><button class="text-button js-open-guide" data-key="wheat" data-testid="view-guide-wheat-button" data-type="crop" type="button"><span data-i18n-text="View Guide">View Guide </span><span aria-hidden="true">→</span></button></div></div>
+</article>
+<article class="crop-card" data-crop="rice" data-testid="crop-card-rice" tabindex="0">
+<div class="crop-image-wrap"><img alt="Rice seedlings in a paddy field" data-testid="crop-image-rice" src="https://images.unsplash.com/photo-1595976281013-8024ecc02575?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;q=85"/><span class="crop-index">02</span></div>
+<div class="crop-card-body"><div class="crop-card-topline"><h3 data-i18n-text="Rice" data-testid="crop-name-rice">Rice</h3><span class="season-tag" data-i18n-text="Kharif">Kharif</span></div><p data-testid="crop-description-rice"><span data-i18n-text="Keep water, spacing and nutrition in balance for a thriving paddy.">Keep water, spacing and nutrition in balance for a thriving paddy.</span></p><div class="crop-card-footer"><span><span data-i18n-text="Jun – Nov">Jun – Nov</span></span><button class="text-button js-open-guide" data-key="rice" data-testid="view-guide-rice-button" data-type="crop" type="button"><span data-i18n-text="View Guide">View Guide </span><span aria-hidden="true">→</span></button></div></div>
+</article>
+<article class="crop-card" data-crop="tomato" data-testid="crop-card-tomato" tabindex="0">
+<div class="crop-image-wrap"><img alt="Fresh tomatoes growing on a plant" data-testid="crop-image-tomato" src="https://images.unsplash.com/photo-1582284540020-8acbe03f4924?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;q=85"/><span class="crop-index">03</span></div>
+<div class="crop-card-body"><div class="crop-card-topline"><h3 data-i18n-text="Tomato" data-testid="crop-name-tomato">Tomato</h3><span class="season-tag" data-i18n-text="Zaid">Zaid</span></div><p data-testid="crop-description-tomato"><span data-i18n-text="Support productive vines with sun, steady moisture and early checks.">Support productive vines with sun, steady moisture and early checks.</span></p><div class="crop-card-footer"><span><span data-i18n-text="Nov – Feb">Nov – Feb</span></span><button class="text-button js-open-guide" data-key="tomato" data-testid="view-guide-tomato-button" data-type="crop" type="button"><span data-i18n-text="View Guide">View Guide </span><span aria-hidden="true">→</span></button></div></div>
+</article>
+<article class="crop-card" data-crop="potato" data-testid="crop-card-potato" tabindex="0">
+<div class="crop-image-wrap"><img alt="Potatoes freshly harvested from soil" data-testid="crop-image-potato" src="https://images.unsplash.com/photo-1583926859729-d0c5c47bc7e1?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;q=85"/><span class="crop-index">04</span></div>
+<div class="crop-card-body"><div class="crop-card-topline"><h3 data-i18n-text="Potato" data-testid="crop-name-potato">Potato</h3><span class="season-tag" data-i18n-text="Rabi">Rabi</span></div><p data-testid="crop-description-potato"><span data-i18n-text="Prepare loose soil and protect growing tubers from stress.">Prepare loose soil and protect growing tubers from stress.</span></p><div class="crop-card-footer"><span><span data-i18n-text="Oct – Jan">Oct – Jan</span></span><button class="text-button js-open-guide" data-key="potato" data-testid="view-guide-potato-button" data-type="crop" type="button"><span data-i18n-text="View Guide">View Guide </span><span aria-hidden="true">→</span></button></div></div>
+</article>
+<article class="crop-card" data-crop="maize" data-testid="crop-card-maize" tabindex="0">
+<div class="crop-image-wrap"><img alt="Tall maize crop in a green field" data-testid="crop-image-maize" src="https://images.unsplash.com/photo-1603106116068-02fc27fe5131?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;q=85"/><span class="crop-index">05</span></div>
+<div class="crop-card-body"><div class="crop-card-topline"><h3 data-i18n-text="Maize" data-testid="crop-name-maize">Maize</h3><span class="season-tag" data-i18n-text="Kharif">Kharif</span></div><p data-testid="crop-description-maize"><span data-i18n-text="Give young plants room, sunlight and consistent nutrition.">Give young plants room, sunlight and consistent nutrition.</span></p><div class="crop-card-footer"><span><span data-i18n-text="Jun – Oct">Jun – Oct</span></span><button class="text-button js-open-guide" data-key="maize" data-testid="view-guide-maize-button" data-type="crop" type="button"><span data-i18n-text="View Guide">View Guide </span><span aria-hidden="true">→</span></button></div></div>
+</article>
+<article class="crop-card" data-crop="cotton" data-testid="crop-card-cotton" tabindex="0">
+<div class="crop-image-wrap"><img alt="White cotton bolls in a cotton field" data-testid="crop-image-cotton" src="https://images.unsplash.com/photo-1502395809857-fd80069897d0?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;q=85"/><span class="crop-index">06</span></div>
+<div class="crop-card-body"><div class="crop-card-topline"><h3 data-i18n-text="Cotton" data-testid="crop-name-cotton">Cotton</h3><span class="season-tag" data-i18n-text="Kharif">Kharif</span></div><p data-testid="crop-description-cotton"><span data-i18n-text="Plan healthy flowering with careful scouting and balanced feeding.">Plan healthy flowering with careful scouting and balanced feeding.</span></p><div class="crop-card-footer"><span><span data-i18n-text="May – Dec">May – Dec</span></span><button class="text-button js-open-guide" data-key="cotton" data-testid="view-guide-cotton-button" data-type="crop" type="button"><span data-i18n-text="View Guide">View Guide </span><span aria-hidden="true">→</span></button></div></div>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="practice-title" class="section practice-section" data-testid="practices-section">
+<div class="container">
+<div class="section-heading centered-heading"><p class="eyebrow" data-i18n-text="The strong-crop basics" data-testid="practices-eyebrow">The strong-crop basics</p><h2 data-testid="practices-heading" id="practice-title"><span data-i18n-text="Essential Farming">Essential Farming </span><em><span data-i18n-text="Practices">Practices</span></em></h2><p class="section-description" data-i18n-text="Small, consistent choices can make a big difference to your soil, plants and harvest." data-testid="practices-description">Small, consistent choices can make a big difference to your soil, plants and harvest.</p></div>
+<div class="practice-grid">
+<article class="practice-card" data-testid="practice-card-soil-health"><span aria-hidden="true" class="practice-icon"><svg viewbox="0 0 32 32"><path d="M5 25h22M8 21c4-4 6-9 6-15 5 3 9 7 9 12 0 4-3 7-7 7"></path><path d="M14 15c-3-1-6 0-8 3"></path></svg></span><h3 data-i18n-text="Soil Health" data-testid="practice-title-soil-health">Soil Health</h3><p data-testid="practice-description-soil-health"><span data-i18n-text="Learn how to maintain healthy and productive soil.">Learn how to maintain healthy and productive soil.</span></p><button class="practice-link js-open-guide" data-key="soil" data-testid="learn-practice-soil-health-button" data-type="practice" type="button"><span data-i18n-text="Learn more">Learn more </span><span aria-hidden="true">↗</span></button></article>
+<article class="practice-card" data-testid="practice-card-irrigation"><span aria-hidden="true" class="practice-icon"><svg viewbox="0 0 32 32"><path d="M16 4s7 8 7 14a7 7 0 0 1-14 0c0-6 7-14 7-14Z"></path><path d="M13 23c-1-.8-1.7-2.2-1.7-3.8"></path></svg></span><h3 data-i18n-text="Irrigation" data-testid="practice-title-irrigation">Irrigation</h3><p data-testid="practice-description-irrigation"><span data-i18n-text="Understand efficient watering practices for healthier crops.">Understand efficient watering practices for healthier crops.</span></p><button class="practice-link js-open-guide" data-key="water" data-testid="learn-practice-irrigation-button" data-type="practice" type="button"><span data-i18n-text="Learn more">Learn more </span><span aria-hidden="true">↗</span></button></article>
+<article class="practice-card" data-testid="practice-card-fertilizer"><span aria-hidden="true" class="practice-icon"><svg viewbox="0 0 32 32"><path d="M10 25h12M12 25V8h8v17M10 12h12M15 8V5h2"></path><path d="M8 18h4M20 18h4"></path></svg></span><h3 data-i18n-text="Fertilizer Management" data-testid="practice-title-fertilizer">Fertilizer Management</h3><p data-testid="practice-description-fertilizer"><span data-i18n-text="Learn how to use nutrients effectively for better crop growth.">Learn how to use nutrients effectively for better crop growth.</span></p><button class="practice-link js-open-guide" data-key="fertilizer" data-testid="learn-practice-fertilizer-button" data-type="practice" type="button"><span data-i18n-text="Learn more">Learn more </span><span aria-hidden="true">↗</span></button></article>
+<article class="practice-card" data-testid="practice-card-pests"><span aria-hidden="true" class="practice-icon"><svg viewbox="0 0 32 32"><ellipse cx="16" cy="17" rx="5" ry="8"></ellipse><path d="M11 14 6 10M11 18 5 18M11 22 7 26M21 14l5-4M21 18h6M21 22l4 4M16 9V5M14 5h4"></path></svg></span><h3 data-i18n-text="Pest Management" data-testid="practice-title-pests">Pest Management</h3><p data-testid="practice-description-pests"><span data-i18n-text="Identify common pests and learn preventive crop-care practices.">Identify common pests and learn preventive crop-care practices.</span></p><button class="practice-link js-open-guide" data-key="pests" data-testid="learn-practice-pests-button" data-type="practice" type="button"><span data-i18n-text="Learn more">Learn more </span><span aria-hidden="true">↗</span></button></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="season-title" class="section season-section" data-testid="seasonal-guide-section">
+<div class="container">
+<div class="section-heading split-heading"><div><p class="eyebrow" data-i18n-text="Plan with the calendar" data-testid="season-eyebrow">Plan with the calendar</p><h2 data-testid="season-heading" id="season-title"><span data-i18n-text="Farming Tips for">Farming Tips for </span><em><span data-i18n-text="Every Season">Every Season</span></em></h2></div><p class="section-description" data-i18n-text="Match your fieldwork to the season and give every crop the right start, support and finish." data-testid="season-description">Match your fieldwork to the season and give every crop the right start, support and finish.</p></div>
+<div class="season-grid">
+<article class="season-card season-kharif" data-testid="season-card-kharif"><span class="season-number">01</span><div><h3 data-testid="season-title-kharif"><span data-i18n-text="Kharif Season">Kharif Season</span></h3><p data-testid="season-description-kharif"><span data-i18n-text="Make the most of monsoon moisture with timely sowing and drainage.">Make the most of monsoon moisture with timely sowing and drainage.</span></p><button class="text-button js-open-guide" data-key="kharif" data-testid="explore-tips-kharif-button" data-type="season" type="button"><span data-i18n-text="Explore Tips">Explore Tips </span><span aria-hidden="true">→</span></button></div></article>
+<article class="season-card season-rabi" data-testid="season-card-rabi"><span class="season-number">02</span><div><h3 data-testid="season-title-rabi"><span data-i18n-text="Rabi Season">Rabi Season</span></h3><p data-testid="season-description-rabi"><span data-i18n-text="Use the cool, clear months to build steady growth and strong grain.">Use the cool, clear months to build steady growth and strong grain.</span></p><button class="text-button js-open-guide" data-key="rabi" data-testid="explore-tips-rabi-button" data-type="season" type="button"><span data-i18n-text="Explore Tips">Explore Tips </span><span aria-hidden="true">→</span></button></div></article>
+<article class="season-card season-zaid" data-testid="season-card-zaid"><span class="season-number">03</span><div><h3 data-testid="season-title-zaid"><span data-i18n-text="Zaid Season">Zaid Season</span></h3><p data-testid="season-description-zaid"><span data-i18n-text="Protect short-season crops with careful irrigation and shade planning.">Protect short-season crops with careful irrigation and shade planning.</span></p><button class="text-button js-open-guide" data-key="zaid" data-testid="explore-tips-zaid-button" data-type="season" type="button"><span data-i18n-text="Explore Tips">Explore Tips </span><span aria-hidden="true">→</span></button></div></article>
+<article class="season-card season-year-round" data-testid="season-card-year-round"><span class="season-number">04</span><div><h3 data-testid="season-title-year-round"><span data-i18n-text="Year-Round Crop Care">Year-Round Crop Care</span></h3><p data-testid="season-description-year-round"><span data-i18n-text="Keep scouting, recording and improving your field habits all year.">Keep scouting, recording and improving your field habits all year.</span></p><button class="text-button js-open-guide" data-key="year-round" data-testid="explore-tips-year-round-button" data-type="season" type="button"><span data-i18n-text="Explore Tips">Explore Tips </span><span aria-hidden="true">→</span></button></div></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="checklist-title" class="section checklist-section" data-testid="checklist-section">
+<div class="container checklist-grid">
+<div class="checklist-intro"><p class="eyebrow" data-i18n-text="Your field companion" data-testid="checklist-eyebrow">Your field companion</p><h2 data-testid="checklist-heading" id="checklist-title"><span data-i18n-text="Simple Steps for">Simple Steps for </span><em><span data-i18n-text="Healthier Crops">Healthier Crops</span></em></h2><p data-testid="checklist-description"><span data-i18n-text="Use this quick checklist as you move from preparation to harvest. Every checked step is progress.">Use this quick checklist as you move from preparation to harvest. Every checked step is progress.</span></p><div class="progress-card" data-testid="checklist-progress-card"><div class="progress-copy"><span data-i18n-text="Season readiness">Season readiness</span><strong data-testid="checklist-progress-count" id="progress-count"><span data-i18n-text="0 / 8 complete">0 / 8 complete</span></strong></div><div aria-hidden="true" class="progress-track"><span id="progress-bar"></span></div></div></div>
+<div class="checklist-panel"><ul class="checklist" data-testid="crop-care-checklist"><li><label><input data-checklist-item="soil" type="checkbox"/><span aria-hidden="true" class="custom-check">✓</span><span data-testid="checklist-item-prepare-soil"><span data-i18n-text="Prepare healthy soil">Prepare healthy soil</span></span></label></li><li><label><input data-checklist-item="seeds" type="checkbox"/><span aria-hidden="true" class="custom-check">✓</span><span data-testid="checklist-item-quality-seeds"><span data-i18n-text="Choose quality seeds">Choose quality seeds</span></span></label></li><li><label><input data-checklist-item="water" type="checkbox"/><span aria-hidden="true" class="custom-check">✓</span><span data-testid="checklist-item-water"><span data-i18n-text="Water crops properly">Water crops properly</span></span></label></li><li><label><input data-checklist-item="monitor" type="checkbox"/><span aria-hidden="true" class="custom-check">✓</span><span data-testid="checklist-item-monitor"><span data-i18n-text="Monitor plants regularly">Monitor plants regularly</span></span></label></li><li><label><input data-checklist-item="disease" type="checkbox"/><span aria-hidden="true" class="custom-check">✓</span><span data-testid="checklist-item-disease"><span data-i18n-text="Watch for early signs of disease">Watch for early signs of disease</span></span></label></li><li><label><input data-checklist-item="pests" type="checkbox"/><span aria-hidden="true" class="custom-check">✓</span><span data-testid="checklist-item-pests"><span data-i18n-text="Manage pests carefully">Manage pests carefully</span></span></label></li><li><label><input data-checklist-item="nutrients" type="checkbox"/><span aria-hidden="true" class="custom-check">✓</span><span data-testid="checklist-item-nutrients"><span data-i18n-text="Apply nutrients at the right time">Apply nutrients at the right time</span></span></label></li><li><label><input data-checklist-item="harvest" type="checkbox"/><span aria-hidden="true" class="custom-check">✓</span><span data-testid="checklist-item-harvest"><span data-i18n-text="Harvest at the right stage">Harvest at the right stage</span></span></label></li></ul><button class="reset-button" data-i18n-text="Reset checklist" data-testid="reset-checklist-button" id="reset-checklist" type="button">Reset checklist</button></div>
+</div>
+</section>
+<section aria-labelledby="cta-title" class="ai-cta" data-testid="ai-disease-cta">
+<div class="container cta-inner"><div aria-hidden="true" class="cta-orbit orbit-one"></div><div aria-hidden="true" class="cta-orbit orbit-two"></div><div class="cta-copy"><span class="cta-kicker" data-testid="cta-kicker"><span data-i18n-text="A smarter second opinion">A smarter second opinion</span></span><h2 data-testid="cta-heading" id="cta-title"><span data-i18n-text="Not Sure What's Wrong">Not Sure What's Wrong </span><em><span data-i18n-text="With Your Crop?">With Your Crop?</span></em></h2><p data-i18n-text="Upload a photo of your crop and let Kisan Vision help identify possible crop diseases." data-testid="cta-description">Upload a photo of your crop and let Kisan Vision help identify possible crop diseases.</p></div><a class="button button-light" data-testid="cta-detect-disease-button" href="detectdisease.html"><span data-i18n-text="Detect Crop Disease">Detect Crop Disease </span><span aria-hidden="true">→</span></a></div>
+</section>
+</main>
+<footer class="site-footer" data-testid="site-footer">
+<div class="container footer-grid"><div class="footer-brand"><a class="brand brand-light" data-testid="footer-brand-link" href="windows.html"><span aria-hidden="true" class="brand-mark"><span></span><span></span><span></span></span><span class="brand-name"><span class="kv-brand-main">Kisan</span> <span class="kv-brand-accent">Vision</span></span></a><p data-i18n-text="Smarter farming, naturally." data-testid="footer-tagline">Smarter farming, naturally.</p></div><div class="footer-links"><h2 data-i18n-text="Quick Links" data-testid="footer-links-heading">Quick Links</h2><div class="footer-link-list"><a data-i18n-text="Home" data-testid="footer-home-link" href="windows.html">Home</a><a data-i18n-text="How It Works" data-testid="footer-how-it-works-link" href="howitwork.html">How It Works</a><a data-i18n-text="Detect Disease" data-testid="footer-detect-disease-link" href="detect-disease.html">Detect Disease</a><a data-i18n-text="Farming Guide" data-testid="footer-farming-guide-link" href="farming-guide.html">Farming Guide</a><a data-i18n-text="Blog" data-testid="footer-blog-link" href="blog.html">Blog</a><a data-i18n-text="Contact" data-testid="footer-contact-link" href="contact.html">Contact</a></div></div></div>
+<div class="container footer-bottom"><span data-testid="footer-copyright"><span data-i18n-text="© 2026 Kisan Vision">© 2026 Kisan Vision</span></span><span data-testid="footer-footer-note"><span data-i18n-text="Rooted in better farming">Rooted in better farming</span></span></div>
+</footer>
+<dialog aria-labelledby="dialog-title" class="details-dialog" data-testid="details-dialog" id="details-dialog">
+<div class="dialog-inner"><button aria-label="Close details" class="dialog-close" data-testid="details-dialog-close-button" type="button">×</button><p class="eyebrow" data-testid="details-dialog-kicker" id="dialog-kicker"><span data-i18n-text="Practical guidance">Practical guidance</span></p><h2 data-testid="details-dialog-title" id="dialog-title"><span data-i18n-text="Guide details">Guide details</span></h2><p data-testid="details-dialog-description" id="dialog-description"></p><ul class="dialog-tips" data-testid="details-dialog-tips" id="dialog-tips"></ul><div class="dialog-footer"><span class="dialog-note" data-testid="details-dialog-note"><span data-i18n-text="Save this tip for your next field visit.">Save this tip for your next field visit.</span></span><button class="button button-primary dialog-done" data-testid="details-dialog-done-button" type="button"><span data-i18n-text="Got it">Got it</span></button></div></div>
+</dialog>
+<script src="language.js"></script>
+<!-- Kisan Vision chatbot button (UI placeholder; backend can be connected later) -->
+<button aria-label="Open chatbot" class="kv-chatbot" id="kvChatbotBtn" title="Chatbot (coming soon)" type="button">
+<svg aria-hidden="true" fill="currentColor" height="26" viewbox="0 0 24 24" width="26" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 2H4a2 2 0 00-2 2v14l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2zM7 9h10v2H7V9zm0 4h7v2H7v-2z"></path>
+</svg>
+</button>
+
+</body>
+</html>

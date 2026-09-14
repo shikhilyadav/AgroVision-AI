@@ -1,0 +1,1234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kisan Vision smart crop recommendation">
+
+  <title data-i18n="pageTitle">
+    Crop Recommendation | Kisan Vision
+  </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="explorecropguide.css">
+</head>
+
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="site-header" data-testid="site-header">
+
+    <div class="header-inner">
+
+      <a
+        class="brand"
+        href="windows.html"
+        data-testid="brand-home-link"
+        aria-label="Kisan Vision home"
+      >
+
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="img">
+            <path
+              d="M25.9 5.9C17.2 5.7 8.1 9.2 7.1 18.4c-.3 2.6.6 5 2.1 6.9 1.9-5.8 5.8-10.2 11.2-13.1-4.1 3.1-7.2 7-9.1 11.8 6.8-1.1 11.8-5.8 14.6-18.1Z"
+              fill="currentColor"
+            />
+
+            <path
+              d="M8.9 26.4c2.1-5.9 5.4-10.3 10.3-13.6"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+          </svg>
+        </span>
+
+        <span class="brand-name">
+          Kisan <strong>Vision</strong>
+        </span>
+
+      </a>
+
+
+      <nav
+        class="main-nav"
+        aria-label="Primary navigation"
+        data-testid="primary-navigation"
+      >
+
+        <a
+          href="windows.html"
+          data-testid="nav-home"
+          data-i18n="navHome"
+        >
+          Home
+        </a>
+
+        <a
+          href="howitwork.html"
+          data-testid="nav-how-it-works"
+          data-i18n="navHow"
+        >
+          How It Works
+        </a>
+
+        <a
+          href="detectdisease.html"
+          data-testid="nav-detect-disease"
+          data-i18n="navDisease"
+        >
+          Detect Disease
+        </a>
+
+        <a
+          class="active"
+          href="farmingguide.html"
+          data-testid="nav-farming-guide"
+          data-i18n="navGuide"
+        >
+          Farming Guide
+        </a>
+
+        <a
+          href="blog.html"
+          data-testid="nav-blog"
+          data-i18n="navBlog"
+        >
+          Blog
+        </a>
+
+        <a
+          href="contact.html"
+          data-testid="nav-contact"
+          data-i18n="navContact"
+        >
+          Contact
+        </a>
+
+      </nav>
+
+
+      <div class="header-actions">
+
+        <label
+          class="language-picker"
+          for="languageSelect"
+        >
+
+          <span class="globe" aria-hidden="true">
+            ◎
+          </span>
+
+          <select
+            id="languageSelect"
+            data-testid="language-selector"
+            aria-label="Select language"
+          >
+
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="mr">मराठी</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="gu">ગુજરાતી</option>
+
+          </select>
+
+        </label>
+
+
+        <a
+          class="login-button"
+          href="login.html"
+          data-testid="login-button"
+          data-i18n="login"
+        >
+          Log in
+        </a>
+
+
+        <button
+          class="menu-toggle"
+          type="button"
+          data-testid="mobile-menu-button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main>
+
+
+    <!-- INTRO -->
+
+    <section
+      class="intro-section page-container"
+      data-testid="intro-section"
+    >
+
+      <div
+        class="eyebrow"
+        data-testid="intro-eyebrow"
+      >
+
+        <span class="eyebrow-dot"></span>
+
+        <span data-i18n="eyebrow">
+          SMART CROP RECOMMENDATION
+        </span>
+
+      </div>
+
+
+      <h1
+        data-testid="page-heading"
+        data-i18n="heading"
+      >
+        Recommend the Best Crop
+      </h1>
+
+
+      <p
+        class="intro-copy"
+        data-testid="intro-copy"
+        data-i18n="intro"
+      >
+        Enter your field conditions to get suitable crop recommendations.
+      </p>
+
+    </section>
+
+
+
+    <!-- ================= FIELD DETAILS ================= -->
+
+    <section
+      class="page-container form-section"
+      aria-labelledby="form-heading"
+    >
+
+      <div class="section-heading-row">
+
+        <div>
+
+          <p
+            class="section-kicker"
+            data-i18n="fieldDetails"
+          >
+            FIELD DETAILS
+          </p>
+
+          <h2
+            id="form-heading"
+            data-testid="form-heading"
+            data-i18n="formTitle"
+          >
+            Tell us about your field
+          </h2>
+
+        </div>
+
+
+        <span
+          class="required-note"
+          data-i18n="requiredNote"
+        >
+          * Required fields
+        </span>
+
+      </div>
+
+
+
+      <form
+        id="recommendationForm"
+        class="form-card"
+        novalidate
+        data-testid="recommendation-form"
+      >
+
+
+        <div class="fields-grid">
+
+
+          <!-- ================= STATE ================= -->
+
+          <div class="field">
+
+            <label
+              for="state"
+              data-i18n="stateLabel"
+            >
+              State <span>*</span>
+            </label>
+
+
+            <select
+              id="state"
+              name="state"
+              required
+              data-testid="state-field"
+            >
+
+              <option
+                value=""
+                data-i18n="selectState"
+              >
+                Search or select state
+              </option>
+
+
+              <!-- 28 STATES -->
+
+              <option>Andhra Pradesh</option>
+              <option>Arunachal Pradesh</option>
+              <option>Assam</option>
+              <option>Bihar</option>
+              <option>Chhattisgarh</option>
+              <option>Goa</option>
+              <option>Gujarat</option>
+              <option>Haryana</option>
+              <option>Himachal Pradesh</option>
+              <option>Jharkhand</option>
+              <option>Karnataka</option>
+              <option>Kerala</option>
+              <option>Madhya Pradesh</option>
+              <option>Maharashtra</option>
+              <option>Manipur</option>
+              <option>Meghalaya</option>
+              <option>Mizoram</option>
+              <option>Nagaland</option>
+              <option>Odisha</option>
+              <option>Punjab</option>
+              <option>Rajasthan</option>
+              <option>Sikkim</option>
+              <option>Tamil Nadu</option>
+              <option>Telangana</option>
+              <option>Tripura</option>
+              <option>Uttar Pradesh</option>
+              <option>Uttarakhand</option>
+              <option>West Bengal</option>
+
+
+              <!-- 8 UNION TERRITORIES -->
+
+              <option>Andaman and Nicobar Islands</option>
+              <option>Chandigarh</option>
+              <option>Dadra and Nagar Haveli and Daman and Diu</option>
+              <option>Delhi</option>
+              <option>Jammu and Kashmir</option>
+              <option>Ladakh</option>
+              <option>Lakshadweep</option>
+              <option>Puducherry</option>
+
+            </select>
+
+          </div>
+
+
+
+          <!-- ================= DISTRICT ================= -->
+
+          <div class="field">
+
+            <label
+              for="district"
+              data-i18n="districtLabel"
+            >
+              District <span>*</span>
+            </label>
+
+
+            <select
+              id="district"
+              name="district"
+              required
+              disabled
+              data-testid="district-field"
+            >
+
+              <option
+                value=""
+                data-i18n="selectDistrict"
+              >
+                Select state first
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+          <!-- ================= SEASON ================= -->
+
+          <div class="field">
+
+            <label
+              for="season"
+              data-i18n="seasonLabel"
+            >
+              Season <span>*</span>
+            </label>
+
+
+            <select
+              id="season"
+              name="season"
+              required
+              data-testid="season-field"
+            >
+
+              <option
+                value=""
+                data-i18n="selectSeason"
+              >
+                Search or select season
+              </option>
+
+              <option value="Kharif">
+                Kharif
+              </option>
+
+              <option value="Rabi">
+                Rabi
+              </option>
+
+              <option value="Zaid">
+                Zaid
+              </option>
+
+              <option value="Winter">
+                Winter
+              </option>
+
+              <option value="Summer">
+                Summer
+              </option>
+
+              <option value="Monsoon">
+                Monsoon
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+          <!-- ================= SOIL TYPE ================= -->
+
+          <div class="field">
+
+            <label
+              for="soilType"
+              data-i18n="soilLabel"
+            >
+              Soil type <span>*</span>
+            </label>
+
+
+            <select
+              id="soilType"
+              name="soilType"
+              required
+              data-testid="soil-type-field"
+            >
+
+              <option
+                value=""
+                data-i18n="selectSoil"
+              >
+                Select soil type
+              </option>
+
+              <option>
+                Alluvial
+              </option>
+
+              <option>
+                Black soil
+              </option>
+
+              <option>
+                Red soil
+              </option>
+
+              <option>
+                Loamy
+              </option>
+
+              <option>
+                Sandy
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+          <!-- ================= WATER ================= -->
+
+          <div class="field">
+
+            <label
+              for="waterAvailability"
+              data-i18n="waterLabel"
+            >
+              Water availability <span>*</span>
+            </label>
+
+
+            <select
+              id="waterAvailability"
+              name="waterAvailability"
+              required
+              data-testid="water-availability-field"
+            >
+
+              <option
+                value=""
+                data-i18n="selectWater"
+              >
+                Select availability
+              </option>
+
+              <option>
+                Rainfed
+              </option>
+
+              <option>
+                Limited irrigation
+              </option>
+
+              <option>
+                Good irrigation
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+          <!-- ================= TEMPERATURE ================= -->
+
+          <div class="field">
+
+            <label
+              for="temperature"
+              data-i18n="temperatureLabel"
+            >
+              Temperature (°C) <span>*</span>
+            </label>
+
+
+            <div class="input-suffix">
+
+              <input
+                id="temperature"
+                name="temperature"
+                type="number"
+                min="-10"
+                max="60"
+                step="0.1"
+                required
+                placeholder="e.g. 27"
+                data-testid="temperature-field"
+              >
+
+              <span>
+                °C
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- ================= RAINFALL ================= -->
+
+          <div class="field">
+
+            <label
+              for="rainfall"
+              data-i18n="rainfallLabel"
+            >
+              Rainfall <span>*</span>
+            </label>
+
+
+            <select
+              id="rainfall"
+              name="rainfall"
+              required
+              data-testid="rainfall-field"
+            >
+
+              <option
+                value=""
+                data-i18n="selectRainfall"
+              >
+                Search or select rainfall
+              </option>
+
+              <option value="Low">
+                Low
+              </option>
+
+              <option value="Medium">
+                Medium
+              </option>
+
+              <option value="High">
+                High
+              </option>
+
+            </select>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- ================= FORM FOOTER ================= -->
+
+        <div class="form-footer">
+
+          <p
+            class="form-help"
+            data-testid="form-help"
+            data-i18n="formHelp"
+          >
+            Use recent local conditions for a more useful match.
+          </p>
+
+
+          <button
+            class="primary-button"
+            id="recommendButton"
+            type="submit"
+            data-testid="recommend-crops-button"
+          >
+
+            <span data-i18n="recommendButton">
+              Recommend Crops
+            </span>
+
+            <span aria-hidden="true">
+              →
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <div
+          class="validation-message"
+          id="validationMessage"
+          role="alert"
+          aria-live="polite"
+          hidden
+          data-testid="validation-message"
+        ></div>
+
+      </form>
+
+    </section>
+
+
+
+    <!-- ================= RESULTS ================= -->
+
+    <section
+      class="page-container results-section"
+      id="resultsSection"
+      hidden
+      aria-live="polite"
+      data-testid="results-section"
+    >
+
+      <div
+        class="result-status"
+        id="resultStatus"
+        data-testid="result-status"
+      >
+
+        <span class="status-icon">
+          ✓
+        </span>
+
+        <span data-i18n="complete">
+          AI RECOMMENDATION COMPLETE
+        </span>
+
+      </div>
+
+
+      <div class="results-heading">
+
+        <div>
+
+          <p
+            class="section-kicker"
+            data-i18n="resultsKicker"
+          >
+            YOUR FIELD MATCH
+          </p>
+
+          <h2
+            data-testid="results-heading"
+            data-i18n="recommendedCrops"
+          >
+            Recommended Crops
+          </h2>
+
+          <p data-i18n="resultsSubheading">
+            Crops ranked according to your field conditions.
+          </p>
+
+        </div>
+
+
+        <button
+          class="text-button"
+          id="editInputsButton"
+          type="button"
+          data-testid="edit-inputs-button"
+          data-i18n="editInputs"
+        >
+          Edit inputs
+        </button>
+
+      </div>
+
+
+      <div class="summary-grid">
+
+        <article class="summary-card">
+
+          <span
+            class="card-label"
+            data-i18n="bestMatch"
+          >
+            BEST MATCH
+          </span>
+
+          <strong
+            id="bestMatch"
+            data-testid="best-match-value"
+          >
+            —
+          </strong>
+
+          <span
+            class="card-meta"
+            data-i18n="bestMatchMeta"
+          >
+            Your strongest field fit
+          </span>
+
+        </article>
+
+
+        <article class="summary-card">
+
+          <span
+            class="card-label"
+            data-i18n="suitability"
+          >
+            SUITABILITY
+          </span>
+
+          <strong
+            id="suitability"
+            data-testid="suitability-value"
+          >
+            —
+          </strong>
+
+          <span
+            class="card-meta"
+            data-i18n="suitabilityMeta"
+          >
+            Based on available conditions
+          </span>
+
+        </article>
+
+
+        <article class="summary-card score-card">
+
+          <span
+            class="card-label"
+            data-i18n="score"
+          >
+            SCORE
+          </span>
+
+          <strong
+            id="score"
+            data-testid="score-value"
+          >
+            —
+          </strong>
+
+          <span
+            class="card-meta"
+            data-i18n="scoreMeta"
+          >
+            Recommendation confidence
+          </span>
+
+        </article>
+
+      </div>
+
+
+
+      <div class="result-layout">
+
+        <article class="result-card recommendations-card">
+
+          <div class="card-title-row">
+
+            <div>
+
+              <h3 data-i18n="topRecommendations">
+                Top Crop Recommendations
+              </h3>
+
+              <p data-i18n="topRecommendationsSub">
+                Crops ranked according to your field conditions
+              </p>
+
+            </div>
+
+            <span
+              class="rank-count"
+              data-testid="recommendation-count"
+            >
+              01—05
+            </span>
+
+          </div>
+
+
+          <div
+            id="recommendationRows"
+            class="recommendation-rows"
+            data-testid="recommendation-rows"
+          ></div>
+
+        </article>
+
+
+        <div class="side-results">
+
+          <article class="result-card">
+
+            <h3 data-i18n="cropOverview">
+              Crop Overview
+            </h3>
+
+            <div class="detail-list">
+
+              <div>
+                <span data-i18n="cropName">
+                  Crop name
+                </span>
+
+                <strong
+                  id="overviewCrop"
+                  data-testid="overview-crop"
+                >
+                  —
+                </strong>
+              </div>
+
+
+              <div>
+                <span data-i18n="waterRequirement">
+                  Water requirement
+                </span>
+
+                <strong
+                  id="overviewWater"
+                  data-testid="overview-water"
+                >
+                  —
+                </strong>
+              </div>
+
+
+              <div>
+                <span data-i18n="rainfallRequirement">
+                  Rainfall requirement
+                </span>
+
+                <strong
+                  id="overviewRainfall"
+                  data-testid="overview-rainfall"
+                >
+                  —
+                </strong>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="result-card duration-card">
+
+            <span
+              class="card-label"
+              data-i18n="cropDuration"
+            >
+              CROP DURATION
+            </span>
+
+            <strong
+              id="duration"
+              data-testid="crop-duration"
+            >
+              —
+            </strong>
+
+            <span data-i18n="days">
+              days
+            </span>
+
+          </article>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="result-layout lower-results">
+
+        <article class="result-card">
+
+          <h3 data-i18n="sowingInformation">
+            Sowing Information
+          </h3>
+
+          <div class="info-grid">
+
+            <div>
+              <span data-i18n="window">
+                Window
+              </span>
+
+              <strong
+                id="sowingWindow"
+                data-testid="sowing-window"
+              >
+                —
+              </strong>
+            </div>
+
+
+            <div>
+              <span data-i18n="seed">
+                Seed
+              </span>
+
+              <strong
+                id="sowingSeed"
+                data-testid="sowing-seed"
+              >
+                —
+              </strong>
+            </div>
+
+
+            <div>
+              <span data-i18n="spacing">
+                Spacing
+              </span>
+
+              <strong
+                id="sowingSpacing"
+                data-testid="sowing-spacing"
+              >
+                —
+              </strong>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="result-card guidance-card">
+
+          <h3 data-i18n="managementGuidance">
+            Management Guidance
+          </h3>
+
+
+          <div class="guidance-grid">
+
+            <div>
+              <span data-i18n="soil">
+                Soil
+              </span>
+
+              <p
+                id="guidanceSoil"
+                data-testid="guidance-soil"
+              >
+                —
+              </p>
+            </div>
+
+
+            <div>
+              <span data-i18n="irrigation">
+                Irrigation
+              </span>
+
+              <p
+                id="guidanceIrrigation"
+                data-testid="guidance-irrigation"
+              >
+                —
+              </p>
+            </div>
+
+
+            <div>
+              <span data-i18n="nutrition">
+                Nutrition
+              </span>
+
+              <p
+                id="guidanceNutrition"
+                data-testid="guidance-nutrition"
+              >
+                —
+              </p>
+            </div>
+
+
+            <div>
+              <span data-i18n="weedManagement">
+                Weed management
+              </span>
+
+              <p
+                id="guidanceWeed"
+                data-testid="guidance-weed"
+              >
+                —
+              </p>
+            </div>
+
+
+            <div>
+              <span data-i18n="pestManagement">
+                Pest management
+              </span>
+
+              <p
+                id="guidancePest"
+                data-testid="guidance-pest"
+              >
+                —
+              </p>
+            </div>
+
+
+            <div>
+              <span data-i18n="diseaseManagement">
+                Disease management
+              </span>
+
+              <p
+                id="guidanceDisease"
+                data-testid="guidance-disease"
+              >
+                —
+              </p>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+
+      <aside
+        class="disclaimer"
+        data-testid="disclaimer"
+      >
+
+        <span
+          class="info-icon"
+          aria-hidden="true"
+        >
+          i
+        </span>
+
+        <p data-i18n="disclaimer">
+          These are preliminary crop suitability matches. Final farm
+          decisions should also consider verified local agricultural
+          advisories, soil-test results, seed or variety availability,
+          irrigation conditions and current weather.
+        </p>
+
+      </aside>
+
+    </section>
+
+
+    <div
+      class="page-container state-message"
+      id="stateMessage"
+      hidden
+      role="status"
+      data-testid="state-message"
+    ></div>
+
+  </main>
+
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer
+    class="site-footer"
+    data-testid="site-footer"
+  >
+
+    <div class="footer-inner">
+
+      <a
+        class="brand footer-brand"
+        href="windows.html"
+        data-testid="footer-brand-link"
+      >
+
+        <span
+          class="brand-mark"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 32 32">
+
+            <path
+              d="M25.9 5.9C17.2 5.7 8.1 9.2 7.1 18.4c-.3 2.6.6 5 2.1 6.9 1.9-5.8 5.8-10.2 11.2-13.1-4.1 3.1-7.2 7-9.1 11.8 6.8-1.1 11.8-5.8 14.6-18.1Z"
+              fill="currentColor"
+            />
+
+            <path
+              d="M8.9 26.4c2.1-5.9 5.4-10.3 10.3-13.6"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+
+          </svg>
+
+        </span>
+
+
+        <span class="brand-name">
+          Kisan <strong>Vision</strong>
+        </span>
+
+      </a>
+
+
+      <p data-testid="footer-copyright">
+        © 2025 Kisan Vision.
+        <span data-i18n="footerText">
+          Growing a smarter, healthier future.
+        </span>
+      </p>
+
+
+      <div class="footer-links">
+
+        <a
+          href="contact.html#privacy"
+          data-testid="privacy-link"
+          data-i18n="privacy"
+        >
+          Privacy
+        </a>
+
+        <a
+          href="contact.html#terms"
+          data-testid="terms-link"
+          data-i18n="terms"
+        >
+          Terms
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- CHATBOT -->
+
+  <a
+    href="#chatbot"
+    class="chatbot-button"
+    data-testid="chatbot-button"
+    aria-label="Open chatbot"
+    title="Open chatbot"
+  >
+    <span aria-hidden="true">
+      ✦
+    </span>
+  </a>
+
+
+
+  <!-- ================= SCRIPTS ================= -->
+
+  <script src="language.js" defer></script>
+
+  <script src="explorecropguide.js" defer></script>
+
+
+</body>
+
+</html>
