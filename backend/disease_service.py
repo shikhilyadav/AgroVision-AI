@@ -23,7 +23,7 @@ from config import (
 
 print("Loading AgroVision AI model...")
 
-model = tf.keras.models.load_model(python -c "from backend.disease_service import model; print('MODEL LOAD OK')"
+model = tf.keras.models.load_model(
     MODEL_PATH,
     compile=False
 )
