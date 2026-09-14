@@ -24,7 +24,8 @@ from config import (
 print("Loading AgroVision AI model...")
 
 model = tf.keras.models.load_model(
-    MODEL_PATH
+    MODEL_PATH,
+    compile=False
 )
 
 print("Model loaded successfully.")
