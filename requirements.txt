@@ -8,3 +8,4 @@ python-dotenv
 pymongo
 bcrypt
 groq
+PyJWT
